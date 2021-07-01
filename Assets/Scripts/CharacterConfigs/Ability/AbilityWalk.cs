@@ -2,17 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AbilityWalk : MonoBehaviour
+public class AbilityWalk : AbilityBase
 {
-    // Start is called before the first frame update
-    void Start()
+
+    private bool Authorized
     {
-        
+        get
+        {
+            if (!AbilityPermitted)
+                return false;
+
+            if (BlockOnStates.Contains(_character.GetCharacterState()))
+                return false;
+
+            return true;
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    protected override void ProcessAbility()
     {
-        
+        throw new System.NotImplementedException();
     }
 }

@@ -13,17 +13,19 @@ public abstract class AbilityBase : MonoBehaviour
     {
         get
         {
-            bool value = true;
+            if (!AbilityPermitted)
+                return false;
 
+            if (BlockOnStates.Contains(_character.GetCharacterState()))
+                return false;
 
-
-            return value;
+            return true;
         }
     }
 
-    private Character _character;
+    protected Character _character;
 
-    private void Awake()
+    protected virtual void Awake()
     {
         _character = GetComponent<Character>();
         if (_character)
