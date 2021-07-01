@@ -28,16 +28,21 @@ public abstract class AbilityBase : MonoBehaviour
     protected virtual void Awake()
     {
         _character = GetComponent<Character>();
-        if (_character)
+        if (!_character)
             _character = GetComponentInParent<Character>();
-        if (_character)
+        if (!_character)
             _character = GetComponentInChildren<Character>();
+
+        Initialize();
     }
+    
 
     public void PerformAbility()
     {
         ProcessAbility();
     }
+
+    protected abstract void Initialize();
 
     protected abstract void ProcessAbility();
 
