@@ -32,11 +32,9 @@ public class AbilityWalk : AbilityBase
     {
         _characterController = _character.GetComponent<CharacterController>();
         _rigidbody = _character.GetComponent<Rigidbody>();
-
-        InitStatus();
     }
 
-    protected void InitStatus()
+    protected override void InitStatus()
     {
         CharacterStatusSO statusSO = _character.status;
 

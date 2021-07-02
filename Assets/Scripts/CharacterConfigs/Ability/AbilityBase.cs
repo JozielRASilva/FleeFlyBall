@@ -34,8 +34,13 @@ public abstract class AbilityBase : MonoBehaviour
             _character = GetComponentInChildren<Character>();
 
         Initialize();
+        InitStatus();
     }
-    
+
+    protected virtual void InitStatus()
+    {
+
+    }
 
     public void PerformAbility()
     {
