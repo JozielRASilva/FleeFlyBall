@@ -6,6 +6,17 @@ using System.Linq;
 public class Character : MonoBehaviour
 {
 
+    public CharacterStatusSO status;
+
+    public Transform ballTrack;
+
+    public GameObject ball;
+
+
+    private float _currentBalance;
+    private float CurrentBalance { get => _currentBalance; }
+
+
     private CharacterInfo.CharacterStates _currentState = CharacterInfo.CharacterStates.None;
 
     private CharacterController _characterController;
@@ -21,6 +32,7 @@ public class Character : MonoBehaviour
         SetAbilities(GetComponents<AbilityBase>().ToList());
         SetAbilities(GetComponentsInParent<AbilityBase>().ToList());
         SetAbilities(GetComponentsInChildren<AbilityBase>().ToList());
+
     }
 
 
@@ -58,5 +70,29 @@ public class Character : MonoBehaviour
         }
     }
 
+
+    private void InitStatus()
+    {
+        _currentBalance = status.Balance;
+    }
+
+    public bool UseBalance(float cost)
+    {
+        if (_currentBalance - cost < 0)
+            return false;
+
+        _currentBalance -= cost;
+
+        return true;
+    }
+
+    public void RecoverBalance(float value)
+    {
+        _currentBalance = value;
+    }
+    public void RecoverAllBalance(float value)
+    {
+        _currentBalance = value;
+    }
 
 }

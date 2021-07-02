@@ -2,16 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AbilityShoot : MonoBehaviour
+public class AbilityShoot : AbilityBase
 {
-    // Start is called before the first frame update
-    void Start()
+
+    public Vector3 shootDirection = Vector3.up + Vector3.forward;
+    protected override void Initialize()
     {
-        
+      
     }
 
-    // Update is called once per frame
-    void Update()
+    protected override void ProcessAbility()
     {
         
     }
