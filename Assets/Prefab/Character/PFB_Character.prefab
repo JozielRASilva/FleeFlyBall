@@ -140,7 +140,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AbilityPermitted: 1
   BlockOnStates: 
-  Speed: 5
+  lookSpeed: 5
 --- !u!1 &223793987519214070
 GameObject:
   m_ObjectHideFlags: 0
@@ -268,6 +268,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bff8b13dd5034f742bfb0460dc4eeb22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  status: {fileID: 11400000, guid: 6126dbc18aeb93242af1052286acbfd2, type: 2}
 --- !u!1 &223793988920169196
 GameObject:
   m_ObjectHideFlags: 0

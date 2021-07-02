@@ -5,9 +5,9 @@ using UnityEngine;
 public class AbilityWalk : AbilityBase
 {
 
-    public float Speed = 5;
+    public float lookSpeed = 5;
 
-    public float LookSpeed = 5;
+    private float _speed = 5;
 
     protected CharacterController _characterController;
     protected Rigidbody _rigidbody;
@@ -33,21 +33,30 @@ public class AbilityWalk : AbilityBase
         _characterController = _character.GetComponent<CharacterController>();
         _rigidbody = _character.GetComponent<Rigidbody>();
 
+        InitStatus();
+    }
 
+    protected void InitStatus()
+    {
+        CharacterStatusSO statusSO = _character.status;
 
+        if (!statusSO)
+            return;
+
+        _speed = _character.status.Speed;
     }
 
     protected override void ProcessAbility()
     {
         // Input
-        float horizontal = Input.GetAxisRaw("Horizontal");
-        float vertical = Input.GetAxisRaw("Vertical");
+        float horizontal = Input.GetAxis("Horizontal");
+        float vertical = Input.GetAxis("Vertical");
         Vector3 inputDirection = new Vector3(horizontal, vertical);
 
         Vector3 direction = new Vector3(1 * horizontal, 0, 1 * vertical);
 
         // Movement
-        Vector3 resultSpeed = direction * Speed * Time.deltaTime;
+        Vector3 resultSpeed = direction * _speed * Time.deltaTime;
         _characterController.Move(resultSpeed);
 
         // Look at direction
@@ -59,7 +68,6 @@ public class AbilityWalk : AbilityBase
             inputVector.x = LastLookDirection.x;
             inputVector.y = 0;
             inputVector.z = LastLookDirection.y;
-            
         }
 
 
@@ -71,7 +79,7 @@ public class AbilityWalk : AbilityBase
         Debug.DrawLine(_character.transform.position, _character.transform.position + inputVector * 5, Color.red);
         Quaternion newRotation = Quaternion.LookRotation(inputVector, _character.transform.up);
 
-        _character.transform.rotation = Quaternion.Slerp(_character.transform.rotation, newRotation, Time.deltaTime * LookSpeed);
+        _character.transform.rotation = Quaternion.Slerp(_character.transform.rotation, newRotation, Time.deltaTime * lookSpeed);
 
 
     }

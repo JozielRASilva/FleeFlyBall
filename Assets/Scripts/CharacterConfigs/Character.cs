@@ -6,6 +6,7 @@ using System.Linq;
 public class Character : MonoBehaviour
 {
 
+    public CharacterStatusSO status;
     private CharacterInfo.CharacterStates _currentState = CharacterInfo.CharacterStates.None;
 
     private CharacterController _characterController;
