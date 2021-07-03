@@ -41,16 +41,16 @@ public class Controls : MonoBehaviour
 
     public void ButtonDown(string buttonName)
     {
-        OnButtonDown.Invoke(buttonName);
+         //OnButtonDown.Invoke(buttonName);
     }
 
     public void ButtonHold(string buttonName)
     {
-        OnButtonHold.Invoke(buttonName);
+        //OnButtonHold.Invoke(buttonName);
     }
 
     public void ButtonUp(string buttonName)
     {
-        OnButtonUp.Invoke(buttonName);
+        //OnButtonUp.Invoke(buttonName);
     }
 }
