@@ -7,6 +7,6 @@ using UnityEngine;
 
 public class InputSO : ScriptableObject
 {
-    public string Name = "Button";
-    
+    public string Name = "Input Button Name";
+
 }

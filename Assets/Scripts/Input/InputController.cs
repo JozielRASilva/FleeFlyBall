@@ -2,20 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using System.Linq;
 
 public class InputController : Singleton<InputController>
 {
-    public Action<IInput> OnInputRaise;
-    public Action<IInput> OnInputListen;
+    private List<InputUnit> _inputUnits = new List<InputUnit>();
     private void Awake()
     {
-        OnInputRaise += InputListen;
+        _inputUnits = FindObjectsOfType<InputUnit>().ToList();
     }
 
-    private void InputListen(IInput input)
+    public InputUnit GetInput(InputSO input)
     {
-        OnInputListen?.Invoke(input);
-    }
+        InputUnit inputUnit = _inputUnits.Find(i => i.Equals(input));
 
+        return inputUnit;
+    }
 
 }
