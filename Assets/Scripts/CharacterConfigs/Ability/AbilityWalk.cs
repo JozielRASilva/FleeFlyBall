@@ -9,9 +9,6 @@ public class AbilityWalk : AbilityBase
 
     private float _speed = 5;
 
-    protected CharacterController _characterController;
-    protected Rigidbody _rigidbody;
-
 
     private Vector2 LastLookDirection;
     private bool Authorized
@@ -26,12 +23,6 @@ public class AbilityWalk : AbilityBase
 
             return true;
         }
-    }
-
-    protected override void Initialize()
-    {
-        _characterController = _character.GetComponent<CharacterController>();
-        _rigidbody = _character.GetComponent<Rigidbody>();
     }
 
     protected override void InitStatus()

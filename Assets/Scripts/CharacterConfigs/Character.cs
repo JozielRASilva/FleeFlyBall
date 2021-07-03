@@ -12,18 +12,18 @@ public class Character : MonoBehaviour
 
     public GameObject ball;
 
-
     private float _currentBalance;
     private float CurrentBalance { get => _currentBalance; }
 
 
     private CharacterInfo.CharacterStates _currentState = CharacterInfo.CharacterStates.None;
-
+    
     private CharacterController _characterController;
+    
     private Rigidbody _rigibody;
-
+    
     private List<AbilityBase> Abilities = new List<AbilityBase>();
-
+    
     private void Awake()
     {
         _characterController = GetComponent<CharacterController>();
@@ -32,7 +32,6 @@ public class Character : MonoBehaviour
         SetAbilities(GetComponents<AbilityBase>().ToList());
         SetAbilities(GetComponentsInParent<AbilityBase>().ToList());
         SetAbilities(GetComponentsInChildren<AbilityBase>().ToList());
-
     }
 
 

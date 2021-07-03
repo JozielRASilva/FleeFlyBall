@@ -24,6 +24,8 @@ public abstract class AbilityBase : MonoBehaviour
     }
 
     protected Character _character;
+    protected CharacterController _characterController;
+    protected Rigidbody _rigidbody;
 
     protected virtual void Awake()
     {
@@ -47,7 +49,11 @@ public abstract class AbilityBase : MonoBehaviour
         ProcessAbility();
     }
 
-    protected abstract void Initialize();
+    protected virtual void Initialize()
+    {
+        _characterController = _character.GetComponent<CharacterController>();
+        _rigidbody = _character.GetComponent<Rigidbody>();
+    }
 
     protected abstract void ProcessAbility();
 
