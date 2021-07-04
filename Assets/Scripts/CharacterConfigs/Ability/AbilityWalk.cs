@@ -7,6 +7,17 @@ public class AbilityWalk : AbilityBase
 
     public float lookSpeed = 5;
 
+    [Header("Speed Multipliers")]
+
+    [SerializeField]
+    private float defaultMultiplier = 1;
+
+    [SerializeField]
+    private float sprintMultiplier = 2;
+
+    [SerializeField]
+    private float ballPossessionMultiplier = 0.5f;
+
     private float _speed = 5;
 
 

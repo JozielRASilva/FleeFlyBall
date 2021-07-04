@@ -4,22 +4,22 @@ using UnityEngine;
 
 public class Ball : MonoBehaviour
 {
-    public Vector3 chute = new Vector3(500, 500, 0);
-
     public bool onPlayer;
 
     public bool inField;
 
-    
-    
+    private Rigidbody _rigidbody;
 
-    void Update()
+    private GameObject _currentPlayer;
+    private GameObject _lastPlayer;
+
+    private void Awake()
     {
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            Chutar();
-        }
+        _rigidbody = GetComponent<Rigidbody>();
+    }
 
+    private void Update()
+    {
         ControleFisica();
     }
 
@@ -27,18 +27,19 @@ public class Ball : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Ground"))
         {
-            print("tocou no chão");
+            print("tocou no chï¿½o");
         }
-                
+
     }
 
-    private void OnTriggerExit(Collider other)   {
+    private void OnTriggerExit(Collider other)
+    {
         if (other.gameObject.CompareTag("InField"))
         {
             inField = false;
             print("Fora da Quadra");
         }
-      
+
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -49,27 +50,30 @@ public class Ball : MonoBehaviour
         }
     }
 
+    public void AttachOnPlayer(GameObject newPlayer)
+    {
+        _lastPlayer = _currentPlayer;
 
+        _currentPlayer = newPlayer;
 
-   
+        onPlayer = true;
+    }
 
-
-
-    public void Chutar()
+    public void Chutar(Vector3 force, ForceMode forceMode)
     {
         onPlayer = false;
-        gameObject.GetComponent<Rigidbody>().AddForce(chute);
+        _rigidbody.AddForce(force, forceMode);
     }
 
     public void ControleFisica()
     {
         if (!onPlayer)
         {
-            gameObject.GetComponent<Rigidbody>().isKinematic = false;
+            _rigidbody.isKinematic = false;
         }
         else
         {
-            gameObject.GetComponent<Rigidbody>().isKinematic = true;
+            _rigidbody.isKinematic = true;
 
         }
     }
