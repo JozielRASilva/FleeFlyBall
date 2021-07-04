@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Ground
   - InField
+  - Ball
   layers:
   - Default
   - TransparentFX
