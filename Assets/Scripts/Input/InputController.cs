@@ -6,18 +6,11 @@ using System.Linq;
 
 public class InputController : Singleton<InputController>
 {
-    public List<InputBase> _inputs = new List<InputBase>();
+    private List<InputBase> _inputs = new List<InputBase>();
     protected override void Awake()
     {
         base.Awake();
         _inputs = FindObjectsOfType<InputBase>().ToList();
-    }
-
-    public InputBase GetInput(InputSO input)
-    {
-        InputBase inputUnit = _inputs.Find(i => i.Name.Equals(input));
-        
-        return inputUnit;
     }
 
     public List<InputBase> GetInput(List<InputSO> inputs)

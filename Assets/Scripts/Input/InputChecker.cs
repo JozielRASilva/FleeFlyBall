@@ -19,20 +19,13 @@ public class InputChecker : MonoBehaviour
         if (!InputController.Instance)
             return;
 
-        if (OneInput)
+        List<InputBase> inputs = InputController.Instance.GetInput(inputSOs);
+
+        foreach (var input in inputs)
         {
-            InputBase input = InputController.Instance.GetInput(inputSO);
             Print(input);
         }
-        else
-        {
-            List<InputBase> inputs = InputController.Instance.GetInput(inputSOs);
 
-            foreach (var input in inputs)
-            {
-                Print(input);
-            }
-        }
     }
 
     private void Print(InputBase input)
