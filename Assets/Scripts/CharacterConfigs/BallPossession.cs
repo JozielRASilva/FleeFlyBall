@@ -1,0 +1,76 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class BallPossession : MonoBehaviour
+{
+    public Transform ballTrack;
+
+    [HideInInspector]
+    public Ball ball;
+
+    private Character _character;
+
+    private CollisionAndTrigger _collisionAndTrigger;
+
+    private bool _touching;
+    private void Awake()
+    {
+        _character = GetComponent<Character>();
+
+        if (!_character)
+            _character = GetComponentInChildren<Character>();
+
+        if (!_character)
+            _character = GetComponentInParent<Character>();
+
+        _collisionAndTrigger = GetComponent<CollisionAndTrigger>();
+        if (!_collisionAndTrigger)
+            _collisionAndTrigger = GetComponentInChildren<CollisionAndTrigger>();
+
+        _collisionAndTrigger.OnEnter += TouchBall;
+        _collisionAndTrigger.OnExit += UnTouchBall;
+
+    }
+    public bool HasBall()
+    {
+        if (!ball)
+            return false;
+
+        return true;
+    }
+
+    public bool TouchingBall()
+    {
+        return false;
+    }
+
+    private void TouchBall(GameObject touchedBall)
+    {
+        _touching = true;
+
+        Ball _ball = touchedBall.GetComponent<Ball>();
+
+        if (_ball.onPlayer)
+            return;
+
+        AttachBall(_ball);
+    }
+
+    private void AttachBall(Ball _ball)
+    {
+        _ball.AttachOnPlayer(_character.gameObject);
+
+        _ball.transform.parent = ballTrack;
+
+        _ball.transform.localPosition = Vector3.zero;
+
+        ball = _ball;
+    }
+
+    private void UnTouchBall(GameObject touchedBall)
+    {
+        _touching = false;
+    }
+
+}

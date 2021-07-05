@@ -6,6 +6,8 @@ public class AbilityShoot : AbilityBase
 {
     public Vector3 shootDirection = Vector3.up + Vector3.forward;
     public ForceMode forceMode = ForceMode.Force;
+
+    public List<InputSO> inputs = new List<InputSO>();
     private float _shoot;
     protected override void InitStatus()
     {
@@ -20,47 +22,39 @@ public class AbilityShoot : AbilityBase
     protected override void ProcessAbility()
     {
 
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            Rigidbody _ballRB = _character.ball.GetComponent<Rigidbody>();
-            _character.ball.transform.parent = _character.ballTrack;
-            _ballRB.isKinematic = true;
-            _ballRB.velocity = Vector3.zero;
-
-            _character.ball.transform.localPosition = Vector3.zero;
-
-        }
-
-        // Input
-        bool pressed = Input.GetKeyDown(KeyCode.Z);
+        Vector3 track = _character.BallPossession.ballTrack.position;
 
         Vector3 dir = _character.transform.forward * shootDirection.z;
         dir += Vector3.up * shootDirection.y;
 
+        Debug.DrawLine(track, track + (dir * _shoot).normalized * 3, Color.red);
 
-        Debug.DrawLine(_character.ballTrack.position, _character.ballTrack.position + (dir * _shoot).normalized * 3, Color.red);
-
-
-        if (!pressed || !CanShoot())
+        if (!ExecuteAction() && !CanShoot())
             return;
 
+        _character.BallPossession.ball.Chutar(dir * _shoot, forceMode);
 
+    }
 
-        _character.ball.transform.parent = null;
+    private bool ExecuteAction()
+    {
 
-        Rigidbody ballRB = _character.ball.GetComponent<Rigidbody>();
+        if (InputController.Instance)
+        {
+            var inputBases = InputController.Instance.GetInput(inputs);
+            for (int i = 0; i < inputBases.Count; i++)
+            {
+                if (inputBases[i].ButtomDown())
+                    return true;
+            }
+        }
 
-        ballRB.isKinematic = false;
-
-
-
-        ballRB.AddForce(dir * _shoot, forceMode);
-
+        return false;
     }
 
     public bool CanShoot()
     {
-        if (!_character.ball)
+        if (!_character.BallPossession.HasBall())
             return false;
         return true;
     }

@@ -8,6 +8,8 @@ public class Ball : MonoBehaviour
 
     public bool inField;
 
+    public bool grounded;
+
     private Rigidbody _rigidbody;
 
     private GameObject _currentPlayer;
@@ -27,7 +29,8 @@ public class Ball : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Ground"))
         {
-            print("tocou no ch�o");
+            print("tocou no chão");
+            grounded = true;
         }
 
     }
@@ -63,6 +66,8 @@ public class Ball : MonoBehaviour
     {
         onPlayer = false;
         _rigidbody.AddForce(force, forceMode);
+
+        grounded = false;
     }
 
     public void ControleFisica()

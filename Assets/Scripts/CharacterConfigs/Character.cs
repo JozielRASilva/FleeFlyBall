@@ -8,22 +8,15 @@ public class Character : MonoBehaviour
 
     public CharacterStatusSO status;
 
-    public Transform ballTrack;
-
-    public GameObject ball;
-
+    public BallPossession BallPossession { get { return _ballPossession; } }
     private float _currentBalance;
     private float CurrentBalance { get => _currentBalance; }
-
-
+    private BallPossession _ballPossession;
     private CharacterInfo.CharacterStates _currentState = CharacterInfo.CharacterStates.None;
-    
     private CharacterController _characterController;
-    
     private Rigidbody _rigibody;
-    
     private List<AbilityBase> Abilities = new List<AbilityBase>();
-    
+
     private void Awake()
     {
         _characterController = GetComponent<CharacterController>();
@@ -32,6 +25,14 @@ public class Character : MonoBehaviour
         SetAbilities(GetComponents<AbilityBase>().ToList());
         SetAbilities(GetComponentsInParent<AbilityBase>().ToList());
         SetAbilities(GetComponentsInChildren<AbilityBase>().ToList());
+
+
+        _ballPossession = GetComponent<BallPossession>();
+        if (!_ballPossession)
+            _ballPossession = GetComponentInChildren<BallPossession>();
+        if (!_ballPossession)
+            _ballPossession = GetComponentInParent<BallPossession>();
+
     }
 
 
