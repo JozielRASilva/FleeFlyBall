@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdbb08ccc80bc4d419e6ecf3ccef4c6f, type: 3}
   m_Name: SO_BallPossessionMultiplier
   m_EditorClassIdentifier: 
-  value: 0.3
+  value: 0.35

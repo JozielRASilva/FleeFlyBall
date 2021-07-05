@@ -5,10 +5,7 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
   - enabled: 1
-    path: Assets/Scenes/Tests/Controls/Controls.unity
-    guid: 2faa3a5ca35988343ac970b8294bc3ae
+    path: Assets/Scenes/Tests/Movement/SCN_Movement.unity
+    guid: fea21e31b41c4104a99446d7999df697
   m_configObjects: {}
