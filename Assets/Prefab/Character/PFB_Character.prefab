@@ -212,11 +212,13 @@ MonoBehaviour:
   AbilityPermitted: 1
   BlockOnStates: 
   lookSpeed: 5
-  defaultMultiplier: 1
-  sprintMultiplier: 2
-  ballPossessionMultiplier: 0.5
+  defaultMultiplier: {fileID: 11400000, guid: 52e1db6dcf5dbf64b953fb4ea5b45895, type: 2}
+  sprintMultiplier: {fileID: 11400000, guid: 61fa0c2f038600e49970e0a7c0e5de9e, type: 2}
+  ballPossessionMultiplier: {fileID: 11400000, guid: 11b2ab4a3cf9e284d97f552c1aaaafa4, type: 2}
   inputs:
   - {fileID: 11400000, guid: 5c175d621b72ba6479f4ffca2d97c41d, type: 2}
+  sprintMovementInput:
+  - {fileID: 11400000, guid: 8b6e27646da34c84ca3ad0cdc18aa794, type: 2}
 --- !u!1 &223793987519214070
 GameObject:
   m_ObjectHideFlags: 0
@@ -346,6 +348,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   status: {fileID: 11400000, guid: 6126dbc18aeb93242af1052286acbfd2, type: 2}
+  control: 0
 --- !u!1 &223793988920169196
 GameObject:
   m_ObjectHideFlags: 0

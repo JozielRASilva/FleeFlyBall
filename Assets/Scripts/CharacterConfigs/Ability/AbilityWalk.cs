@@ -10,18 +10,20 @@ public class AbilityWalk : AbilityBase
     [Header("Speed Multipliers")]
 
     [SerializeField]
-    private float defaultMultiplier = 1;
-
+    private FloatSO defaultMultiplier;
     [SerializeField]
-    private float sprintMultiplier = 2;
-
+    private FloatSO sprintMultiplier;
     [SerializeField]
-    private float ballPossessionMultiplier = 0.5f;
+    private FloatSO ballPossessionMultiplier;
 
+    public enum SpeedType { DEFAULT, SPRINT, EMBASSY }
     private float _speed = 5;
 
     [Header("Inputs")]
     public List<InputSO> inputs = new List<InputSO>();
+
+    public List<InputSO> sprintMovementInput = new List<InputSO>();
+
     private Vector2 LastLookDirection;
     private bool Authorized
     {
@@ -55,7 +57,11 @@ public class AbilityWalk : AbilityBase
         Vector3 direction = new Vector3(1 * inputDirection.x, 0, 1 * inputDirection.y);
 
         // Movement
-        Vector3 resultSpeed = direction * _speed * Time.deltaTime;
+
+        float multiplier = GetMultiplier();
+
+        Vector3 resultSpeed = direction * _speed * multiplier * Time.deltaTime;
+
         _characterController.Move(resultSpeed);
 
         // Look at direction
@@ -84,6 +90,25 @@ public class AbilityWalk : AbilityBase
 
     }
 
+    private float GetMultiplier()
+    {
+        SpeedType speedType = SpeedType.DEFAULT;
+
+        if (_character.BallPossession.HasBall())
+            speedType = SpeedType.EMBASSY;
+        else if (ExecuteSprintAction())
+            speedType = SpeedType.SPRINT;
+
+
+        if (speedType == SpeedType.EMBASSY)
+            return ballPossessionMultiplier ? ballPossessionMultiplier.value : 1;
+        else if (speedType == SpeedType.SPRINT)
+            return sprintMultiplier ? sprintMultiplier.value : 1;
+        else
+            return defaultMultiplier ? defaultMultiplier.value : 1;
+
+    }
+
     private Vector2 ExecuteAction()
     {
         switch (_character.control)
@@ -109,5 +134,31 @@ public class AbilityWalk : AbilityBase
         }
 
         return Vector2.zero;
+    }
+
+    private bool ExecuteSprintAction()
+    {
+        switch (_character.control)
+        {
+            case Character.ControlType.PLAYER:
+
+                if (InputController.Instance)
+                {
+                    var inputBases = InputController.Instance.GetInput(sprintMovementInput);
+                    for (int i = 0; i < inputBases.Count; i++)
+                    {
+                        if (inputBases[i].ButtomHold())
+                            return true;
+                    }
+                }
+
+                break;
+
+            case Character.ControlType.AI:
+                // Set AI input here
+                break;
+        }
+
+        return false;
     }
 }
