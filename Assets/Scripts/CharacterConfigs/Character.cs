@@ -8,6 +8,8 @@ public class Character : MonoBehaviour
 
     public CharacterStatusSO status;
 
+    public enum ControlType { PLAYER, AI, NULL }
+    public ControlType control = ControlType.PLAYER;
     public BallPossession BallPossession { get { return _ballPossession; } }
     private float _currentBalance;
     private float CurrentBalance { get => _currentBalance; }

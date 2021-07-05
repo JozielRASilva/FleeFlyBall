@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class Ball : MonoBehaviour
 {
@@ -14,6 +15,8 @@ public class Ball : MonoBehaviour
 
     private GameObject _currentPlayer;
     private GameObject _lastPlayer;
+
+    public Action OnDeattach;
 
     private void Awake()
     {
@@ -65,9 +68,16 @@ public class Ball : MonoBehaviour
     public void Chutar(Vector3 force, ForceMode forceMode)
     {
         onPlayer = false;
+
+        _rigidbody.isKinematic = false;
+
         _rigidbody.AddForce(force, forceMode);
 
         grounded = false;
+
+        transform.parent = null;
+
+        OnDeattach?.Invoke();
     }
 
     public void ControleFisica()

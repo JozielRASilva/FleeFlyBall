@@ -6,14 +6,16 @@ public class BallPossession : MonoBehaviour
 {
     public Transform ballTrack;
 
-    [HideInInspector]
     public Ball ball;
 
+    public float delayToReattach = 0.2f;
+    private float _timeStampToReattach;
     private Character _character;
 
     private CollisionAndTrigger _collisionAndTrigger;
 
     private bool _touching;
+
     private void Awake()
     {
         _character = GetComponent<Character>();
@@ -32,12 +34,13 @@ public class BallPossession : MonoBehaviour
         _collisionAndTrigger.OnExit += UnTouchBall;
 
     }
+
     public bool HasBall()
     {
-        if (!ball)
-            return false;
+        if (ball)
+            return true;
 
-        return true;
+        return false;
     }
 
     public bool TouchingBall()
@@ -59,6 +62,9 @@ public class BallPossession : MonoBehaviour
 
     private void AttachBall(Ball _ball)
     {
+        if (_timeStampToReattach > Time.time)
+            return;
+
         _ball.AttachOnPlayer(_character.gameObject);
 
         _ball.transform.parent = ballTrack;
@@ -66,6 +72,18 @@ public class BallPossession : MonoBehaviour
         _ball.transform.localPosition = Vector3.zero;
 
         ball = _ball;
+
+        ball.OnDeattach += DeattachBall;
+    }
+
+    private void DeattachBall()
+    {
+        _timeStampToReattach = Time.time + delayToReattach;
+
+        ball.transform.parent = null;
+
+        ball.OnDeattach -= DeattachBall;
+        ball = null;
     }
 
     private void UnTouchBall(GameObject touchedBall)

@@ -16,7 +16,7 @@ public class CollisionAndTrigger : MonoBehaviour
     public UnityEvent EventOnExit;
 
     private void OnTriggerEnter(Collider other)
-    {
+    {   
         if (TagsToCheck.Exists(t => t.value.Equals(other.tag)))
         {
             OnEnter?.Invoke(other.gameObject);
@@ -50,7 +50,7 @@ public class CollisionAndTrigger : MonoBehaviour
     }
 
     private void OnCollisionStay(Collision other)
-    {
+    {   
         if (TagsToCheck.Exists(t => t.value.Equals(other.gameObject.tag)))
         {
             OnStay?.Invoke(other.gameObject);

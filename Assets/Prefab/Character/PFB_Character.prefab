@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 424988590}
   - component: {fileID: 424988589}
   - component: {fileID: 424988588}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: BallPossesion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -48,6 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ballTrack: {fileID: 654420446637856195}
   ball: {fileID: 0}
+  delayToReattach: 0.2
 --- !u!114 &424988589
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -82,7 +83,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 1.25
+  m_Radius: 0.96
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1632787265
 GameObject:
@@ -95,7 +96,6 @@ GameObject:
   - component: {fileID: 1632787266}
   - component: {fileID: 1632787269}
   - component: {fileID: 1632787268}
-  - component: {fileID: 1632787267}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -166,19 +166,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &1632787267
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1632787265}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &89104909199609379
 GameObject:
   m_ObjectHideFlags: 0
@@ -228,6 +215,8 @@ MonoBehaviour:
   defaultMultiplier: 1
   sprintMultiplier: 2
   ballPossessionMultiplier: 0.5
+  inputs:
+  - {fileID: 11400000, guid: 5c175d621b72ba6479f4ffca2d97c41d, type: 2}
 --- !u!1 &223793987519214070
 GameObject:
   m_ObjectHideFlags: 0
@@ -357,8 +346,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   status: {fileID: 11400000, guid: 6126dbc18aeb93242af1052286acbfd2, type: 2}
-  ballTrack: {fileID: 654420446637856195}
-  ball: {fileID: 0}
 --- !u!1 &223793988920169196
 GameObject:
   m_ObjectHideFlags: 0
@@ -581,3 +568,5 @@ MonoBehaviour:
   BlockOnStates: 
   shootDirection: {x: 0, y: 1, z: 1.5}
   forceMode: 1
+  inputs:
+  - {fileID: 11400000, guid: aa4ffcd9c6f3f234aa48cf31b4c6302b, type: 2}
