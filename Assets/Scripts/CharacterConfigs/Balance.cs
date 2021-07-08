@@ -13,6 +13,8 @@ public class Balance : MonoBehaviour
     private float _maxBalance => status ? status.Balance * multiplier : 1 * multiplier;
     public float CurrentBalance { get => _currentBalance; }
 
+    public float MaxBalance { get => _maxBalance; }
+
     public Action OnUpdateBalance;
 
     public Action OnLossAllBalance;
