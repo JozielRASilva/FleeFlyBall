@@ -5,18 +5,23 @@ using System.Linq;
 
 public class Character : MonoBehaviour
 {
-
+    
     public CharacterStatusSO status;
 
     public enum ControlType { PLAYER, AI, NULL }
+    
     public ControlType control = ControlType.PLAYER;
+
     public BallPossession BallPossession { get { return _ballPossession; } }
-    private float _currentBalance;
-    private float CurrentBalance { get => _currentBalance; }
+    
     private BallPossession _ballPossession;
+    
     private CharacterInfo.CharacterStates _currentState = CharacterInfo.CharacterStates.None;
+    
     private CharacterController _characterController;
+    
     private Rigidbody _rigibody;
+    
     private List<AbilityBase> Abilities = new List<AbilityBase>();
 
     private void Awake()
@@ -72,29 +77,5 @@ public class Character : MonoBehaviour
         }
     }
 
-
-    private void InitStatus()
-    {
-        _currentBalance = status.Balance;
-    }
-
-    public bool UseBalance(float cost)
-    {
-        if (_currentBalance - cost < 0)
-            return false;
-
-        _currentBalance -= cost;
-
-        return true;
-    }
-
-    public void RecoverBalance(float value)
-    {
-        _currentBalance = value;
-    }
-    public void RecoverAllBalance(float value)
-    {
-        _currentBalance = value;
-    }
 
 }
