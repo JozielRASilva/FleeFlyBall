@@ -35,12 +35,27 @@ public class BallPossession : MonoBehaviour
 
     }
 
+    private void Start()
+    {
+
+        _character.balance.OnLossAllBalance += LostBallAndStun;
+
+    }
+
     public bool HasBall()
     {
         if (ball)
             return true;
 
         return false;
+    }
+
+    public bool CanAttachBall()
+    {
+        if (_character.GetStatus() == CharacterInfo.Status.STUNNED)
+            return false;
+
+        return true;
     }
 
     public bool TouchingBall()
@@ -55,6 +70,9 @@ public class BallPossession : MonoBehaviour
         Ball _ball = touchedBall.GetComponent<Ball>();
 
         if (_ball.onPlayer)
+            return;
+
+        if (!CanAttachBall())
             return;
 
         AttachBall(_ball);
@@ -76,6 +94,12 @@ public class BallPossession : MonoBehaviour
         ball.OnDeattach += DeattachBall;
     }
 
+    public void RemoveBall()
+    {
+        if (!ball)
+            return;
+        ball.Deattach();
+    }
     private void DeattachBall()
     {
         _timeStampToReattach = Time.time + delayToReattach;
@@ -89,6 +113,20 @@ public class BallPossession : MonoBehaviour
     private void UnTouchBall(GameObject touchedBall)
     {
         _touching = false;
+    }
+
+    private void LostBallAndStun()
+    {
+        if (!HasBall())
+            return;
+
+
+        _character.SetStatus(CharacterInfo.Status.STUNNED);
+
+        RemoveBall();
+
+        _character.balance.ReBreath();
+
     }
 
 }

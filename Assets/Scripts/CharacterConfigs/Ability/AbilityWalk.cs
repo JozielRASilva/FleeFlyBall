@@ -44,6 +44,9 @@ public class AbilityWalk : AbilityBase
             if (BlockOnStates.Contains(_character.GetCharacterState()))
                 return false;
 
+            if (_character.GetStatus() == CharacterInfo.Status.STUNNED)
+                return false;
+
             return true;
         }
     }
@@ -60,6 +63,9 @@ public class AbilityWalk : AbilityBase
 
     protected override void ProcessAbility()
     {
+        if (!Authorized)
+            return;
+
         // Input
         Vector2 inputDirection = ExecuteAction();
 

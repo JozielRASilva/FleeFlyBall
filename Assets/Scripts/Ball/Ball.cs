@@ -80,6 +80,17 @@ public class Ball : MonoBehaviour
         OnDeattach?.Invoke();
     }
 
+    public void Deattach()
+    {
+        transform.parent = null;
+
+        OnDeattach?.Invoke();
+
+        onPlayer = false;
+
+        _rigidbody.isKinematic = false;
+    }
+
     public void ControleFisica()
     {
         if (!onPlayer)

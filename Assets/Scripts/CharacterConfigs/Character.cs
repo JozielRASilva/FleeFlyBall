@@ -15,11 +15,13 @@ public class Character : MonoBehaviour
 
     public ControlType control = ControlType.PLAYER;
 
+    public CharacterInfo.Status _currentStatus = CharacterInfo.Status.NORMAL;
     public BallPossession BallPossession { get { return _ballPossession; } }
 
     private BallPossession _ballPossession;
 
     private CharacterInfo.CharacterStates _currentState = CharacterInfo.CharacterStates.None;
+
 
     private CharacterController _characterController;
 
@@ -66,6 +68,16 @@ public class Character : MonoBehaviour
     public CharacterInfo.CharacterStates GetCharacterState()
     {
         return _currentState;
+    }
+
+    public void SetStatus(CharacterInfo.Status _status)
+    {
+        _currentStatus = _status;
+    }
+
+    public CharacterInfo.Status GetStatus()
+    {
+        return _currentStatus;
     }
 
     private void SetAbilities(List<AbilityBase> _abilities)

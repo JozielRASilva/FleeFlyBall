@@ -11,8 +11,8 @@ public class Balance : MonoBehaviour
 
     public FloatSO BalanceMultiplier;
 
-    [SerializeField]
     private float _currentBalance;
+
 
     private float multiplier => BalanceMultiplier ? BalanceMultiplier.value : 1;
     private float _maxBalance => status ? status.Balance * multiplier : 1 * multiplier;
@@ -79,7 +79,6 @@ public class Balance : MonoBehaviour
             if (_recoverBalance != null)
                 StopCoroutine(_recoverBalance);
 
-            _recoverBalance = StartCoroutine(RecoverBalance());
             return true;
         }
 
@@ -126,25 +125,39 @@ public class Balance : MonoBehaviour
             StopCoroutine(_recoverBalance);
     }
 
+    public void ReBreath()
+    {
+        Debug.Log("Reabreath");
+        if (_recoverBalance != null)
+            StopCoroutine(_recoverBalance);
+
+        StartCoroutine(RecoverBalance());
+    }
     private IEnumerator RecoverBalance()
     {
-
+       
         WaitForSeconds wait = new WaitForSeconds(TimeToRecoverBalance.value);
 
         yield return wait;
 
         RecoverAllBalance();
+
+        if (_character.GetStatus() == CharacterInfo.Status.STUNNED)
+        {
+            _character.SetStatus(CharacterInfo.Status.NORMAL);
+        }
+
     }
 
     private IEnumerator RecoverByTime()
     {
         WaitForSeconds wait = new WaitForSeconds(timeToRecover);
-        
+
         yield return wait;
 
         while (_currentBalance < _maxBalance)
         {
-          
+
             RecoverBalance(RecoverSpeed.value * Time.deltaTime);
 
             yield return new WaitForEndOfFrame();
