@@ -8,6 +8,7 @@ public class BallPossession : MonoBehaviour
 
     public Ball ball;
 
+    public Vector3 DirectionWhenLost;
     public float delayToReattach = 0.2f;
     private float _timeStampToReattach;
     private Character _character;
@@ -53,6 +54,9 @@ public class BallPossession : MonoBehaviour
     public bool CanAttachBall()
     {
         if (_character.GetStatus() == CharacterInfo.Status.STUNNED)
+            return false;
+
+        if (_character.balance.CurrentBalance <= 0)
             return false;
 
         return true;

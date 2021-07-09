@@ -79,6 +79,9 @@ public class Balance : MonoBehaviour
             if (_recoverBalance != null)
                 StopCoroutine(_recoverBalance);
 
+            _recoverBalance = StartCoroutine(RecoverByTime());
+
+
             return true;
         }
 
@@ -127,7 +130,6 @@ public class Balance : MonoBehaviour
 
     public void ReBreath()
     {
-        Debug.Log("Reabreath");
         if (_recoverBalance != null)
             StopCoroutine(_recoverBalance);
 
@@ -135,7 +137,7 @@ public class Balance : MonoBehaviour
     }
     private IEnumerator RecoverBalance()
     {
-       
+
         WaitForSeconds wait = new WaitForSeconds(TimeToRecoverBalance.value);
 
         yield return wait;
