@@ -215,6 +215,8 @@ MonoBehaviour:
   defaultMultiplier: {fileID: 11400000, guid: 52e1db6dcf5dbf64b953fb4ea5b45895, type: 2}
   sprintMultiplier: {fileID: 11400000, guid: 61fa0c2f038600e49970e0a7c0e5de9e, type: 2}
   ballPossessionMultiplier: {fileID: 11400000, guid: 11b2ab4a3cf9e284d97f552c1aaaafa4, type: 2}
+  sprintBalanceCost: {fileID: 11400000, guid: da4cf45c997d3c54ea9ce6b59170163b, type: 2}
+  embassyBalanceCost: {fileID: 11400000, guid: fad747309ff952f48b6a8489b00994ce, type: 2}
   inputs:
   - {fileID: 11400000, guid: 5c175d621b72ba6479f4ffca2d97c41d, type: 2}
   sprintMovementInput:
@@ -365,6 +367,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a8516d693a65cf48ae6ee4506c19a49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  RecoverSpeed: {fileID: 11400000, guid: 661c607cd2370004ca01379233d53680, type: 2}
+  timeToRecover: 2
   TimeToRecoverBalance: {fileID: 11400000, guid: 5f2f573aa388a834a88a0f3b6d772b5e, type: 2}
   BalanceMultiplier: {fileID: 11400000, guid: ba2286af476cbee4b8efeef3a61f28b0, type: 2}
   _currentBalance: 0

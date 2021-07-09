@@ -148,7 +148,7 @@ MonoBehaviour:
   Fill: {fileID: 2601167182768337958}
   FillDelay: 1
   DelayedFill: {fileID: 949223260147019938}
-  delay: 0.1
+  FillSpeed: 2
 --- !u!1 &2601167182768337956
 GameObject:
   m_ObjectHideFlags: 0
@@ -219,7 +219,7 @@ MonoBehaviour:
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
-  m_FillAmount: 0.922
+  m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0

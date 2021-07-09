@@ -14,7 +14,7 @@ public class UIBalance : MonoBehaviour
 
     public Image DelayedFill;
 
-    public float FillSpeed = 1f;
+    public float FillDelaySpeed = 3f;
 
     private Balance _balance;
 
@@ -94,7 +94,7 @@ public class UIBalance : MonoBehaviour
         if (!DelayedFill)
             return;
 
-        _currentDelayValue = Mathf.Lerp(_currentDelayValue, Fill.fillAmount, FillSpeed * Time.deltaTime);
+        _currentDelayValue = Mathf.Lerp(_currentDelayValue, Fill.fillAmount, FillDelaySpeed * Time.deltaTime);
 
         DelayedFill.fillAmount = _currentDelayValue;
     }

@@ -4,6 +4,9 @@ using UnityEngine;
 using System;
 public class Balance : MonoBehaviour
 {
+
+    public FloatSO RecoverSpeed;
+    public float timeToRecover;
     public FloatSO TimeToRecoverBalance;
 
     public FloatSO BalanceMultiplier;
@@ -26,6 +29,9 @@ public class Balance : MonoBehaviour
     private CharacterStatusSO status;
 
     private Character _character;
+
+    private Coroutine _recoverBalance;
+
     private void Awake()
     {
         _character = GetComponent<Character>();
@@ -48,6 +54,8 @@ public class Balance : MonoBehaviour
             return;
 
         _currentBalance = _maxBalance;
+
+        RecoverAllBalance();
     }
 
     public bool HasBalance()
@@ -56,6 +64,9 @@ public class Balance : MonoBehaviour
     }
     public bool UseBalance(float cost)
     {
+        if (cost == 0)
+            return false;
+
         if (_currentBalance <= 0)
             return false;
 
@@ -65,23 +76,44 @@ public class Balance : MonoBehaviour
             OnUpdateBalance?.Invoke();
             OnLossAllBalance?.Invoke();
 
+            if (_recoverBalance != null)
+                StopCoroutine(_recoverBalance);
+
+            _recoverBalance = StartCoroutine(RecoverBalance());
             return true;
         }
 
         _currentBalance -= cost;
         OnUpdateBalance?.Invoke();
+
+        if (_recoverBalance != null)
+            StopCoroutine(_recoverBalance);
+
+        _recoverBalance = StartCoroutine(RecoverByTime());
+
         return true;
     }
 
     public void RecoverBalance(float value)
     {
+        if (value == 0)
+            return;
+
         if (_currentBalance + value < _maxBalance)
         {
+
             _currentBalance += value;
             OnUpdateBalance?.Invoke();
+
         }
         else
+        {
+
             RecoverAllBalance();
+
+        }
+
+
     }
 
     public void RecoverAllBalance()
@@ -90,6 +122,8 @@ public class Balance : MonoBehaviour
         OnUpdateBalance?.Invoke();
         OnRecoverAllBalance?.Invoke();
 
+        if (_recoverBalance != null)
+            StopCoroutine(_recoverBalance);
     }
 
     private IEnumerator RecoverBalance()
@@ -98,6 +132,24 @@ public class Balance : MonoBehaviour
         WaitForSeconds wait = new WaitForSeconds(TimeToRecoverBalance.value);
 
         yield return wait;
+
+        RecoverAllBalance();
+    }
+
+    private IEnumerator RecoverByTime()
+    {
+        WaitForSeconds wait = new WaitForSeconds(timeToRecover);
+        
+        yield return wait;
+
+        while (_currentBalance < _maxBalance)
+        {
+          
+            RecoverBalance(RecoverSpeed.value * Time.deltaTime);
+
+            yield return new WaitForEndOfFrame();
+
+        }
 
         RecoverAllBalance();
     }
