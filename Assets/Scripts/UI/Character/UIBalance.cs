@@ -5,34 +5,59 @@ using UnityEngine.UI;
 
 public class UIBalance : MonoBehaviour
 {
+
+    public GameObject main;
+
     public Image Fill;
 
     public bool FillDelay = true;
+
     public Image DelayedFill;
-    public float delay = 0.5f;
+
+    public float FillSpeed = 1f;
+
     private Balance _balance;
+
+    private Character _character;
 
     private float _currentDelayValue;
     private void Awake()
     {
-        _balance = GetComponent<Balance>();
+        _character = GetComponent<Character>();
 
-        if (!_balance)
-            _balance = GetComponentInParent<Balance>();
+        if (!_character)
+            _character = GetComponentInParent<Character>();
 
-        if (!_balance)
-            _balance = GetComponentInChildren<Balance>();
+        if (!_character)
+            _character = GetComponentInChildren<Character>();
 
-        if (!_balance)
+        if (!_character)
             return;
+
+        _balance = _character.GetComponent<Balance>();
+        if (!_balance)
+            _balance = _character.GetComponentInParent<Balance>();
+        if (!_balance)
+            _balance = _character.GetComponentInChildren<Balance>();
 
         _balance.OnUpdateBalance += UpdateBalance;
 
         _balance.OnLossAllBalance += LossAllBalance;
 
         _balance.OnRecoverAllBalance += RecoverAllBalance;
+
+        transform.parent = null;
     }
 
+    public void Show()
+    {
+        main.SetActive(true);
+    }
+
+    public void Hide()
+    {
+        main.SetActive(false);
+    }
 
     private void UpdateBalance()
     {
@@ -42,34 +67,34 @@ public class UIBalance : MonoBehaviour
         float value = Mathf.InverseLerp(0, _balance.MaxBalance, _balance.CurrentBalance);
 
         Fill.fillAmount = value;
-
     }
 
     private void LossAllBalance()
     {
-
         UpdateBalance();
-
     }
 
     private void RecoverAllBalance()
     {
-
         UpdateBalance();
-
     }
 
     private void LateUpdate()
     {
         UpdateDelayedFill();
+
+        if (!_character)
+            return;
+
+        transform.position = _character.transform.position;
     }
 
-    public void UpdateDelayedFill()
+    private void UpdateDelayedFill()
     {
         if (!DelayedFill)
             return;
 
-        _currentDelayValue = Mathf.Lerp(_currentDelayValue, Fill.fillAmount, delay * Time.deltaTime);
+        _currentDelayValue = Mathf.Lerp(_currentDelayValue, Fill.fillAmount, FillSpeed * Time.deltaTime);
 
         DelayedFill.fillAmount = _currentDelayValue;
     }

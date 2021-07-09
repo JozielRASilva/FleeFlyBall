@@ -16,6 +16,13 @@ public class AbilityWalk : AbilityBase
     [SerializeField]
     private FloatSO ballPossessionMultiplier;
 
+    [Header("Balance Movement Cost"), SerializeField]
+    private FloatSO sprintBalanceCost;
+
+    [SerializeField]
+    private FloatSO embassyBalanceCost;
+
+
     public enum SpeedType { DEFAULT, SPRINT, EMBASSY }
     private float _speed = 5;
 
@@ -25,6 +32,8 @@ public class AbilityWalk : AbilityBase
     public List<InputSO> sprintMovementInput = new List<InputSO>();
 
     private Vector2 LastLookDirection;
+
+    private SpeedType _currentSpeedType = SpeedType.DEFAULT;
     private bool Authorized
     {
         get
@@ -62,6 +71,9 @@ public class AbilityWalk : AbilityBase
 
         Vector3 resultSpeed = direction * _speed * multiplier * Time.deltaTime;
 
+        // Check speed to remove balance
+        ApplyBalanceCost();
+
         _characterController.Move(resultSpeed);
 
         // Look at direction
@@ -90,23 +102,50 @@ public class AbilityWalk : AbilityBase
 
     }
 
+    private void ApplyBalanceCost()
+    {
+        float value = 0;
+        if (_currentSpeedType == SpeedType.SPRINT)
+        {
+            value = sprintBalanceCost ? sprintBalanceCost.value / 10 : 0.01f;
+        }
+        else if (_currentSpeedType == SpeedType.EMBASSY)
+        {
+            value = embassyBalanceCost ? embassyBalanceCost.value / 10 : 0.01f;
+        }
+        _character.balance.UseBalance(value);
+    }
+
     private float GetMultiplier()
     {
         SpeedType speedType = SpeedType.DEFAULT;
 
         if (_character.BallPossession.HasBall())
             speedType = SpeedType.EMBASSY;
-        else if (ExecuteSprintAction())
+        else if (ExecuteSprintAction() && CanSprint())
             speedType = SpeedType.SPRINT;
 
+        float value;
 
         if (speedType == SpeedType.EMBASSY)
-            return ballPossessionMultiplier ? ballPossessionMultiplier.value : 1;
+            value = ballPossessionMultiplier ? ballPossessionMultiplier.value : 1;
         else if (speedType == SpeedType.SPRINT)
-            return sprintMultiplier ? sprintMultiplier.value : 1;
+            value = sprintMultiplier ? sprintMultiplier.value : 1;
         else
-            return defaultMultiplier ? defaultMultiplier.value : 1;
+            value = defaultMultiplier ? defaultMultiplier.value : 1;
 
+
+        _currentSpeedType = speedType;
+
+        return value;
+    }
+
+    public bool CanSprint()
+    {
+        if (_character.balance.HasBalance())
+            return true;
+
+        return false;
     }
 
     private Vector2 ExecuteAction()

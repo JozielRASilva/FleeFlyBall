@@ -7,6 +7,8 @@ public class Balance : MonoBehaviour
     public FloatSO TimeToRecoverBalance;
 
     public FloatSO BalanceMultiplier;
+
+    [SerializeField]
     private float _currentBalance;
 
     private float multiplier => BalanceMultiplier ? BalanceMultiplier.value : 1;
@@ -48,6 +50,10 @@ public class Balance : MonoBehaviour
         _currentBalance = _maxBalance;
     }
 
+    public bool HasBalance()
+    {
+        return _currentBalance > 0;
+    }
     public bool UseBalance(float cost)
     {
         if (_currentBalance <= 0)

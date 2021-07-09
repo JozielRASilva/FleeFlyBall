@@ -5,23 +5,26 @@ using System.Linq;
 
 public class Character : MonoBehaviour
 {
-    
+
     public CharacterStatusSO status;
 
+    [HideInInspector]
+    public Balance balance;
+
     public enum ControlType { PLAYER, AI, NULL }
-    
+
     public ControlType control = ControlType.PLAYER;
 
     public BallPossession BallPossession { get { return _ballPossession; } }
-    
+
     private BallPossession _ballPossession;
-    
+
     private CharacterInfo.CharacterStates _currentState = CharacterInfo.CharacterStates.None;
-    
+
     private CharacterController _characterController;
-    
+
     private Rigidbody _rigibody;
-    
+
     private List<AbilityBase> Abilities = new List<AbilityBase>();
 
     private void Awake()
@@ -39,6 +42,13 @@ public class Character : MonoBehaviour
             _ballPossession = GetComponentInChildren<BallPossession>();
         if (!_ballPossession)
             _ballPossession = GetComponentInParent<BallPossession>();
+
+
+        balance = GetComponent<Balance>();
+        if (!balance)
+            balance = GetComponentInChildren<Balance>();
+        if (!balance)
+            balance = GetComponentInParent<Balance>();
 
     }
 
