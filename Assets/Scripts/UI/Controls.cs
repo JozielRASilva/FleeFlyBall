@@ -8,20 +8,20 @@ public class Controls : MonoBehaviour
 {
     public FloatingJoystick joystick;
 
-    public Button skillButton;
-    public Button passButton;
-    public Button shootButton;
-    public Button interceptButton;
-    public Button switchButton;
-    public Button sprintButton;
+    public ButtonActions skillButton;
+    public ButtonActions passButton;
+    public ButtonActions shootButton;
+    public ButtonActions interceptButton;
+    public ButtonActions switchButton;
+    public ButtonActions sprintButton;
 
-    public UnityAction OnMovedJoystick; 
+    public UnityAction OnMovedJoystick;
 
     Vector2 joystickPosition;
 
     void Start()
     {
-        
+        OnMovedJoystick = new UnityAction(Nothing);
     }
 
     void Update()
@@ -29,7 +29,7 @@ public class Controls : MonoBehaviour
         joystickPosition = new Vector2(joystick.Horizontal, joystick.Vertical);
 
         if (joystickPosition != Vector2.zero)
-        {
+        {            
             OnMovedJoystick.Invoke();
         }
     }
@@ -39,18 +39,18 @@ public class Controls : MonoBehaviour
         return joystickPosition;
     }
 
-    public void ButtonDown(string buttonName)
+    public void SwitchControls(bool withBall)
     {
-         //OnButtonDown.Invoke(buttonName);
+        skillButton.gameObject.SetActive(withBall);
+        passButton.gameObject.SetActive(withBall);
+        shootButton.gameObject.SetActive(withBall);
+        interceptButton.gameObject.SetActive(!withBall);
+        switchButton.gameObject.SetActive(!withBall);
+        sprintButton.gameObject.SetActive(!withBall);
     }
 
-    public void ButtonHold(string buttonName)
+    void Nothing()
     {
-        //OnButtonHold.Invoke(buttonName);
-    }
-
-    public void ButtonUp(string buttonName)
-    {
-        //OnButtonUp.Invoke(buttonName);
+        
     }
 }

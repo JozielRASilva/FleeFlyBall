@@ -8,22 +8,27 @@ public class Character : MonoBehaviour
 
     public CharacterStatusSO status;
 
-    public Transform ballTrack;
+    [HideInInspector]
+    public Balance balance;
 
-    public GameObject ball;
+    public enum ControlType { PLAYER, AI, NULL }
 
-    private float _currentBalance;
-    private float CurrentBalance { get => _currentBalance; }
+    public ControlType control = ControlType.PLAYER;
 
+    public CharacterInfo.Status _currentStatus = CharacterInfo.Status.NORMAL;
+    public BallPossession BallPossession { get { return _ballPossession; } }
+
+    private BallPossession _ballPossession;
 
     private CharacterInfo.CharacterStates _currentState = CharacterInfo.CharacterStates.None;
-    
+
+
     private CharacterController _characterController;
-    
+
     private Rigidbody _rigibody;
-    
+
     private List<AbilityBase> Abilities = new List<AbilityBase>();
-    
+
     private void Awake()
     {
         _characterController = GetComponent<CharacterController>();
@@ -32,6 +37,21 @@ public class Character : MonoBehaviour
         SetAbilities(GetComponents<AbilityBase>().ToList());
         SetAbilities(GetComponentsInParent<AbilityBase>().ToList());
         SetAbilities(GetComponentsInChildren<AbilityBase>().ToList());
+
+
+        _ballPossession = GetComponent<BallPossession>();
+        if (!_ballPossession)
+            _ballPossession = GetComponentInChildren<BallPossession>();
+        if (!_ballPossession)
+            _ballPossession = GetComponentInParent<BallPossession>();
+
+
+        balance = GetComponent<Balance>();
+        if (!balance)
+            balance = GetComponentInChildren<Balance>();
+        if (!balance)
+            balance = GetComponentInParent<Balance>();
+
     }
 
 
@@ -48,6 +68,16 @@ public class Character : MonoBehaviour
     public CharacterInfo.CharacterStates GetCharacterState()
     {
         return _currentState;
+    }
+
+    public void SetStatus(CharacterInfo.Status _status)
+    {
+        _currentStatus = _status;
+    }
+
+    public CharacterInfo.Status GetStatus()
+    {
+        return _currentStatus;
     }
 
     private void SetAbilities(List<AbilityBase> _abilities)
@@ -69,29 +99,5 @@ public class Character : MonoBehaviour
         }
     }
 
-
-    private void InitStatus()
-    {
-        _currentBalance = status.Balance;
-    }
-
-    public bool UseBalance(float cost)
-    {
-        if (_currentBalance - cost < 0)
-            return false;
-
-        _currentBalance -= cost;
-
-        return true;
-    }
-
-    public void RecoverBalance(float value)
-    {
-        _currentBalance = value;
-    }
-    public void RecoverAllBalance(float value)
-    {
-        _currentBalance = value;
-    }
 
 }

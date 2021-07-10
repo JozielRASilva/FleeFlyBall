@@ -1,25 +1,30 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class Ball : MonoBehaviour
 {
-    public Vector3 chute = new Vector3(500, 500, 0);
-
     public bool onPlayer;
 
     public bool inField;
 
-    
-    
+    public bool grounded;
 
-    void Update()
+    private Rigidbody _rigidbody;
+
+    private GameObject _currentPlayer;
+    private GameObject _lastPlayer;
+
+    public Action OnDeattach;
+
+    private void Awake()
     {
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            Chutar();
-        }
+        _rigidbody = GetComponent<Rigidbody>();
+    }
 
+    private void Update()
+    {
         ControleFisica();
     }
 
@@ -27,18 +32,20 @@ public class Ball : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Ground"))
         {
-            print("tocou no ch„o");
+            print("tocou no ch√£o");
+            grounded = true;
         }
-                
+
     }
 
-    private void OnTriggerExit(Collider other)   {
+    private void OnTriggerExit(Collider other)
+    {
         if (other.gameObject.CompareTag("InField"))
         {
             inField = false;
             print("Fora da Quadra");
         }
-      
+
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -49,27 +56,50 @@ public class Ball : MonoBehaviour
         }
     }
 
+    public void AttachOnPlayer(GameObject newPlayer)
+    {
+        _lastPlayer = _currentPlayer;
 
+        _currentPlayer = newPlayer;
 
-   
+        onPlayer = true;
+    }
 
-
-
-    public void Chutar()
+    public void Chutar(Vector3 force, ForceMode forceMode)
     {
         onPlayer = false;
-        gameObject.GetComponent<Rigidbody>().AddForce(chute);
+
+        _rigidbody.isKinematic = false;
+
+        _rigidbody.AddForce(force, forceMode);
+
+        grounded = false;
+
+        transform.parent = null;
+
+        OnDeattach?.Invoke();
+    }
+
+    public void Deattach()
+    {
+        transform.parent = null;
+
+        OnDeattach?.Invoke();
+
+        onPlayer = false;
+
+        _rigidbody.isKinematic = false;
     }
 
     public void ControleFisica()
     {
         if (!onPlayer)
         {
-            gameObject.GetComponent<Rigidbody>().isKinematic = false;
+            _rigidbody.isKinematic = false;
         }
         else
         {
-            gameObject.GetComponent<Rigidbody>().isKinematic = true;
+            _rigidbody.isKinematic = true;
 
         }
     }
