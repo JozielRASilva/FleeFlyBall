@@ -14,6 +14,7 @@ public class CharacterInfo
         RecoveringBalance,
         None
     }
+    
     public enum Status { NORMAL, STUNNED }
 
 }
