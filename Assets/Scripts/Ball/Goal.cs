@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class Goal : MonoBehaviour
 {
+    public int ScoreOne = 0;
+    public int ScoreTwo = 0;
 
-
+    
    
     void Update()
     {
@@ -16,7 +18,9 @@ public class Goal : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Ground"))
         {
+            ScoreOne++;
             print("GOL!!!!!!!!11");
+            Debug.Log("SCORE: " + ScoreOne.ToString());
         }
     }
 }
