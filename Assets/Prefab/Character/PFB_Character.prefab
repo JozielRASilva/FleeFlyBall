@@ -48,6 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ballTrack: {fileID: 654420446637856195}
   ball: {fileID: 0}
+  DirectionWhenLost: {x: 0, y: 0, z: 0}
   delayToReattach: 0.2
 --- !u!114 &424988589
 MonoBehaviour:
@@ -278,6 +279,7 @@ GameObject:
   - component: {fileID: 223793988660084113}
   - component: {fileID: 223793988660084115}
   - component: {fileID: 223793988660084114}
+  - component: {fileID: 3547832055974790981}
   - component: {fileID: 223793988060867925}
   - component: {fileID: 223793988060867924}
   m_Layer: 6
@@ -340,6 +342,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &3547832055974790981
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 223793988660084205}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 914e5f4b36b0fc248abc675e01b55cc9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  character: {fileID: 0}
 --- !u!114 &223793988060867925
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -355,6 +370,7 @@ MonoBehaviour:
   status: {fileID: 11400000, guid: 6126dbc18aeb93242af1052286acbfd2, type: 2}
   balance: {fileID: 0}
   control: 0
+  _currentStatus: 0
 --- !u!114 &223793988060867924
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -371,7 +387,6 @@ MonoBehaviour:
   timeToRecover: 2
   TimeToRecoverBalance: {fileID: 11400000, guid: 5f2f573aa388a834a88a0f3b6d772b5e, type: 2}
   BalanceMultiplier: {fileID: 11400000, guid: ba2286af476cbee4b8efeef3a61f28b0, type: 2}
-  _currentBalance: 0
 --- !u!1 &223793988920169196
 GameObject:
   m_ObjectHideFlags: 0
