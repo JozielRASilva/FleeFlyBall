@@ -9,7 +9,9 @@ public class ButtonActions : MonoBehaviour
     public UnityAction OnButtonHold;
     public UnityAction OnButtonUp;
 
-    bool holding;
+    public bool buttonDown;
+    public bool buttonHold;
+    public bool buttonUp;
 
     void Start()
     {
@@ -20,24 +22,32 @@ public class ButtonActions : MonoBehaviour
 
     void Update()
     {
-        if (holding)
+        if (buttonHold)
         {
             OnButtonHold.Invoke();
         }
     }
 
-    public void ButtonDown()
+    private void LateUpdate()
     {
+        buttonDown = false;
+        buttonUp = false;
+    }
+
+    public void ButtonDown()
+    {        
         OnButtonDown.Invoke();
 
-        holding = true;
+        buttonDown = true;
+        buttonHold = true;
     }
 
     public void ButtonUp()
     {
         OnButtonUp.Invoke();
 
-        holding = false;
+        buttonUp = true;
+        buttonHold = false;
     }
 
     void Nothing()
