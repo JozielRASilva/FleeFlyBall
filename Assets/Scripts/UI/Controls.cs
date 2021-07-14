@@ -15,28 +15,25 @@ public class Controls : MonoBehaviour
     public ButtonActions switchButton;
     public ButtonActions sprintButton;
 
-    public UnityAction OnMovedJoystick;
-
-    Vector2 joystickPosition;
+    public Vector2 joystickPosition;
+    public bool joystickDown;
+    public bool joystickHold;
+    public bool joystickUp;
 
     void Start()
     {
-        OnMovedJoystick = new UnityAction(Nothing);
+
     }
 
     void Update()
-    {
+    {        
         joystickPosition = new Vector2(joystick.Horizontal, joystick.Vertical);
-
-        if (joystickPosition != Vector2.zero)
-        {            
-            OnMovedJoystick.Invoke();
-        }
     }
 
-    public Vector2 GetJoystickPosition()
+    private void LateUpdate()
     {
-        return joystickPosition;
+        joystickDown = false;
+        joystickUp = false;
     }
 
     public void SwitchControls(bool withBall)
@@ -49,8 +46,15 @@ public class Controls : MonoBehaviour
         sprintButton.gameObject.SetActive(!withBall);
     }
 
-    void Nothing()
+    public void JoystickDown()
     {
-        
+        joystickDown = true;
+        joystickHold = true;
+    }
+
+    public void JoystickUp()
+    {
+        joystickUp = true;
+        joystickHold = false;
     }
 }
