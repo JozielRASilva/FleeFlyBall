@@ -34,14 +34,14 @@ public class Timer : MonoBehaviour
 
         if (remainingTime <= 0)
         {
-            if (goal.GetComponent<Goal>().ScoreOne > goal.GetComponent<Goal>().ScoreTwo)
-            {
-                print("TEAM ONE WINS");
-            }
-            if (goal.GetComponent<Goal>().ScoreOne < goal.GetComponent<Goal>().ScoreTwo)
-            {
-                print("TEAM TWO WINS");
-            }
+            //if (goal.GetComponent<Goal>().ScoreOne > goal.GetComponent<Goal>().ScoreTwo)
+          //  {
+           //     print("TEAM ONE WINS");
+         //   }
+           // if (goal.GetComponent<Goal>().ScoreOne < goal.GetComponent<Goal>().ScoreTwo)
+           // {
+         //       print("TEAM TWO WINS");
+          //  }
 
         }
     }

@@ -11,6 +11,8 @@ public class Ball : MonoBehaviour
 
     public bool grounded;
 
+    public GameObject pointDetect;
+
     private Rigidbody _rigidbody;
 
     private GameObject _currentPlayer;
@@ -78,6 +80,10 @@ public class Ball : MonoBehaviour
         transform.parent = null;
 
         OnDeattach?.Invoke();
+
+        pointDetect.GetComponent<PointDetection>().DetectArea();
+        
+
     }
 
     public void Deattach()
