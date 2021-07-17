@@ -9,7 +9,7 @@ public class TeamMember : MonoBehaviour
 
     public BallPossession BallPossession { get => character.BallPossession; }
 
-    [HideInInspector]
+
     public TeamGroup group;
 
     public bool IsMain;
@@ -17,6 +17,10 @@ public class TeamMember : MonoBehaviour
     public Action OnSetMain;
     public Action OnRemoveMain;
 
+    public Action OnSelected;
+    public Action UnSelected;
+    public Action OnPreviewSelect;
+    public Action UnPreviewSelect;
 
     private Character character;
 
@@ -42,6 +46,22 @@ public class TeamMember : MonoBehaviour
         IsMain = false;
 
         OnRemoveMain?.Invoke();
+    }
+
+    public void Selected(bool value)
+    {
+        if (value)
+            OnSelected?.Invoke();
+        else
+            UnSelected?.Invoke();
+    }
+
+    public void PreviewSelect(bool value)
+    {
+        if (value)
+            OnPreviewSelect?.Invoke();
+        else
+            UnPreviewSelect?.Invoke();
     }
 
 }

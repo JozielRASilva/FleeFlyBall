@@ -34,7 +34,8 @@ public class AbilityWalk : AbilityBase
     private Vector2 LastLookDirection;
 
     private SpeedType _currentSpeedType = SpeedType.DEFAULT;
-    private bool Authorized
+    
+    protected override bool Authorized
     {
         get
         {
