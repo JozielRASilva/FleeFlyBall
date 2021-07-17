@@ -12,10 +12,6 @@ public class AbilityPass : AbilityBase
 
     public Transform test;
 
-    [Header("Preview")]
-    public Transform main;
-    public Transform middle;
-    public Transform target;
 
     [Header("Inputs")]
     public List<InputSO> inputs = new List<InputSO>();
@@ -75,6 +71,7 @@ public class AbilityPass : AbilityBase
 
     protected override void ProcessAbility()
     {
+
         if (!Authorized)
             return;
 
@@ -90,19 +87,10 @@ public class AbilityPass : AbilityBase
             return;
 
         // Execute pass
-
-        // Process Pass? Set on Ball?
-    }
-
-    private void PassBall()
-    {
-        Animation += Time.deltaTime;
-
-        Animation = Animation % Speed;
-
-        test.position = MathParabola.Parabola(main.transform.position, target.transform.position, height, Animation / Speed);
+        _character.BallPossession.ball.Pass(transform.position, selectedMember.transform, height, _pass);
 
     }
+
 
     private TeamMember SelectMember()
     {
@@ -113,17 +101,25 @@ public class AbilityPass : AbilityBase
             if (member.Equals(_teamMember))
                 continue;
 
-            float _angle = GetAngle(member.transform, _character.transform);
+            float _angle = GetAngle( _character.transform, member.transform);
 
-            if (_angle < angle)
+        
+            if (_angle > angle)
                 continue;
 
-            if (!selected || _angle > selectedAngle)
+            if (!selected)
             {
                 selected = member;
                 selectedAngle = _angle;
             }
 
+            if (_angle < selectedAngle)
+            {
+                selected = member;
+                selectedAngle = _angle;
+            }
+
+          
         }
 
         return selected;

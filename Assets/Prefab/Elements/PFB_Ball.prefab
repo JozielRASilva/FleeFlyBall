@@ -127,3 +127,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   onPlayer: 0
   inField: 0
+  grounded: 0
+  _ballState: 0
+  AvaliableWhenPassing: 1
+  minTimeToPass: 1
