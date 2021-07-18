@@ -18,6 +18,7 @@ public class Character : MonoBehaviour
     public CharacterInfo.Status _currentStatus = CharacterInfo.Status.NORMAL;
     public BallPossession BallPossession { get { return _ballPossession; } }
 
+    [SerializeField]
     private BallPossession _ballPossession;
 
     private CharacterInfo.CharacterStates _currentState = CharacterInfo.CharacterStates.None;

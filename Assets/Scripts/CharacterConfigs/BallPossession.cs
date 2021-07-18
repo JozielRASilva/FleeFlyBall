@@ -73,7 +73,7 @@ public class BallPossession : MonoBehaviour
 
         Ball _ball = touchedBall.GetComponent<Ball>();
 
-        if (_ball.onPlayer)
+        if (!_ball.Avaliable())
             return;
 
         if (!CanAttachBall())

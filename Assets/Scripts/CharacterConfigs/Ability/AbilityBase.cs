@@ -9,7 +9,7 @@ public abstract class AbilityBase : MonoBehaviour
 
     public List<CharacterInfo.CharacterStates> BlockOnStates = new List<CharacterInfo.CharacterStates>();
 
-    private bool Authorized
+    protected virtual bool Authorized
     {
         get
         {
@@ -41,7 +41,10 @@ public abstract class AbilityBase : MonoBehaviour
 
     protected virtual void InitStatus()
     {
+        CharacterStatusSO statusSO = _character.status;
 
+        if (!statusSO)
+            return;
     }
 
     public void PerformAbility()
