@@ -5,13 +5,13 @@ using UnityEngine.UI;
 
 public class Timer : MonoBehaviour
 {
-    public int startingTime = 180;
+    public int startingTime = 0;
     public int remainingTime;
     public int timeInMins;
     public int timeInSecs;
     float referenceTime;
     public Text tempo;
-    public GameObject goal;
+    
     void Start()
     {
         remainingTime = startingTime;
@@ -24,7 +24,7 @@ public class Timer : MonoBehaviour
         if (referenceTime + 1 <= Time.time)
         {
             referenceTime = Time.time;
-            remainingTime--;
+            remainingTime++;
         }
 
         timeInMins = (int)remainingTime / 60;
@@ -32,7 +32,7 @@ public class Timer : MonoBehaviour
 
         tempo.text = "timer : " + timeInMins.ToString() + " : " + timeInSecs.ToString();
 
-        if (remainingTime <= 0)
+        if (remainingTime == 300)
         {
             //if (goal.GetComponent<Goal>().ScoreOne > goal.GetComponent<Goal>().ScoreTwo)
           //  {
@@ -44,6 +44,7 @@ public class Timer : MonoBehaviour
           //  }
 
         }
+        
     }
 
 }
