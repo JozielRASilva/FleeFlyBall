@@ -1197,26 +1197,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: PFB_Character (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 3433250483574296668, guid: fb3d769099880ab46a7b0426e61e67a3, type: 3}
-      propertyPath: main
-      value: 
-      objectReference: {fileID: 1308791413}
-    - target: {fileID: 3433250483574296668, guid: fb3d769099880ab46a7b0426e61e67a3, type: 3}
-      propertyPath: test
-      value: 
-      objectReference: {fileID: 785339455}
-    - target: {fileID: 3433250483574296668, guid: fb3d769099880ab46a7b0426e61e67a3, type: 3}
-      propertyPath: middle
-      value: 
-      objectReference: {fileID: 164199673}
-    - target: {fileID: 3433250483574296668, guid: fb3d769099880ab46a7b0426e61e67a3, type: 3}
-      propertyPath: target
-      value: 
-      objectReference: {fileID: 1403923617}
-    - target: {fileID: 5620633865540514978, guid: fb3d769099880ab46a7b0426e61e67a3, type: 3}
-      propertyPath: debug
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fb3d769099880ab46a7b0426e61e67a3, type: 3}
 --- !u!114 &629047462 stripped
@@ -2183,26 +2163,6 @@ PrefabInstance:
     - target: {fileID: 223793988660084205, guid: fb3d769099880ab46a7b0426e61e67a3, type: 3}
       propertyPath: m_Name
       value: PFB_Character
-      objectReference: {fileID: 0}
-    - target: {fileID: 3433250483574296668, guid: fb3d769099880ab46a7b0426e61e67a3, type: 3}
-      propertyPath: main
-      value: 
-      objectReference: {fileID: 1308791413}
-    - target: {fileID: 3433250483574296668, guid: fb3d769099880ab46a7b0426e61e67a3, type: 3}
-      propertyPath: test
-      value: 
-      objectReference: {fileID: 785339455}
-    - target: {fileID: 3433250483574296668, guid: fb3d769099880ab46a7b0426e61e67a3, type: 3}
-      propertyPath: middle
-      value: 
-      objectReference: {fileID: 164199673}
-    - target: {fileID: 3433250483574296668, guid: fb3d769099880ab46a7b0426e61e67a3, type: 3}
-      propertyPath: target
-      value: 
-      objectReference: {fileID: 1403923617}
-    - target: {fileID: 5620633865540514978, guid: fb3d769099880ab46a7b0426e61e67a3, type: 3}
-      propertyPath: debug
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fb3d769099880ab46a7b0426e61e67a3, type: 3}

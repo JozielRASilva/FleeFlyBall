@@ -13,12 +13,21 @@ public class Ball : MonoBehaviour
 
     public GameObject pointDetect;
 
+    public enum BallState { NONE, KICKED, PASSED }
+    public BallState _ballState = BallState.NONE;
+
+    public bool AvaliableWhenPassing = true;
+
+    public float minTimeToPass = 1f;
+
     private Rigidbody _rigidbody;
 
     private GameObject _currentPlayer;
     private GameObject _lastPlayer;
 
     public Action OnDeattach;
+
+    private Coroutine _passCoroutine;
 
     private void Awake()
     {
@@ -36,6 +45,7 @@ public class Ball : MonoBehaviour
         {
             print("tocou no chão");
             grounded = true;
+
         }
 
     }
@@ -55,6 +65,8 @@ public class Ball : MonoBehaviour
         {
             inField = true;
             print("Dentro da Quadra");
+
+            _ballState = BallState.NONE;
         }
     }
 
@@ -65,6 +77,11 @@ public class Ball : MonoBehaviour
         _currentPlayer = newPlayer;
 
         onPlayer = true;
+
+        if (_passCoroutine != null)
+            StopCoroutine(_passCoroutine);
+
+        _ballState = BallState.NONE;
     }
 
     public void Chutar(Vector3 force, ForceMode forceMode)
@@ -82,7 +99,55 @@ public class Ball : MonoBehaviour
         OnDeattach?.Invoke();
 
         pointDetect.GetComponent<PointDetection>().DetectArea();
-        
+
+        _ballState = BallState.KICKED;
+    }
+
+
+    public void Pass(Vector3 main, Transform target, float height, float Speed)
+    {
+        onPlayer = false;
+
+        _rigidbody.isKinematic = false;
+
+        _ballState = BallState.PASSED;
+        _passCoroutine = StartCoroutine(PassCO(main, target, height, Speed));
+
+        grounded = false;
+
+        transform.parent = null;
+
+        OnDeattach?.Invoke();
+
+
+    }
+
+    private IEnumerator PassCO(Vector3 main, Transform target, float height, float Speed)
+    {
+        float Animation = 0;
+
+        float speed = Speed;
+        if (speed <= 0)
+            speed = 1;
+
+
+        float value = speed / 10;
+
+        float finalSpeed = minTimeToPass;
+        Debug.Log(finalSpeed);
+
+        while (true)
+        {
+            Animation += Time.deltaTime;
+
+            Animation = Animation % Speed;
+
+            Vector3 position = MathParabola.Parabola(main, target.position, height, Animation / finalSpeed);
+
+            transform.position = position;
+
+            yield return null;
+        }
 
     }
 
@@ -99,7 +164,7 @@ public class Ball : MonoBehaviour
 
     public void ControleFisica()
     {
-        if (!onPlayer)
+        if (!onPlayer && !_ballState.Equals(BallState.PASSED))
         {
             _rigidbody.isKinematic = false;
         }
@@ -108,5 +173,16 @@ public class Ball : MonoBehaviour
             _rigidbody.isKinematic = true;
 
         }
+    }
+
+    public bool Avaliable()
+    {
+        if (onPlayer)
+            return false;
+
+        if (!AvaliableWhenPassing && _ballState.Equals(BallState.PASSED))
+            return false;
+
+        return true;
     }
 }
