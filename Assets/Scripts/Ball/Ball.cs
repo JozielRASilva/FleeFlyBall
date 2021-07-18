@@ -11,6 +11,10 @@ public class Ball : MonoBehaviour
 
     public bool grounded;
 
+    public bool firstTeam;
+
+    public bool secondTeam;
+
     public GameObject pointDetect;
 
     private Rigidbody _rigidbody;

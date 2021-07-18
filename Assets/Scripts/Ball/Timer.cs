@@ -9,8 +9,14 @@ public class Timer : MonoBehaviour
     public int remainingTime;
     public int timeInMins;
     public int timeInSecs;
+    public int secondTime;
+    public int thirdTime;
+    public int fourthTime;
+    public int endTime;
+
     float referenceTime;
     public Text tempo;
+
     
     void Start()
     {
@@ -32,7 +38,7 @@ public class Timer : MonoBehaviour
 
         tempo.text = "timer : " + timeInMins.ToString() + " : " + timeInSecs.ToString();
 
-        if (remainingTime == 300)
+        if (remainingTime == secondTime)
         {
             //if (goal.GetComponent<Goal>().ScoreOne > goal.GetComponent<Goal>().ScoreTwo)
           //  {
@@ -42,6 +48,18 @@ public class Timer : MonoBehaviour
            // {
          //       print("TEAM TWO WINS");
           //  }
+
+        }
+        if(remainingTime == thirdTime)
+        {
+
+        }
+        if(remainingTime == fourthTime)
+        {
+
+        }
+        if(remainingTime == endTime)
+        {
 
         }
         

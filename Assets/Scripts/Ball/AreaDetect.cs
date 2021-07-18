@@ -8,12 +8,15 @@ public class AreaDetect : MonoBehaviour
     public Vector3 primeiraArea;
     public Vector3 segundaArea;
     public Vector3 terceiraArea;
+    public Vector3 centroArea;
     
     
     public bool AreaOne;
     public bool AreaTwo;
     public bool AreaThree;
     public bool AreaFour;
+    
+    public bool AreaRight;
     void Start()
     {
 
@@ -49,6 +52,18 @@ public class AreaDetect : MonoBehaviour
             AreaTwo = false;
             AreaThree = false;
             AreaFour = true;
+        }
+        if (Bola.transform.position.z > centroArea.z)
+        {
+            AreaRight = true;
+           
+
+        }
+        if (Bola.transform.position.z > centroArea.z)
+        {
+            AreaRight = false;
+           
+
         }
     }
 }
