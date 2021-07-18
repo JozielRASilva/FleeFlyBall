@@ -1213,6 +1213,10 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 1403923617}
+    - target: {fileID: 5620633865540514978, guid: fb3d769099880ab46a7b0426e61e67a3, type: 3}
+      propertyPath: debug
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fb3d769099880ab46a7b0426e61e67a3, type: 3}
 --- !u!114 &629047462 stripped
@@ -2019,7 +2023,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CVCamera: {fileID: 1807410222}
   isPlayerGroup: 1
-  nextToBall: 1
+  nextToBall: 0
   teamMembers:
   - {fileID: 629047462}
   - {fileID: 1835691612}
@@ -2196,6 +2200,10 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 1403923617}
+    - target: {fileID: 5620633865540514978, guid: fb3d769099880ab46a7b0426e61e67a3, type: 3}
+      propertyPath: debug
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fb3d769099880ab46a7b0426e61e67a3, type: 3}
 --- !u!114 &1835691612 stripped

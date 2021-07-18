@@ -78,7 +78,7 @@ public class BallPossession : MonoBehaviour
 
         if (!CanAttachBall())
             return;
-
+        
         AttachBall(_ball);
     }
 

@@ -372,6 +372,7 @@ MonoBehaviour:
   balance: {fileID: 0}
   control: 0
   _currentStatus: 0
+  _ballPossession: {fileID: 0}
 --- !u!114 &223793988060867924
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -548,10 +549,6 @@ MonoBehaviour:
   angle: 60
   Speed: 0.5
   height: 5
-  test: {fileID: 0}
-  main: {fileID: 0}
-  middle: {fileID: 0}
-  target: {fileID: 0}
   inputs:
   - {fileID: 11400000, guid: 25a62a59803b9f84895dacb89e3cdeed, type: 2}
 --- !u!1 &3149710559993895308

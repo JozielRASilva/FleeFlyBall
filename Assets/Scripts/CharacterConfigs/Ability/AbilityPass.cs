@@ -17,6 +17,8 @@ public class AbilityPass : AbilityBase
 
     private TeamMember _teamMember;
 
+    private TeamMember _lastSelectedMember;
+
     private BallPossession _ballPossession;
 
     private float _pass;
@@ -83,6 +85,15 @@ public class AbilityPass : AbilityBase
         // Select Target
 
         TeamMember selectedMember = SelectMember();
+
+        if (selectedMember)
+            selectedMember.Selected(true);
+
+        if (_lastSelectedMember)
+            if (_lastSelectedMember != selectedMember)
+                _lastSelectedMember.Selected(false);
+
+        _lastSelectedMember = selectedMember;
 
         if (!selectedMember)
             return;
