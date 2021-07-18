@@ -7,7 +7,7 @@ public class CharacterStatusSO : ScriptableObject
 {
 
     #region  Consts
-    public const int MIN_STATUS = 0;
+    public const int MIN_STATUS = 2;
     public const int MAX_STATUS = 10;
     #endregion
 

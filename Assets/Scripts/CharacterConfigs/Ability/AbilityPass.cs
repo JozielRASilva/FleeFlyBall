@@ -10,9 +10,6 @@ public class AbilityPass : AbilityBase
     public float Speed = 5;
     public float height = 5;
 
-    public Transform test;
-
-
     [Header("Inputs")]
     public List<InputSO> inputs = new List<InputSO>();
 
@@ -34,6 +31,9 @@ public class AbilityPass : AbilityBase
             if (BlockOnStates.Contains(_character.GetCharacterState()))
                 return false;
 
+            if (_ballPossession)
+                _ballPossession = _character.BallPossession;
+
             if (!_ballPossession)
                 return false;
 
@@ -53,8 +53,13 @@ public class AbilityPass : AbilityBase
 
         _teamMember = _character.GetComponent<TeamMember>();
 
-        _ballPossession = _character.BallPossession;
 
+
+    }
+
+    private void Start()
+    {
+        _ballPossession = _character.BallPossession;
     }
 
     protected override void InitStatus()
@@ -101,9 +106,9 @@ public class AbilityPass : AbilityBase
             if (member.Equals(_teamMember))
                 continue;
 
-            float _angle = GetAngle( _character.transform, member.transform);
+            float _angle = GetAngle(_character.transform, member.transform);
 
-        
+
             if (_angle > angle)
                 continue;
 
@@ -119,7 +124,7 @@ public class AbilityPass : AbilityBase
                 selectedAngle = _angle;
             }
 
-          
+
         }
 
         return selected;
