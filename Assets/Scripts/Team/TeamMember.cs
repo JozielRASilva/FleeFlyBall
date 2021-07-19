@@ -9,7 +9,7 @@ public class TeamMember : MonoBehaviour
 
     public BallPossession BallPossession { get => character.BallPossession; }
 
-
+    [HideInInspector]
     public TeamGroup group;
 
     public bool IsMain;

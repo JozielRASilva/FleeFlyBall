@@ -5,17 +5,23 @@ using System;
 
 public class Ball : MonoBehaviour
 {
+    [Header("Logic Control")]
     public bool onPlayer;
 
     public bool inField;
 
     public bool grounded;
 
-    public GameObject pointDetect;
+    public bool AutoControl = true;
 
     public enum BallState { NONE, KICKED, PASSED }
     public BallState _ballState = BallState.NONE;
 
+    [Header("Detect field")]
+    public GameObject pointDetect;
+    private PointDetection _pointDetection;
+
+    [Header("Pass behaviour info")]
     public bool AvaliableWhenPassing = true;
     [SerializeField]
     private float _pass_threshold = 0.1f;
@@ -33,6 +39,9 @@ public class Ball : MonoBehaviour
     private void Awake()
     {
         _rigidbody = GetComponent<Rigidbody>();
+
+        if (pointDetect)
+            _pointDetection = pointDetect.GetComponent<PointDetection>();
     }
 
     private void Update()
@@ -99,7 +108,8 @@ public class Ball : MonoBehaviour
 
         OnDeattach?.Invoke();
 
-        pointDetect.GetComponent<PointDetection>().DetectArea();
+        if (_pointDetection)
+            _pointDetection.DetectArea();
 
         _ballState = BallState.KICKED;
     }
@@ -170,6 +180,9 @@ public class Ball : MonoBehaviour
 
     public void ControleFisica()
     {
+        if (!AutoControl)
+            return;
+
         if (!onPlayer && !_ballState.Equals(BallState.PASSED))
         {
             _rigidbody.isKinematic = false;

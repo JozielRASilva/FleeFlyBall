@@ -82,7 +82,7 @@ public class BallPossession : MonoBehaviour
         AttachBall(_ball);
     }
 
-    private void AttachBall(Ball _ball)
+    public void AttachBall(Ball _ball)
     {
         if (_timeStampToReattach > Time.time)
             return;
