@@ -7,6 +7,8 @@ public class AbilityShoot : AbilityBase
     public Vector3 shootDirection = Vector3.up + Vector3.forward;
     public ForceMode forceMode = ForceMode.Force;
 
+    public Ball.KickType kickType = Ball.KickType.NORMAL;
+
     [Header("Inputs")]
     public List<InputSO> inputs = new List<InputSO>();
     private float _shoot;
@@ -33,7 +35,10 @@ public class AbilityShoot : AbilityBase
         if (!ExecuteAction() || !CanShoot())
             return;
 
+        Debug.Log($"{_character.name} kicked {this.name} as {kickType}");
+        _character.BallPossession.ball.SetKickType(kickType);
         _character.BallPossession.ball.Chutar(dir * _shoot, forceMode);
+
 
     }
 

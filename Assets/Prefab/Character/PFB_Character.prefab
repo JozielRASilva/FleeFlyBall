@@ -500,6 +500,56 @@ Transform:
   m_Father: {fileID: 424988587}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &3104519582365571083
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8878771271901427505}
+  - component: {fileID: 1726558990905544244}
+  m_Layer: 0
+  m_Name: KickSkill
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8878771271901427505
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3104519582365571083}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 6494101368599056570}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1726558990905544244
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3104519582365571083}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71869e9c4e070634c8ba2c60d2a4bb24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AbilityPermitted: 1
+  BlockOnStates: 
+  shootDirection: {x: 0, y: 1, z: 1.5}
+  forceMode: 1
+  kickType: 2
+  inputs:
+  - {fileID: 11400000, guid: e8bffe86df413294caa051d5acab7438, type: 2}
 --- !u!1 &3110932762994530979
 GameObject:
   m_ObjectHideFlags: 0
@@ -582,6 +632,7 @@ Transform:
   - {fileID: 1092216641650099751}
   - {fileID: 4948196501906017753}
   - {fileID: 8457335410929532199}
+  - {fileID: 8878771271901427505}
   m_Father: {fileID: 223793988660084113}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -718,6 +769,7 @@ MonoBehaviour:
   BlockOnStates: 
   shootDirection: {x: 0, y: 1, z: 1.5}
   forceMode: 1
+  kickType: 1
   inputs:
   - {fileID: 11400000, guid: aa4ffcd9c6f3f234aa48cf31b4c6302b, type: 2}
 --- !u!1 &8071342104270274655

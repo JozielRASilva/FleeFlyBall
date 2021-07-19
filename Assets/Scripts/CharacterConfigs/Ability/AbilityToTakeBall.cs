@@ -70,18 +70,15 @@ public class AbilityToTakeBall : AbilityBase
             return;
 
         Ball _ball = null;
-        Debug.Log($"Authorized to take ball from a player");
+
         if (!CanTakeBall(ref _ball))
             return;
-
-        Debug.Log($"Can take ball from a player");
 
         if (!ExecuteAction())
             return;
 
         _ball.Deattach();
 
-        Debug.Log("Take ball");
     }
 
     private bool ExecuteAction()

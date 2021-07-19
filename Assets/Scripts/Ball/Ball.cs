@@ -17,6 +17,10 @@ public class Ball : MonoBehaviour
     public enum BallState { NONE, KICKED, PASSED }
     public BallState _ballState = BallState.NONE;
 
+    public enum KickType { NONE, NORMAL, SPECIAL }
+    [SerializeField]
+    private KickType _currentKick = KickType.NONE;
+
     [Header("Detect field")]
     public GameObject pointDetect;
     private PointDetection _pointDetection;
@@ -58,7 +62,7 @@ public class Ball : MonoBehaviour
         {
             print("tocou no chão");
             grounded = true;
-
+            SetKickType(KickType.NONE);
         }
 
     }
@@ -80,6 +84,7 @@ public class Ball : MonoBehaviour
             print("Dentro da Quadra");
 
             _ballState = BallState.NONE;
+
         }
     }
 
@@ -115,11 +120,16 @@ public class Ball : MonoBehaviour
             _pointDetection.DetectArea();
 
         _ballState = BallState.KICKED;
+
+        Debug.Log(_currentKick.ToString());
+        if (_currentKick.Equals(KickType.NONE))
+            SetKickType(KickType.NORMAL);
     }
 
 
     public void Pass(Vector3 main, Transform target, float height, float Speed)
     {
+
         onPlayer = false;
 
         _rigidbody.isKinematic = false;
@@ -138,6 +148,7 @@ public class Ball : MonoBehaviour
 
     private IEnumerator PassCO(Vector3 main, Transform target, float height, float Speed)
     {
+        SetKickType(KickType.NORMAL);
         float Animation = 0;
 
         float speed = Speed;
@@ -206,5 +217,10 @@ public class Ball : MonoBehaviour
             return false;
 
         return true;
+    }
+
+    public void SetKickType(KickType kick)
+    {
+        _currentKick = kick;
     }
 }
