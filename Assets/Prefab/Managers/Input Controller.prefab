@@ -214,7 +214,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58ab67d3c1702054ab70c01352c60480, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  InputName: {fileID: 11400000, guid: aa4ffcd9c6f3f234aa48cf31b4c6302b, type: 2}
+  InputName: {fileID: 11400000, guid: 9cde39fd0d2574b40aabbf052777e265, type: 2}
   ButtonName: Fire1
 --- !u!1 &7833252674036342440
 GameObject:
@@ -259,7 +259,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f80bb56ebb590c141b0e35b4596b508a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  InputName: {fileID: 11400000, guid: 5c175d621b72ba6479f4ffca2d97c41d, type: 2}
+  InputName: {fileID: 11400000, guid: d6aa2a308bfde5c448b3f20b10590de4, type: 2}
   XButtonName: Horizontal
   YButtonName: Vertical
 --- !u!1 &7989009266403049971
@@ -380,5 +380,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58ab67d3c1702054ab70c01352c60480, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  InputName: {fileID: 11400000, guid: 8b6e27646da34c84ca3ad0cdc18aa794, type: 2}
+  InputName: {fileID: 11400000, guid: 0da9743302184d44798c52d664598587, type: 2}
   ButtonName: Fire2

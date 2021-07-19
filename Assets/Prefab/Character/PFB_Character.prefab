@@ -219,9 +219,9 @@ MonoBehaviour:
   sprintBalanceCost: {fileID: 11400000, guid: da4cf45c997d3c54ea9ce6b59170163b, type: 2}
   embassyBalanceCost: {fileID: 11400000, guid: fad747309ff952f48b6a8489b00994ce, type: 2}
   inputs:
-  - {fileID: 11400000, guid: 5c175d621b72ba6479f4ffca2d97c41d, type: 2}
+  - {fileID: 11400000, guid: d6aa2a308bfde5c448b3f20b10590de4, type: 2}
   sprintMovementInput:
-  - {fileID: 11400000, guid: 8b6e27646da34c84ca3ad0cdc18aa794, type: 2}
+  - {fileID: 11400000, guid: 0da9743302184d44798c52d664598587, type: 2}
 --- !u!1 &223793987519214070
 GameObject:
   m_ObjectHideFlags: 0
@@ -774,7 +774,7 @@ MonoBehaviour:
   forceMode: 1
   kickType: 1
   inputs:
-  - {fileID: 11400000, guid: aa4ffcd9c6f3f234aa48cf31b4c6302b, type: 2}
+  - {fileID: 11400000, guid: 9cde39fd0d2574b40aabbf052777e265, type: 2}
   shootCost: {fileID: 11400000, guid: a95e9859f6f3d8f4f99a23b4e36cf7d0, type: 2}
 --- !u!1 &8071342104270274655
 GameObject:
