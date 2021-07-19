@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
 
 public class Timer : MonoBehaviour
 {
@@ -11,6 +12,8 @@ public class Timer : MonoBehaviour
     public int timeInSecs;
     float referenceTime;
     public Text tempo;
+
+    public UnityAction OnTimeChanged;
     
     void Start()
     {
@@ -25,12 +28,14 @@ public class Timer : MonoBehaviour
         {
             referenceTime = Time.time;
             remainingTime++;
+
+            OnTimeChanged.Invoke();
         }
 
         timeInMins = (int)remainingTime / 60;
         timeInSecs = (int)remainingTime % 60;
 
-        tempo.text = "timer : " + timeInMins.ToString() + " : " + timeInSecs.ToString();
+        //tempo.text = "timer : " + timeInMins.ToString() + " : " + timeInSecs.ToString();
 
         if (remainingTime == 300)
         {
