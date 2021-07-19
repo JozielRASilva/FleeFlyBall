@@ -878,6 +878,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 188205261757062598, guid: 9b81e5501c6da59438c34ad2543a8004, type: 3}
+      propertyPath: _pass_threshold
+      value: 0.08
+      objectReference: {fileID: 0}
     - target: {fileID: 6215705032402164337, guid: 9b81e5501c6da59438c34ad2543a8004, type: 3}
       propertyPath: m_Name
       value: PFB_Ball
@@ -1149,6 +1153,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 424988590, guid: fb3d769099880ab46a7b0426e61e67a3, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 223793988660084113, guid: fb3d769099880ab46a7b0426e61e67a3, type: 3}
       propertyPath: m_RootOrder
       value: 10
@@ -2116,6 +2124,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 424988588, guid: fb3d769099880ab46a7b0426e61e67a3, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 424988590, guid: fb3d769099880ab46a7b0426e61e67a3, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 223793988660084113, guid: fb3d769099880ab46a7b0426e61e67a3, type: 3}
       propertyPath: m_RootOrder
       value: 9

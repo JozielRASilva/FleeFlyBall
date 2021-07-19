@@ -548,7 +548,7 @@ MonoBehaviour:
   BlockOnStates: 
   angle: 60
   Speed: 0.5
-  height: 5
+  height: 4
   inputs:
   - {fileID: 11400000, guid: 25a62a59803b9f84895dacb89e3cdeed, type: 2}
 --- !u!1 &3149710559993895308

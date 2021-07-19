@@ -128,6 +128,8 @@ MonoBehaviour:
   onPlayer: 0
   inField: 0
   grounded: 0
+  pointDetect: {fileID: 0}
   _ballState: 0
   AvaliableWhenPassing: 1
-  minTimeToPass: 1
+  _pass_threshold: 0.01
+  TimeToPass: 10

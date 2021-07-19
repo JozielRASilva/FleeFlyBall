@@ -17,8 +17,9 @@ public class Ball : MonoBehaviour
     public BallState _ballState = BallState.NONE;
 
     public bool AvaliableWhenPassing = true;
-
-    public float minTimeToPass = 1f;
+    [SerializeField]
+    private float _pass_threshold = 0.1f;
+    public float TimeToPass = 10f;
 
     private Rigidbody _rigidbody;
 
@@ -132,15 +133,16 @@ public class Ball : MonoBehaviour
 
 
         float value = speed / 10;
+        value = Mathf.Abs(value - 0.9f);
 
-        float finalSpeed = minTimeToPass;
-        Debug.Log(finalSpeed);
+        float finalSpeed = TimeToPass * (value);
 
-        while (true)
+        while (Animation < finalSpeed - _pass_threshold)
         {
+
             Animation += Time.deltaTime;
 
-            Animation = Animation % Speed;
+            Animation = Animation % finalSpeed;
 
             Vector3 position = MathParabola.Parabola(main, target.position, height, Animation / finalSpeed);
 
@@ -149,6 +151,10 @@ public class Ball : MonoBehaviour
             yield return null;
         }
 
+        if (_ballState.Equals(BallState.PASSED))
+            _ballState = BallState.NONE;
+
+        ControleFisica();
     }
 
     public void Deattach()
