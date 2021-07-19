@@ -44,13 +44,17 @@ public class AbilityShoot : AbilityBase
         _character.BallPossession.ball.SetKickType(kickType);
         _character.BallPossession.ball.Chutar(dir * _shoot, forceMode);
 
-        ApplyShootCost();
+        ApplyBalanceCost();
 
     }
 
-    private void ApplyShootCost()
+
+    private void ApplyBalanceCost()
     {
-        float value = shootCost.value;
+        float value = 1;
+
+        if (shootCost)
+            value = shootCost.value;
 
         _character.balance.UseBalance(value);
     }

@@ -601,6 +601,7 @@ MonoBehaviour:
   height: 4
   inputs:
   - {fileID: 11400000, guid: 25a62a59803b9f84895dacb89e3cdeed, type: 2}
+  passCost: {fileID: 11400000, guid: dce71331826b9e344979684e1ac5be2b, type: 2}
 --- !u!1 &3149710559993895308
 GameObject:
   m_ObjectHideFlags: 0
@@ -687,6 +688,7 @@ MonoBehaviour:
   heightToGet: {fileID: 11400000, guid: e927e90cf44269e41b7f144bc9b64385, type: 2}
   inputs:
   - {fileID: 11400000, guid: 66e1fd53edc67294995d76bf2a7af650, type: 2}
+  domainCost: {fileID: 11400000, guid: ee20ddd7b9c047946b2cfa7f1d475eb7, type: 2}
 --- !u!114 &1901224452426787116
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -847,6 +849,7 @@ MonoBehaviour:
   heightToGet: {fileID: 11400000, guid: 6205720d85ad4404ba0b3ea689c1d45c, type: 2}
   inputs:
   - {fileID: 11400000, guid: 66e1fd53edc67294995d76bf2a7af650, type: 2}
+  toTakeBallCost: {fileID: 11400000, guid: ee20ddd7b9c047946b2cfa7f1d475eb7, type: 2}
 --- !u!65 &827701911483228800
 BoxCollider:
   m_ObjectHideFlags: 0
