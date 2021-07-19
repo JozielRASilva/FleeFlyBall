@@ -45,6 +45,13 @@ public class TeamGroup : MonoBehaviour
 
         if (isPlayerGroup)
             SetControl();
+        else
+        {
+            foreach (var member in teamMembers)
+            {
+                member.SetAsAI();
+            }
+        }
     }
 
     private void SetControl()

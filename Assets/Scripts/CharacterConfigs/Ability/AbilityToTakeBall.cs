@@ -4,7 +4,7 @@ using UnityEngine;
 using System;
 
 [RequireComponent(typeof(CollisionAndTrigger))]
-public class AbilityDomainBall : AbilityBase
+public class AbilityToTakeBall : AbilityBase
 {
 
     public FloatSO heightToGet;
@@ -13,8 +13,8 @@ public class AbilityDomainBall : AbilityBase
     public List<InputSO> inputs = new List<InputSO>();
 
 
-    public Action OnCanDomain;
-    public Action OnCanNotDomain;
+    public Action OnTakeBall;
+    public Action OnCanNotTakeBall;
 
     private CollisionAndTrigger _collisionAndTrigger;
 
@@ -55,7 +55,7 @@ public class AbilityDomainBall : AbilityBase
                 return false;
 
             float height = _touchedBall.transform.position.y - _character.transform.position.y;
-
+            
             if (height < heightToGet.value)
                 return false;
 
@@ -70,14 +70,18 @@ public class AbilityDomainBall : AbilityBase
             return;
 
         Ball _ball = null;
-
-        if (!CanDomain(ref _ball))
+        Debug.Log($"Authorized to take ball from a player");
+        if (!CanTakeBall(ref _ball))
             return;
+
+        Debug.Log($"Can take ball from a player");
 
         if (!ExecuteAction())
             return;
 
-        _character.BallPossession.AttachBall(_ball);
+        _ball.Deattach();
+
+        Debug.Log("Take ball");
     }
 
     private bool ExecuteAction()
@@ -106,17 +110,23 @@ public class AbilityDomainBall : AbilityBase
         return false;
     }
 
-    private bool CanDomain(ref Ball _ball)
+    private bool CanTakeBall(ref Ball _ball)
     {
         if (!_touchedBall)
             return false;
 
         _ball = _touchedBall.GetComponent<Ball>();
 
-        if (_ball.Avaliable())
-            return true;
+        if (!_ball.onPlayer)
+            return false;
 
-        
+        if (_ball.CurrentPlayer.Equals(_character))
+            return false;
+
+        TeamMember other = _ball.CurrentPlayer.Team;
+
+        if (_character.Team.group.IsMember(other))
+            return false;
 
         if (!_character.BallPossession.CanAttachBall())
             return false;

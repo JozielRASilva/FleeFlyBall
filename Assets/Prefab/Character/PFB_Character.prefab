@@ -581,6 +581,7 @@ Transform:
   - {fileID: 2004314658962418036}
   - {fileID: 1092216641650099751}
   - {fileID: 4948196501906017753}
+  - {fileID: 8457335410929532199}
   m_Father: {fileID: 223793988660084113}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -719,6 +720,92 @@ MonoBehaviour:
   forceMode: 1
   inputs:
   - {fileID: 11400000, guid: aa4ffcd9c6f3f234aa48cf31b4c6302b, type: 2}
+--- !u!1 &8071342104270274655
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8457335410929532199}
+  - component: {fileID: 4320079853990204260}
+  - component: {fileID: 927007131442610410}
+  - component: {fileID: 827701911483228800}
+  m_Layer: 0
+  m_Name: TakeBall
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8457335410929532199
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8071342104270274655}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 6494101368599056570}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4320079853990204260
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8071342104270274655}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 196b2a9b77d0e8c48831e592661cd10b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TagsToCheck:
+  - {fileID: 11400000, guid: 92ff9f25a60ec7a4eb5d9e85181e1f37, type: 2}
+  EventOnEnter:
+    m_PersistentCalls:
+      m_Calls: []
+  EventOnStay:
+    m_PersistentCalls:
+      m_Calls: []
+  EventOnExit:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &927007131442610410
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8071342104270274655}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9bcd36d1bc6be94b89e343b22f62483, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AbilityPermitted: 1
+  BlockOnStates: 
+  heightToGet: {fileID: 11400000, guid: 6205720d85ad4404ba0b3ea689c1d45c, type: 2}
+  inputs:
+  - {fileID: 11400000, guid: 66e1fd53edc67294995d76bf2a7af650, type: 2}
+--- !u!65 &827701911483228800
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8071342104270274655}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.5, y: 2, z: 1.5}
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!1001 &2810845089303569598
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -29,8 +29,11 @@ public class Ball : MonoBehaviour
 
     private Rigidbody _rigidbody;
 
-    private GameObject _currentPlayer;
-    private GameObject _lastPlayer;
+
+    private Character _currentPlayer;
+    private Character _lastPlayer;
+
+    public Character CurrentPlayer => _currentPlayer;
 
     public Action OnDeattach;
 
@@ -80,7 +83,7 @@ public class Ball : MonoBehaviour
         }
     }
 
-    public void AttachOnPlayer(GameObject newPlayer)
+    public void AttachOnPlayer(Character newPlayer)
     {
         _lastPlayer = _currentPlayer;
 

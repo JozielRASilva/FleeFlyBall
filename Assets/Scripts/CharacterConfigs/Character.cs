@@ -18,6 +18,9 @@ public class Character : MonoBehaviour
     public CharacterInfo.Status _currentStatus = CharacterInfo.Status.NORMAL;
     public BallPossession BallPossession { get { return _ballPossession; } }
 
+    public TeamMember Team => _team;
+
+    private TeamMember _team;
 
     private BallPossession _ballPossession;
 
@@ -52,6 +55,8 @@ public class Character : MonoBehaviour
             balance = GetComponentInChildren<Balance>();
         if (!balance)
             balance = GetComponentInParent<Balance>();
+
+        _team = GetComponent<TeamMember>();
 
     }
 

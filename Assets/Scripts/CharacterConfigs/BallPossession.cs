@@ -87,7 +87,7 @@ public class BallPossession : MonoBehaviour
         if (_timeStampToReattach > Time.time)
             return;
 
-        _ball.AttachOnPlayer(_character.gameObject);
+        _ball.AttachOnPlayer(_character);
 
         _ball.transform.parent = ballTrack;
 
