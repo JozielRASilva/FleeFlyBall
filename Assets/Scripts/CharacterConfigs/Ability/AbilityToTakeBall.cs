@@ -12,6 +12,8 @@ public class AbilityToTakeBall : AbilityBase
     [Header("Inputs")]
     public List<InputSO> inputs = new List<InputSO>();
 
+    [Header("To Take Ball Cost"), SerializeField]
+    private FloatSO toTakeBallCost;
 
     public Action OnTakeBall;
     public Action OnCanNotTakeBall;
@@ -55,7 +57,7 @@ public class AbilityToTakeBall : AbilityBase
                 return false;
 
             float height = _touchedBall.transform.position.y - _character.transform.position.y;
-            
+
             if (height < heightToGet.value)
                 return false;
 
@@ -79,6 +81,17 @@ public class AbilityToTakeBall : AbilityBase
 
         _ball.Deattach();
 
+        ApplyBalanceCost();
+    }
+
+    private void ApplyBalanceCost()
+    {
+        float value = 1;
+
+        if (toTakeBallCost)
+            value = toTakeBallCost.value;
+
+        _character.balance.UseBalance(value);
     }
 
     private bool ExecuteAction()

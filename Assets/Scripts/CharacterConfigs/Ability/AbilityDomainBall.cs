@@ -13,6 +13,9 @@ public class AbilityDomainBall : AbilityBase
     public List<InputSO> inputs = new List<InputSO>();
 
 
+    [Header("Domain Cost"), SerializeField]
+    private FloatSO domainCost;
+
     public Action OnCanDomain;
     public Action OnCanNotDomain;
 
@@ -78,6 +81,17 @@ public class AbilityDomainBall : AbilityBase
             return;
 
         _character.BallPossession.AttachBall(_ball);
+        ApplyBalanceCost();
+    }
+    
+    private void ApplyBalanceCost()
+    {
+        float value = 1;
+
+        if (domainCost)
+            value = domainCost.value;
+
+        _character.balance.UseBalance(value);
     }
 
     private bool ExecuteAction()
@@ -116,7 +130,7 @@ public class AbilityDomainBall : AbilityBase
         if (_ball.Avaliable())
             return true;
 
-        
+
 
         if (!_character.BallPossession.CanAttachBall())
             return false;
