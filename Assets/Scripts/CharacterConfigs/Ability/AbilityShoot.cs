@@ -11,7 +11,12 @@ public class AbilityShoot : AbilityBase
 
     [Header("Inputs")]
     public List<InputSO> inputs = new List<InputSO>();
+
+    [Header("Shoot Cost"), SerializeField]
+    private FloatSO shootCost;
+
     private float _shoot;
+
     protected override void InitStatus()
     {
         CharacterStatusSO statusSO = _character.status;
@@ -32,14 +37,22 @@ public class AbilityShoot : AbilityBase
 
         Debug.DrawLine(track, track + (dir * _shoot).normalized * 3, Color.red);
 
+
         if (!ExecuteAction() || !CanShoot())
             return;
 
-        Debug.Log($"{_character.name} kicked {this.name} as {kickType}");
         _character.BallPossession.ball.SetKickType(kickType);
         _character.BallPossession.ball.Chutar(dir * _shoot, forceMode);
 
+        ApplyShootCost();
 
+    }
+
+    private void ApplyShootCost()
+    {
+        float value = shootCost.value;
+
+        _character.balance.UseBalance(value);
     }
 
     private bool ExecuteAction()
@@ -70,9 +83,12 @@ public class AbilityShoot : AbilityBase
 
     public bool CanShoot()
     {
-        if (_character.BallPossession.HasBall())
-            return true;
+        if (!_character.BallPossession.HasBall())
+            return false;
 
-        return false;
+        if (!_character.balance.HasBalance())
+            return false;
+
+        return true;
     }
 }

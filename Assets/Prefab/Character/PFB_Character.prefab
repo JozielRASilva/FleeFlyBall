@@ -550,6 +550,7 @@ MonoBehaviour:
   kickType: 2
   inputs:
   - {fileID: 11400000, guid: e8bffe86df413294caa051d5acab7438, type: 2}
+  shootCost: {fileID: 11400000, guid: 35529cec044767145a1a6b40d1cda04a, type: 2}
 --- !u!1 &3110932762994530979
 GameObject:
   m_ObjectHideFlags: 0
@@ -772,6 +773,7 @@ MonoBehaviour:
   kickType: 1
   inputs:
   - {fileID: 11400000, guid: aa4ffcd9c6f3f234aa48cf31b4c6302b, type: 2}
+  shootCost: {fileID: 11400000, guid: a95e9859f6f3d8f4f99a23b4e36cf7d0, type: 2}
 --- !u!1 &8071342104270274655
 GameObject:
   m_ObjectHideFlags: 0
