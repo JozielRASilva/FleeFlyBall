@@ -219,9 +219,9 @@ MonoBehaviour:
   sprintBalanceCost: {fileID: 11400000, guid: da4cf45c997d3c54ea9ce6b59170163b, type: 2}
   embassyBalanceCost: {fileID: 11400000, guid: fad747309ff952f48b6a8489b00994ce, type: 2}
   inputs:
-  - {fileID: 11400000, guid: 5c175d621b72ba6479f4ffca2d97c41d, type: 2}
+  - {fileID: 11400000, guid: d6aa2a308bfde5c448b3f20b10590de4, type: 2}
   sprintMovementInput:
-  - {fileID: 11400000, guid: 8b6e27646da34c84ca3ad0cdc18aa794, type: 2}
+  - {fileID: 11400000, guid: 0da9743302184d44798c52d664598587, type: 2}
 --- !u!1 &223793987519214070
 GameObject:
   m_ObjectHideFlags: 0
@@ -500,6 +500,57 @@ Transform:
   m_Father: {fileID: 424988587}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &3104519582365571083
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8878771271901427505}
+  - component: {fileID: 1726558990905544244}
+  m_Layer: 0
+  m_Name: KickSkill
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8878771271901427505
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3104519582365571083}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 6494101368599056570}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1726558990905544244
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3104519582365571083}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71869e9c4e070634c8ba2c60d2a4bb24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AbilityPermitted: 1
+  BlockOnStates: 
+  shootDirection: {x: 0, y: 1, z: 1.5}
+  forceMode: 1
+  kickType: 2
+  inputs:
+  - {fileID: 11400000, guid: e8bffe86df413294caa051d5acab7438, type: 2}
+  shootCost: {fileID: 11400000, guid: 35529cec044767145a1a6b40d1cda04a, type: 2}
 --- !u!1 &3110932762994530979
 GameObject:
   m_ObjectHideFlags: 0
@@ -547,13 +598,10 @@ MonoBehaviour:
   BlockOnStates: 
   angle: 60
   Speed: 0.5
-  height: 5
-  test: {fileID: 0}
-  main: {fileID: 0}
-  middle: {fileID: 0}
-  target: {fileID: 0}
+  height: 4
   inputs:
   - {fileID: 11400000, guid: 25a62a59803b9f84895dacb89e3cdeed, type: 2}
+  passCost: {fileID: 11400000, guid: dce71331826b9e344979684e1ac5be2b, type: 2}
 --- !u!1 &3149710559993895308
 GameObject:
   m_ObjectHideFlags: 0
@@ -584,9 +632,99 @@ Transform:
   - {fileID: 8888006278730934543}
   - {fileID: 2004314658962418036}
   - {fileID: 1092216641650099751}
+  - {fileID: 4948196501906017753}
+  - {fileID: 8457335410929532199}
+  - {fileID: 8878771271901427505}
   m_Father: {fileID: 223793988660084113}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &4120883681576338898
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4948196501906017753}
+  - component: {fileID: 5581276836256207007}
+  - component: {fileID: 1901224452426787116}
+  - component: {fileID: 7352323424050748956}
+  m_Layer: 0
+  m_Name: DomainBall
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4948196501906017753
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4120883681576338898}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 6494101368599056570}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5581276836256207007
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4120883681576338898}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe2a0cb79c0bb6949907c1673990cacf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AbilityPermitted: 1
+  BlockOnStates: 
+  heightToGet: {fileID: 11400000, guid: e927e90cf44269e41b7f144bc9b64385, type: 2}
+  inputs:
+  - {fileID: 11400000, guid: 66e1fd53edc67294995d76bf2a7af650, type: 2}
+  domainCost: {fileID: 11400000, guid: ee20ddd7b9c047946b2cfa7f1d475eb7, type: 2}
+--- !u!114 &1901224452426787116
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4120883681576338898}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 196b2a9b77d0e8c48831e592661cd10b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TagsToCheck:
+  - {fileID: 11400000, guid: 92ff9f25a60ec7a4eb5d9e85181e1f37, type: 2}
+  EventOnEnter:
+    m_PersistentCalls:
+      m_Calls: []
+  EventOnStay:
+    m_PersistentCalls:
+      m_Calls: []
+  EventOnExit:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!65 &7352323424050748956
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4120883681576338898}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 3, z: 1}
+  m_Center: {x: 0, y: 1.5, z: 0}
 --- !u!1 &5253549846138434536
 GameObject:
   m_ObjectHideFlags: 0
@@ -634,8 +772,97 @@ MonoBehaviour:
   BlockOnStates: 
   shootDirection: {x: 0, y: 1, z: 1.5}
   forceMode: 1
+  kickType: 1
   inputs:
-  - {fileID: 11400000, guid: aa4ffcd9c6f3f234aa48cf31b4c6302b, type: 2}
+  - {fileID: 11400000, guid: 9cde39fd0d2574b40aabbf052777e265, type: 2}
+  shootCost: {fileID: 11400000, guid: a95e9859f6f3d8f4f99a23b4e36cf7d0, type: 2}
+--- !u!1 &8071342104270274655
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8457335410929532199}
+  - component: {fileID: 4320079853990204260}
+  - component: {fileID: 927007131442610410}
+  - component: {fileID: 827701911483228800}
+  m_Layer: 0
+  m_Name: TakeBall
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8457335410929532199
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8071342104270274655}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 6494101368599056570}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4320079853990204260
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8071342104270274655}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 196b2a9b77d0e8c48831e592661cd10b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TagsToCheck:
+  - {fileID: 11400000, guid: 92ff9f25a60ec7a4eb5d9e85181e1f37, type: 2}
+  EventOnEnter:
+    m_PersistentCalls:
+      m_Calls: []
+  EventOnStay:
+    m_PersistentCalls:
+      m_Calls: []
+  EventOnExit:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &927007131442610410
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8071342104270274655}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9bcd36d1bc6be94b89e343b22f62483, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AbilityPermitted: 1
+  BlockOnStates: 
+  heightToGet: {fileID: 11400000, guid: 6205720d85ad4404ba0b3ea689c1d45c, type: 2}
+  inputs:
+  - {fileID: 11400000, guid: 66e1fd53edc67294995d76bf2a7af650, type: 2}
+  toTakeBallCost: {fileID: 11400000, guid: ee20ddd7b9c047946b2cfa7f1d475eb7, type: 2}
+--- !u!65 &827701911483228800
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8071342104270274655}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.5, y: 2, z: 1.5}
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!1001 &2810845089303569598
 PrefabInstance:
   m_ObjectHideFlags: 0

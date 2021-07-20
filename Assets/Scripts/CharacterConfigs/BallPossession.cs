@@ -78,16 +78,16 @@ public class BallPossession : MonoBehaviour
 
         if (!CanAttachBall())
             return;
-
+        
         AttachBall(_ball);
     }
 
-    private void AttachBall(Ball _ball)
+    public void AttachBall(Ball _ball)
     {
         if (_timeStampToReattach > Time.time)
             return;
 
-        _ball.AttachOnPlayer(_character.gameObject);
+        _ball.AttachOnPlayer(_character);
 
         _ball.transform.parent = ballTrack;
 

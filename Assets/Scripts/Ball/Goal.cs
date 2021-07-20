@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Goal : MonoBehaviour
 {
@@ -12,8 +13,9 @@ public class Goal : MonoBehaviour
     public int fourPoints = 4;
 
     public GameObject pointDetect;
-    
-   
+
+    public UnityAction OnGoalScored;
+
     void Update()
     {
         
@@ -28,7 +30,7 @@ public class Goal : MonoBehaviour
             if (pointDetect.GetComponent<PointDetection>().areaTres == true) ScoreOne += threePoints;
             if (pointDetect.GetComponent<PointDetection>().areaQuatro == true) ScoreOne += fourPoints;
 
-
+            OnGoalScored.Invoke();
 
             print("GOL!!!!!!!!11");
             Debug.Log("SCORE: " + ScoreOne.ToString());

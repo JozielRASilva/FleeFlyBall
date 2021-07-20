@@ -13,9 +13,15 @@ public class AbilityPass : AbilityBase
     [Header("Inputs")]
     public List<InputSO> inputs = new List<InputSO>();
 
+
+    [Header("Pass Cost"), SerializeField]
+    private FloatSO passCost;
+
     protected float Animation;
 
     private TeamMember _teamMember;
+
+    private TeamMember _lastSelectedMember;
 
     private BallPossession _ballPossession;
 
@@ -84,6 +90,15 @@ public class AbilityPass : AbilityBase
 
         TeamMember selectedMember = SelectMember();
 
+        if (selectedMember)
+            selectedMember.Selected(true);
+
+        if (_lastSelectedMember)
+            if (_lastSelectedMember != selectedMember)
+                _lastSelectedMember.Selected(false);
+
+        _lastSelectedMember = selectedMember;
+
         if (!selectedMember)
             return;
 
@@ -94,7 +109,19 @@ public class AbilityPass : AbilityBase
         // Execute pass
         _character.BallPossession.ball.Pass(transform.position, selectedMember.transform, height, _pass);
 
+        ApplyBalanceCost();
     }
+
+    private void ApplyBalanceCost()
+    {
+        float value = 1;
+
+        if (passCost)
+            value = passCost.value;
+
+        _character.balance.UseBalance(value);
+    }
+
 
 
     private TeamMember SelectMember()

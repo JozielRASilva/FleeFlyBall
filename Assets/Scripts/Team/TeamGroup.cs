@@ -27,14 +27,11 @@ public class TeamGroup : MonoBehaviour
     {
         ball = FindObjectOfType<Ball>();
 
-    }
-
-    private void Start()
-    {
         foreach (var member in teamMembers)
         {
             member.group = this;
         }
+
     }
 
 
@@ -48,6 +45,13 @@ public class TeamGroup : MonoBehaviour
 
         if (isPlayerGroup)
             SetControl();
+        else
+        {
+            foreach (var member in teamMembers)
+            {
+                member.SetAsAI();
+            }
+        }
     }
 
     private void SetControl()
@@ -70,7 +74,7 @@ public class TeamGroup : MonoBehaviour
                 }
             }
         }
-        else if (_currentFocus != Focus.NEXTTOBALL)
+        else if (_currentFocus != Focus.NEXTTOBALL && !HasBall())
         {
             TeamMember selected = SelectByLowDistance();
 

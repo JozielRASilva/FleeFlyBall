@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 14f8eaa1ff92a86498e5bddacef41d93, type: 3}
-  m_Name: SO_InputKick
+  m_Script: {fileID: 11500000, guid: bdbb08ccc80bc4d419e6ecf3ccef4c6f, type: 3}
+  m_Name: SO_HeightToGetBallFromPlayer
   m_EditorClassIdentifier: 
-  Name: InputKick
+  value: 0
