@@ -7,6 +7,7 @@ public class AbilityShoot : AbilityBase
     public Vector3 shootDirection = Vector3.up + Vector3.forward;
     public ForceMode forceMode = ForceMode.Force;
 
+
     public Ball.KickType kickType = Ball.KickType.NORMAL;
 
     [Header("Inputs")]

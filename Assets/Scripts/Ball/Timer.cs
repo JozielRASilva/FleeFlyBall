@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
 
 public class Timer : MonoBehaviour
 {
@@ -17,6 +18,7 @@ public class Timer : MonoBehaviour
     float referenceTime;
     public Text tempo;
 
+    public UnityAction OnTimeChanged;
     
     void Start()
     {
@@ -31,6 +33,8 @@ public class Timer : MonoBehaviour
         {
             referenceTime = Time.time;
             remainingTime++;
+
+            OnTimeChanged.Invoke();
         }
 
         timeInMins = (int)remainingTime / 60;
