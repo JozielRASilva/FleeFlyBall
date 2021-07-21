@@ -415,6 +415,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 188205261757062598, guid: 9b81e5501c6da59438c34ad2543a8004, type: 3}
+      propertyPath: pointDetect
+      value: 
+      objectReference: {fileID: 1874901393928748337}
     - target: {fileID: 6215705032402164337, guid: 9b81e5501c6da59438c34ad2543a8004, type: 3}
       propertyPath: m_Name
       value: PFB_Ball
@@ -739,6 +743,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aa26d6e664f354541af9f8ab9015560a, type: 3}
+--- !u!1 &1874901393928748337 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4530668168862910711, guid: aa26d6e664f354541af9f8ab9015560a, type: 3}
+  m_PrefabInstance: {fileID: 1874901393928748336}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7022926301430488945
 PrefabInstance:
   m_ObjectHideFlags: 0
