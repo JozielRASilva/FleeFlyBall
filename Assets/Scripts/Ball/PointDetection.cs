@@ -10,6 +10,7 @@ public class PointDetection : MonoBehaviour
 
     public void DetectArea()
     {
+
         if (detect.GetComponent<AreaDetect>().AreaOne == true)
         {
             areaUm = true;
