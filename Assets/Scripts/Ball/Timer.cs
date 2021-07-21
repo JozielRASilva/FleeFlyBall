@@ -19,7 +19,7 @@ public class Timer : MonoBehaviour
     public Text tempo;
 
     public UnityAction OnTimeChanged;
-    
+
     void Start()
     {
         remainingTime = startingTime;
@@ -40,33 +40,34 @@ public class Timer : MonoBehaviour
         timeInMins = (int)remainingTime / 60;
         timeInSecs = (int)remainingTime % 60;
 
-        tempo.text = "timer : " + timeInMins.ToString() + " : " + timeInSecs.ToString();
+        if (tempo)
+            tempo.text = "timer : " + timeInMins.ToString() + " : " + timeInSecs.ToString();
 
         if (remainingTime == secondTime)
         {
             //if (goal.GetComponent<Goal>().ScoreOne > goal.GetComponent<Goal>().ScoreTwo)
-          //  {
-           //     print("TEAM ONE WINS");
-         //   }
-           // if (goal.GetComponent<Goal>().ScoreOne < goal.GetComponent<Goal>().ScoreTwo)
-           // {
-         //       print("TEAM TWO WINS");
-          //  }
+            //  {
+            //     print("TEAM ONE WINS");
+            //   }
+            // if (goal.GetComponent<Goal>().ScoreOne < goal.GetComponent<Goal>().ScoreTwo)
+            // {
+            //       print("TEAM TWO WINS");
+            //  }
 
         }
-        if(remainingTime == thirdTime)
+        if (remainingTime == thirdTime)
         {
 
         }
-        if(remainingTime == fourthTime)
+        if (remainingTime == fourthTime)
         {
 
         }
-        if(remainingTime == endTime)
+        if (remainingTime == endTime)
         {
 
         }
-        
+
     }
 
 }
