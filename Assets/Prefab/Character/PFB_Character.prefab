@@ -52,7 +52,7 @@ MonoBehaviour:
   delayToReattach: 0.2
   direction: {x: 0, y: 2.5, z: 0.5}
   forceMode: 1
-  movementForce: {fileID: 0}
+  movementForce: {fileID: 11400000, guid: b958b8cce75aba6429357c6e7b1fa8ce, type: 2}
 --- !u!114 &424988589
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -903,7 +903,7 @@ MonoBehaviour:
   toTakeBallCost: {fileID: 11400000, guid: ee20ddd7b9c047946b2cfa7f1d475eb7, type: 2}
   direction: {x: 0, y: 2.5, z: 0.5}
   forceMode: 1
-  movementForce: {fileID: 0}
+  movementForce: {fileID: 11400000, guid: 65d8476e49d6a55439c478521348bf59, type: 2}
 --- !u!65 &827701911483228800
 BoxCollider:
   m_ObjectHideFlags: 0
