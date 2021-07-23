@@ -59,7 +59,6 @@ public class AbilityRecoverBalance : AbilityBase
 
     private void Recover()
     {
-        Debug.Log("Recover");
         _alreadyRecover = true;
         StartCoroutine(RecoverSO());
     }

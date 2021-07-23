@@ -50,6 +50,9 @@ MonoBehaviour:
   ball: {fileID: 0}
   DirectionWhenLost: {x: 0, y: 0, z: 0}
   delayToReattach: 0.2
+  direction: {x: 0, y: 2.5, z: 0.5}
+  forceMode: 1
+  movementForce: {fileID: 0}
 --- !u!114 &424988589
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -545,6 +548,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AbilityPermitted: 1
   BlockOnStates: 
+  DelayToRecover: {fileID: 0}
+  _alreadyRecover: 0
 --- !u!1 &3104519582365571083
 GameObject:
   m_ObjectHideFlags: 0
@@ -896,6 +901,9 @@ MonoBehaviour:
   inputs:
   - {fileID: 11400000, guid: 66e1fd53edc67294995d76bf2a7af650, type: 2}
   toTakeBallCost: {fileID: 11400000, guid: ee20ddd7b9c047946b2cfa7f1d475eb7, type: 2}
+  direction: {x: 0, y: 2.5, z: 0.5}
+  forceMode: 1
+  movementForce: {fileID: 0}
 --- !u!65 &827701911483228800
 BoxCollider:
   m_ObjectHideFlags: 0

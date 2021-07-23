@@ -105,5 +105,17 @@ public class Character : MonoBehaviour
         }
     }
 
+    public Vector3 GetKickDirection(Vector3 definedDirection, float shoot)
+    {
+        Vector3 track = BallPossession.ballTrack.position;
+
+        Vector3 dir = transform.forward * definedDirection.z;
+        dir += Vector3.up * definedDirection.y;
+
+        Debug.DrawLine(track, track + (dir * shoot).normalized * 3, Color.red);
+        return dir;
+    }
+
+
 
 }

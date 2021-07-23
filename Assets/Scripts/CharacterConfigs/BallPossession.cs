@@ -10,6 +10,13 @@ public class BallPossession : MonoBehaviour
 
     public Vector3 DirectionWhenLost;
     public float delayToReattach = 0.2f;
+
+    [Header("Lost Ball")]
+    public Vector3 direction = Vector3.up + Vector3.forward;
+    public ForceMode forceMode = ForceMode.Force;
+    public FloatSO movementForce;
+    private float _shoot => movementForce == null ? 4 : movementForce.value;
+
     private float _timeStampToReattach;
     private Character _character;
 
@@ -78,7 +85,7 @@ public class BallPossession : MonoBehaviour
 
         if (!CanAttachBall())
             return;
-        
+
         AttachBall(_ball);
     }
 
@@ -126,6 +133,9 @@ public class BallPossession : MonoBehaviour
 
 
         _character.SetStatus(CharacterInfo.Status.STUNNED);
+
+        Vector3 dir = _character.GetKickDirection(direction, _shoot);
+        _character.BallPossession.ball.Chutar(dir * _shoot, forceMode);
 
         RemoveBall();
 

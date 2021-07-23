@@ -30,14 +30,7 @@ public class AbilityShoot : AbilityBase
 
     protected override void ProcessAbility()
     {
-
-        Vector3 track = _character.BallPossession.ballTrack.position;
-
-        Vector3 dir = _character.transform.forward * shootDirection.z;
-        dir += Vector3.up * shootDirection.y;
-
-        Debug.DrawLine(track, track + (dir * _shoot).normalized * 3, Color.red);
-
+        Vector3 dir = _character.GetKickDirection(shootDirection, _shoot);
 
         if (!ExecuteAction() || !CanShoot())
             return;
@@ -49,6 +42,7 @@ public class AbilityShoot : AbilityBase
 
     }
 
+    
 
     private void ApplyBalanceCost()
     {

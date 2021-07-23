@@ -112,7 +112,6 @@ public class Ball : MonoBehaviour
 
         _ballState = BallState.KICKED;
 
-        Debug.Log(_currentKick.ToString());
         if (_currentKick.Equals(KickType.NONE))
             SetKickType(KickType.NORMAL);
     }
