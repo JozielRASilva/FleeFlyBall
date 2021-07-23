@@ -32,6 +32,8 @@ public class Balance : MonoBehaviour
 
     private Coroutine _recoverBalance;
 
+    private bool _costBlocked;
+
     private void Awake()
     {
         _character = GetComponent<Character>();
@@ -64,6 +66,9 @@ public class Balance : MonoBehaviour
     }
     public bool UseBalance(float cost)
     {
+        if (_costBlocked)
+            return true;
+
         if (cost == 0)
             return false;
 
@@ -167,6 +172,16 @@ public class Balance : MonoBehaviour
         }
 
         RecoverAllBalance();
+    }
+
+    public void BlockCost()
+    {
+        _costBlocked = true;
+    }
+
+    public void UnBlockCost()
+    {
+        _costBlocked = false;
     }
 
 }

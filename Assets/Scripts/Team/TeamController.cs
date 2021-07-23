@@ -6,6 +6,8 @@ using System;
 public class TeamController : Singleton<TeamController>
 {
 
-    List<TeamGroup> teamGroup = new List<TeamGroup>();
+    private List<TeamGroup> teamGroup = new List<TeamGroup>();
+
+
 
 }

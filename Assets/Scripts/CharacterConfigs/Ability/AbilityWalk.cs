@@ -34,7 +34,7 @@ public class AbilityWalk : AbilityBase
     private Vector2 LastLookDirection;
 
     private SpeedType _currentSpeedType = SpeedType.DEFAULT;
-    
+
     protected override bool Authorized
     {
         get
@@ -65,7 +65,12 @@ public class AbilityWalk : AbilityBase
     protected override void ProcessAbility()
     {
         if (!Authorized)
+        {
+            if (_character.GetCharacterState() == CharacterInfo.CharacterStates.Walking)
+                _character.SetCharacterState(CharacterInfo.CharacterStates.Idle);
+
             return;
+        }
 
         // Input
         Vector2 inputDirection = ExecuteAction();
@@ -82,6 +87,16 @@ public class AbilityWalk : AbilityBase
         ApplyBalanceCost();
 
         _characterController.Move(resultSpeed);
+
+        if (!inputDirection.Equals(Vector2.zero))
+        {
+            _character.SetCharacterState(CharacterInfo.CharacterStates.Walking);
+        }
+        else
+        {
+            if (_character.GetCharacterState() == CharacterInfo.CharacterStates.Walking)
+                _character.SetCharacterState(CharacterInfo.CharacterStates.Idle);
+        }
 
         // Look at direction
         Vector3 inputVector = new Vector3(inputDirection.x, 0, inputDirection.y);

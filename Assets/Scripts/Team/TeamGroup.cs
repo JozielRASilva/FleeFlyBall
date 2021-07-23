@@ -102,8 +102,9 @@ public class TeamGroup : MonoBehaviour
     {
         foreach (var member in teamMembers)
         {
-            if (member.BallPossession.HasBall())
-                return true;
+            if (member)
+                if (member.BallPossession.HasBall())
+                    return true;
         }
         return false;
     }
