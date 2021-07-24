@@ -1701,18 +1701,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 114871716137758372, guid: 40c9158e0fbf8fd4ea9b6edc38615b51, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 368445330446185345, guid: 40c9158e0fbf8fd4ea9b6edc38615b51, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 687711168177623362, guid: 40c9158e0fbf8fd4ea9b6edc38615b51, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 761159858406093709, guid: 40c9158e0fbf8fd4ea9b6edc38615b51, type: 3}
       propertyPath: CVCamera
       value: 
@@ -1764,26 +1752,6 @@ PrefabInstance:
     - target: {fileID: 761159858443968282, guid: 40c9158e0fbf8fd4ea9b6edc38615b51, type: 3}
       propertyPath: m_Name
       value: PFB_Game Manager
-      objectReference: {fileID: 0}
-    - target: {fileID: 761159858981856702, guid: 40c9158e0fbf8fd4ea9b6edc38615b51, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5655220607315627612, guid: 40c9158e0fbf8fd4ea9b6edc38615b51, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 63.400146
-      objectReference: {fileID: 0}
-    - target: {fileID: 7802159361985375362, guid: 40c9158e0fbf8fd4ea9b6edc38615b51, type: 3}
-      propertyPath: teste
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7802159361985375362, guid: 40c9158e0fbf8fd4ea9b6edc38615b51, type: 3}
-      propertyPath: _Recovered
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8002215338541605682, guid: 40c9158e0fbf8fd4ea9b6edc38615b51, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 40c9158e0fbf8fd4ea9b6edc38615b51, type: 3}
