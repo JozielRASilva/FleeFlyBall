@@ -1440,6 +1440,10 @@ MonoBehaviour:
   remainingTime: 0
   timeInMins: 0
   timeInSecs: 0
+  secondTime: 0
+  thirdTime: 0
+  fourthTime: 0
+  endTime: 0
   tempo: {fileID: 0}
 --- !u!1 &7465089646485019511
 GameObject:
@@ -1944,6 +1948,7 @@ GameObject:
   - component: {fileID: 5565329002126014368}
   - component: {fileID: 5779329160754680092}
   - component: {fileID: 8421024258603804918}
+  - component: {fileID: 838132798347531083}
   - component: {fileID: 3987654142365123932}
   m_Layer: 0
   m_Name: HUD
@@ -2013,6 +2018,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controlsScript: {fileID: 5779329160754680092}
   InputName: {fileID: 11400000, guid: d6aa2a308bfde5c448b3f20b10590de4, type: 2}
+--- !u!114 &838132798347531083
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9178981890745032759}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f649de40b3b203745ae5968358f0f410, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DefaultButtons: {fileID: 794944623043443496}
+  BallPossesionButtons: {fileID: 5582676086877421410}
 --- !u!114 &3987654142365123932
 MonoBehaviour:
   m_ObjectHideFlags: 0
