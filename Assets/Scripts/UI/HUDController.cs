@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class HUDController : MonoBehaviour
 {
@@ -10,9 +11,9 @@ public class HUDController : MonoBehaviour
 
     public Timer timer;
 
-    public Text score1Display;
-    public Text score2Display;
-    public Text timerDisplay;
+    public TMP_Text score1Display;
+    public TMP_Text score2Display;
+    public TMP_Text timerDisplay;
     public GameObject[] timeCourseDisplays;
 
     string fixedTimeInMins;
