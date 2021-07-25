@@ -22,6 +22,7 @@ public class Ball : MonoBehaviour
 
     public enum BallState { NONE, KICKED, PASSED }
     public BallState _ballState = BallState.NONE;
+    
 
     public enum KickType { NONE, NORMAL, SPECIAL }
     [SerializeField]
@@ -229,5 +230,10 @@ public class Ball : MonoBehaviour
     public void SetKickType(KickType kick)
     {
         _currentKick = kick;
+    }
+
+    public KickType GetKickType()
+    {
+        return _currentKick;
     }
 }

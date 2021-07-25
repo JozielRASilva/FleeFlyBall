@@ -17,10 +17,7 @@ public class AreaDetect : MonoBehaviour
     public bool AreaFour;
     
     public bool AreaRight;
-    void Start()
-    {
-
-    }
+    
 
     // Update is called once per frame
     void Update()

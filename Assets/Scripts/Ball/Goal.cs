@@ -12,7 +12,7 @@ public class Goal : MonoBehaviour
     public int threePoints = 3;
     public int fourPoints = 4;
 
-    public GameObject pointDetect;
+    public PointDetection  _pointDetection;
 
     public UnityAction OnGoalScored;
 
@@ -25,10 +25,11 @@ public class Goal : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Ball"))
         {
-            if (pointDetect.GetComponent<PointDetection>().areaUm == true) ScoreOne++;
-            if (pointDetect.GetComponent<PointDetection>().areaDois == true) ScoreOne += twoPoints;
-            if (pointDetect.GetComponent<PointDetection>().areaTres == true) ScoreOne += threePoints;
-            if (pointDetect.GetComponent<PointDetection>().areaQuatro == true) ScoreOne += fourPoints;
+            if (_pointDetection.areaUm == true) ScoreOne += onePoint;
+            if (_pointDetection.areaDois == true) ScoreOne += twoPoints;
+            if (_pointDetection.areaTres == true) ScoreOne += threePoints;
+            if (_pointDetection.areaQuatro == true) ScoreOne += fourPoints;
+            if (_pointDetection.special == true) ScoreOne ++;
 
             OnGoalScored.Invoke();
 
