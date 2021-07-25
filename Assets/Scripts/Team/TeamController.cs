@@ -1,18 +1,30 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
+using System.Linq;
 
-public class TeamController : MonoBehaviour
+public class TeamController : Singleton<TeamController>
 {
-    // Start is called before the first frame update
-    void Start()
+
+    private List<TeamGroup> teamGroup = new List<TeamGroup>();
+
+    protected override void Awake()
     {
-        
+        base.Awake();
+
+        teamGroup = GetComponentsInChildren<TeamGroup>().ToList();
     }
 
-    // Update is called once per frame
-    void Update()
+    public TeamGroup GetPlayerGroup()
     {
-        
+        return teamGroup.Find(t => t.isPlayerGroup);
     }
+
+    public TeamGroup GetOpponentGroup()
+    {
+        return teamGroup.Find(t => !t.isPlayerGroup);
+    }
+
+
 }

@@ -5,6 +5,8 @@ using System;
 
 public class Ball : MonoBehaviour
 {
+
+
     [Header("Logic Control")]
     public bool onPlayer;
 
@@ -12,10 +14,15 @@ public class Ball : MonoBehaviour
 
     public bool grounded;
 
+    public bool firstTeam;
+
+    public bool secondTeam;
+
     public bool AutoControl = true;
 
     public enum BallState { NONE, KICKED, PASSED }
     public BallState _ballState = BallState.NONE;
+    
 
     public enum KickType { NONE, NORMAL, SPECIAL }
     [SerializeField]
@@ -43,6 +50,7 @@ public class Ball : MonoBehaviour
 
     private Coroutine _passCoroutine;
 
+
     private void Awake()
     {
         _rigidbody = GetComponent<Rigidbody>();
@@ -62,6 +70,7 @@ public class Ball : MonoBehaviour
         {
             print("tocou no chão");
             grounded = true;
+
             SetKickType(KickType.NONE);
         }
 
@@ -82,24 +91,7 @@ public class Ball : MonoBehaviour
         {
             inField = true;
             print("Dentro da Quadra");
-
-            _ballState = BallState.NONE;
-
         }
-    }
-
-    public void AttachOnPlayer(Character newPlayer)
-    {
-        _lastPlayer = _currentPlayer;
-
-        _currentPlayer = newPlayer;
-
-        onPlayer = true;
-
-        if (_passCoroutine != null)
-            StopCoroutine(_passCoroutine);
-
-        _ballState = BallState.NONE;
     }
 
     public void Chutar(Vector3 force, ForceMode forceMode)
@@ -121,10 +113,53 @@ public class Ball : MonoBehaviour
 
         _ballState = BallState.KICKED;
 
-        Debug.Log(_currentKick.ToString());
         if (_currentKick.Equals(KickType.NONE))
             SetKickType(KickType.NORMAL);
     }
+
+
+    public void Deattach()
+    {
+        transform.parent = null;
+
+        OnDeattach?.Invoke();
+
+        onPlayer = false;
+
+        _rigidbody.isKinematic = false;
+    }
+
+    public void ControleFisica()
+    {
+        if (!AutoControl)
+            return;
+
+        if (!onPlayer && !_ballState.Equals(BallState.PASSED))
+        {
+            _rigidbody.isKinematic = false;
+        }
+        else
+        {
+            _rigidbody.isKinematic = true;
+
+        }
+    }
+
+    public void AttachOnPlayer(Character newPlayer)
+    {
+        _lastPlayer = _currentPlayer;
+
+        _currentPlayer = newPlayer;
+
+        onPlayer = true;
+
+        if (_passCoroutine != null)
+            StopCoroutine(_passCoroutine);
+
+        _ballState = BallState.NONE;
+    }
+
+
 
 
     public void Pass(Vector3 main, Transform target, float height, float Speed)
@@ -181,33 +216,6 @@ public class Ball : MonoBehaviour
         ControleFisica();
     }
 
-    public void Deattach()
-    {
-        transform.parent = null;
-
-        OnDeattach?.Invoke();
-
-        onPlayer = false;
-
-        _rigidbody.isKinematic = false;
-    }
-
-    public void ControleFisica()
-    {
-        if (!AutoControl)
-            return;
-
-        if (!onPlayer && !_ballState.Equals(BallState.PASSED))
-        {
-            _rigidbody.isKinematic = false;
-        }
-        else
-        {
-            _rigidbody.isKinematic = true;
-
-        }
-    }
-
     public bool Avaliable()
     {
         if (onPlayer)
@@ -222,5 +230,10 @@ public class Ball : MonoBehaviour
     public void SetKickType(KickType kick)
     {
         _currentKick = kick;
+    }
+
+    public KickType GetKickType()
+    {
+        return _currentKick;
     }
 }

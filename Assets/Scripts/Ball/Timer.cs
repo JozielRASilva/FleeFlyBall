@@ -10,11 +10,16 @@ public class Timer : MonoBehaviour
     public int remainingTime;
     public int timeInMins;
     public int timeInSecs;
+    public int secondTime;
+    public int thirdTime;
+    public int fourthTime;
+    public int endTime;
+
     float referenceTime;
     public Text tempo;
 
     public UnityAction OnTimeChanged;
-    
+
     void Start()
     {
         remainingTime = startingTime;
@@ -35,21 +40,34 @@ public class Timer : MonoBehaviour
         timeInMins = (int)remainingTime / 60;
         timeInSecs = (int)remainingTime % 60;
 
-        //tempo.text = "timer : " + timeInMins.ToString() + " : " + timeInSecs.ToString();
+        if (tempo)
+            tempo.text = "timer : " + timeInMins.ToString() + " : " + timeInSecs.ToString();
 
-        if (remainingTime == 300)
+        if (remainingTime == secondTime)
         {
             //if (goal.GetComponent<Goal>().ScoreOne > goal.GetComponent<Goal>().ScoreTwo)
-          //  {
-           //     print("TEAM ONE WINS");
-         //   }
-           // if (goal.GetComponent<Goal>().ScoreOne < goal.GetComponent<Goal>().ScoreTwo)
-           // {
-         //       print("TEAM TWO WINS");
-          //  }
+            //  {
+            //     print("TEAM ONE WINS");
+            //   }
+            // if (goal.GetComponent<Goal>().ScoreOne < goal.GetComponent<Goal>().ScoreTwo)
+            // {
+            //       print("TEAM TWO WINS");
+            //  }
 
         }
-        
+        if (remainingTime == thirdTime)
+        {
+
+        }
+        if (remainingTime == fourthTime)
+        {
+
+        }
+        if (remainingTime == endTime)
+        {
+
+        }
+
     }
 
 }

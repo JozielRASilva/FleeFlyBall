@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
+using System;
 
 public class TeamGroup : MonoBehaviour
 {
@@ -22,6 +23,11 @@ public class TeamGroup : MonoBehaviour
     public List<TeamMember> TeamMembers => teamMembers;
 
     private Ball ball;
+
+    public Action OnGetBall;
+    public Action OnLoseBall;
+
+    private bool _teamHasBall = true;
 
     private void Awake()
     {
@@ -50,6 +56,29 @@ public class TeamGroup : MonoBehaviour
             foreach (var member in teamMembers)
             {
                 member.SetAsAI();
+            }
+        }
+
+        TeamPossessionChecker();
+
+    }
+
+    private void TeamPossessionChecker()
+    {
+        if (HasBall())
+        {
+            if (!_teamHasBall)
+            {
+                OnGetBall?.Invoke();
+                _teamHasBall = true;
+            }
+        }
+        else
+        {
+            if (_teamHasBall)
+            {
+                OnLoseBall?.Invoke();
+                _teamHasBall = false;
             }
         }
     }
@@ -102,8 +131,9 @@ public class TeamGroup : MonoBehaviour
     {
         foreach (var member in teamMembers)
         {
-            if (member.BallPossession.HasBall())
-                return true;
+            if (member)
+                if (member.BallPossession.HasBall())
+                    return true;
         }
         return false;
     }

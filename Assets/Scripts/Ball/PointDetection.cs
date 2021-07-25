@@ -4,34 +4,49 @@ using UnityEngine;
 
 public class PointDetection : MonoBehaviour
 {
-    public bool areaUm, areaDois, areaTres, areaQuatro;
-    public GameObject detect;
- 
+    public bool areaUm, areaDois, areaTres, areaQuatro, special;
+    
+    [Header("Detect field")]
+    [SerializeField]
+    private AreaDetect _areaDetect;
+
+    public GameObject ball;
+
+    public Ball  _ball;
+
+    private void Awake()
+    {
+        _ball = ball.GetComponent<Ball>();
+    }
+
+
 
     public void DetectArea()
     {
-        if (detect.GetComponent<AreaDetect>().AreaOne == true)
+        special = false;
+
+        if (_areaDetect.AreaOne == true)
         {
             areaUm = true;
             areaDois = false;
             areaTres = false;
             areaQuatro = false;
         }
-        if (detect.GetComponent<AreaDetect>().AreaTwo == true)
+        if (_areaDetect.AreaTwo == true)
         {
             areaUm = false;
             areaDois = true;
             areaTres = false;
             areaQuatro = false;
         }
-        if (detect.GetComponent<AreaDetect>().AreaThree == true)
+        if (_areaDetect.AreaThree == true)
         {
             areaUm = false;
             areaDois = false;
             areaTres = true;
             areaQuatro = false;
         }
-        if (detect.GetComponent<AreaDetect>().AreaFour == true)
+        if (_areaDetect.AreaFour == true)
         {
             areaUm = false;
             areaDois = false;
@@ -39,5 +54,12 @@ public class PointDetection : MonoBehaviour
             areaQuatro = true;
         }
 
+        if (_ball.GetKickType() == Ball.KickType.SPECIAL)
+        {
+            special = true;
+        }
+        
+
+        
     }
 }

@@ -18,6 +18,13 @@ public class AbilityToTakeBall : AbilityBase
     public Action OnTakeBall;
     public Action OnCanNotTakeBall;
 
+    [Header("Lost Ball")]
+    public Vector3 direction = Vector3.up + Vector3.forward;
+    public ForceMode forceMode = ForceMode.Force;
+    public FloatSO movementForce;
+
+    private float _shoot => movementForce == null ? 4 : movementForce.value;
+
     private CollisionAndTrigger _collisionAndTrigger;
 
     private bool _touching;
@@ -78,6 +85,15 @@ public class AbilityToTakeBall : AbilityBase
 
         if (!ExecuteAction())
             return;
+
+        TakeBall(_ball);
+    }
+
+    private void TakeBall(Ball _ball)
+    {
+
+        Vector3 dir = _character.GetKickDirection(direction, _shoot);
+        _ball.Chutar(dir * _shoot, forceMode);
 
         _ball.Deattach();
 
