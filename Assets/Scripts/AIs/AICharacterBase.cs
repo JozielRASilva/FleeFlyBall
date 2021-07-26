@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class AICharacterBase : MonoBehaviour, AIBase
 {
@@ -43,6 +44,8 @@ public class AICharacterBase : MonoBehaviour, AIBase
     }
     #endregion
 
+    [Header("AI inputs")]
+    public AIInputAxis inputAxis;
 
     [Header("Gizmos")]
     public bool ShowGizmos = true;
@@ -55,9 +58,13 @@ public class AICharacterBase : MonoBehaviour, AIBase
         Init();
     }
 
+    private NavMeshPath path;
+
     protected virtual void Init()
     {
+        path = new NavMeshPath();
 
+        inputAxis = new AIInputAxis(path);
     }
 
     protected virtual void Start()
