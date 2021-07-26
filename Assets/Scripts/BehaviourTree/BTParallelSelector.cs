@@ -4,6 +4,17 @@ using System.Collections.Generic;
 
 public class BTParallelSelector : BTNode
 {
+
+    public BTParallelSelector()
+    {
+        name = "PARALLELSELECTOR";
+    }
+
+    public BTParallelSelector(string _name)
+    {
+        name = _name;
+    }
+
     public override IEnumerator Run(BehaviourTree bt)
     {
         status = Status.RUNNING;

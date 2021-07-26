@@ -4,6 +4,16 @@ using UnityEngine;
 public class BTSequence : BTNode
 {
 
+    public BTSequence()
+    {
+        name = "SEQUENCE";
+    }
+
+    public BTSequence(string _name)
+    {
+        name = _name;
+    }
+
     public override IEnumerator Run(BehaviourTree bt)
     {
 

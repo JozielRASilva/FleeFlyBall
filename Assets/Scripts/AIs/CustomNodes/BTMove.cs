@@ -2,17 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BTMove : MonoBehaviour
+public class BTMove : BTNode
 {
-    // Start is called before the first frame update
-    void Start()
+    public override IEnumerator Run(BehaviourTree bt)
     {
-        
+        yield return null;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

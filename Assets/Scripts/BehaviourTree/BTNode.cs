@@ -4,7 +4,8 @@ using UnityEngine;
 
 public abstract class BTNode
 {
-    
+
+    public string name = "NODE";    
 
     public enum Status { RUNNING, SUCCESS, FAILURE }
 

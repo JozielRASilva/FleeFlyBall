@@ -7,7 +7,7 @@ public class BehaviourTree : MonoBehaviour
 
     private string nodes;
 
-    
+
     private void Nodes()
     {
         GUILayout.Label($"{nodes}");
@@ -59,7 +59,7 @@ public class BehaviourTree : MonoBehaviour
 
     private string GetWriteNode(BTNode node)
     {
-        string value = $"{node.ToString()} : {node.status.ToString()}";
+        string value = $"{node.name} : {node.status.ToString()}";
 
         foreach (var _node in node.children)
         {
