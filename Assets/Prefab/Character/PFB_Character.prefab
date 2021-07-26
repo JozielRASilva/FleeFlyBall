@@ -223,6 +223,7 @@ MonoBehaviour:
   embassyBalanceCost: {fileID: 11400000, guid: fad747309ff952f48b6a8489b00994ce, type: 2}
   inputs:
   - {fileID: 11400000, guid: d6aa2a308bfde5c448b3f20b10590de4, type: 2}
+  - {fileID: 11400000, guid: 6de8f49bd19ed0b40b342ec7b38099dc, type: 2}
   sprintMovementInput:
   - {fileID: 11400000, guid: 0da9743302184d44798c52d664598587, type: 2}
 --- !u!1 &223793987519214070

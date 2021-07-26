@@ -259,7 +259,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f80bb56ebb590c141b0e35b4596b508a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  InputName: {fileID: 11400000, guid: d6aa2a308bfde5c448b3f20b10590de4, type: 2}
+  InputName: {fileID: 11400000, guid: 6de8f49bd19ed0b40b342ec7b38099dc, type: 2}
   XButtonName: Horizontal
   YButtonName: Vertical
 --- !u!1 &7989009266403049971
