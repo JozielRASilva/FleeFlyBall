@@ -5,7 +5,7 @@ using UnityEngine;
 public abstract class BTNode
 {
 
-    public string name = "NODE";    
+    public string name = "NODE";
 
     public enum Status { RUNNING, SUCCESS, FAILURE }
 
@@ -25,8 +25,14 @@ public abstract class BTNode
 
     }
 
-    public void SetNode(BTNode node){
+    public void SetNode(BTNode node)
+    {
         children.Add(node);
+    }
+
+    public virtual void OnStop(BehaviourTree bt)
+    {
+
     }
 
 

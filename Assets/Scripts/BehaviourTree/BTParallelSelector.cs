@@ -55,7 +55,11 @@ public class BTParallelSelector : BTNode
             {
                 foreach (var pair in coroutines)
                 {
-                    if (pair.Value != null) bt.StopCoroutine(pair.Value);
+                    if (pair.Value != null)
+                    {
+                        bt.StopCoroutine(pair.Value);
+                        pair.Key.OnStop(bt);
+                    }
                 }
             }
 

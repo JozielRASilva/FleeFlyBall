@@ -7,6 +7,8 @@ public class BehaviourTree : MonoBehaviour
 
     private string nodes;
 
+    private AICharacterBase _aiCharacter;
+    public AICharacterBase aICharacter { get => _aiCharacter; }
 
     private void Nodes()
     {
@@ -24,6 +26,8 @@ public class BehaviourTree : MonoBehaviour
 
     public void Initialize()
     {
+       _aiCharacter = GetComponent<AICharacterBase>();
+
         execution = StartCoroutine(Execute());
     }
 
