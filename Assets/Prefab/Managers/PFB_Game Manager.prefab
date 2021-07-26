@@ -462,6 +462,10 @@ PrefabInstance:
       propertyPath: CVCamera
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 1948433868168569703, guid: bcaf3ddfeb7c3184c891e04cecef628e, type: 3}
+      propertyPath: inputs.Array.size
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bcaf3ddfeb7c3184c891e04cecef628e, type: 3}
 --- !u!4 &761159857941335458 stripped

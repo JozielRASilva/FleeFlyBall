@@ -1,11 +1,51 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class AICharacterBase : MonoBehaviour, AIBase
 {
 
     protected BehaviourTree behaviourTree;
+
+
+    #region Target
+    [Header("Target info")]
+    private Vector3 _currentTarget;
+    private bool _hasTarget;
+
+    public void ChangeTarget(Vector3 target)
+    {
+        _currentTarget = target;
+
+        _hasTarget = true;
+    }
+
+    public void DisableTarget()
+    {
+        _currentTarget = Vector3.zero;
+
+        _hasTarget = false;
+    }
+
+    public bool CanGetTarget()
+    {
+        if (!_hasTarget)
+            return false;
+        return true;
+    }
+
+    public Vector3 GetTarget()
+    {
+        if (CanGetTarget())
+            return _currentTarget;
+        else
+            return Vector3.zero;
+    }
+    #endregion
+
+    [Header("AI inputs")]
+    public AIInputAxis inputAxis;
 
     [Header("Gizmos")]
     public bool ShowGizmos = true;
@@ -18,9 +58,13 @@ public class AICharacterBase : MonoBehaviour, AIBase
         Init();
     }
 
+    private NavMeshPath path;
+
     protected virtual void Init()
     {
+        path = new NavMeshPath();
 
+        inputAxis = new AIInputAxis(path);
     }
 
     protected virtual void Start()
