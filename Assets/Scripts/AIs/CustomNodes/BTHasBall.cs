@@ -2,17 +2,27 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BTHasBall : MonoBehaviour
+public class BTHasBall : BTNode
 {
-    // Start is called before the first frame update
-    void Start()
+    private BallPossession ballPossession;
+
+    public BTHasBall(string _name, BallPossession _ballPossession)
     {
-        
+        name = _name;
+
+        ballPossession = _ballPossession;
     }
 
-    // Update is called once per frame
-    void Update()
+    public override IEnumerator Run(BehaviourTree bt)
     {
-        
+        status = Status.FAILURE;
+
+        if (!ballPossession)
+            yield break;
+
+        if (ballPossession.HasBall())
+            status = Status.SUCCESS;
+
+        yield return null;
     }
 }

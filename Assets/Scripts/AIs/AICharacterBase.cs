@@ -124,9 +124,6 @@ public class AICharacterBase : MonoBehaviour, AIBase
 
         BTParallelSelector parallel = new BTParallelSelector();
 
-        BTMove move = new BTMove(0.2f, "Move to block");
-
-        parallel.SetNode(move);
 
         return parallel;
     }
