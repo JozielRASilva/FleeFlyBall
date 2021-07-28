@@ -8,11 +8,15 @@ public class TeamAreaController : MonoBehaviour
 
     public bool isDebug = true;
 
+    public TeamMember teamMember;
+
     private TeamArea _teamArea;
 
     private TeamGroup _teamGroup;
 
     private Dictionary<AreaBase, TeamMember> cover = new Dictionary<AreaBase, TeamMember>();
+
+    private List<AreaBase> areas = new List<AreaBase>();
 
     private void Awake()
     {
@@ -23,11 +27,17 @@ public class TeamAreaController : MonoBehaviour
 
     private void Start()
     {
-        foreach (var area in _teamArea.GetAreas())
+        areas = _teamArea.GetAreas();
+
+        foreach (var area in areas)
         {
             cover.Add(area, null);
         }
     }
+
+    public Vector3 point;
+
+    public int interval = 1;
 
     private void Update()
     {
@@ -40,12 +50,27 @@ public class TeamAreaController : MonoBehaviour
 
         foreach (var c in cover)
         {
+            if (!c.Value)
+                continue;
+
             Debug.DrawLine(c.Key.GetPosition(center), c.Value.transform.position, Color.blue);
 
             Debug.DrawLine(c.Key.GetPosition(center), c.Key.GetPosition(center) + Vector3.up * 2, Color.red);
 
             Debug.DrawLine(c.Value.transform.position, c.Value.transform.position + Vector3.up * 2, Color.red);
         }
+
+        if (!teamMember)
+            return;
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            point = GetRandomPointOnArea(teamMember);
+        }
+
+        Debug.DrawLine(
+            new Vector3(point.x, 0, point.y),
+            new Vector3(point.x, 0, point.y) + Vector3.up * 2, Color.green);
 
     }
 
@@ -56,20 +81,31 @@ public class TeamAreaController : MonoBehaviour
 
         List<TeamMember> _alreadySelected = new List<TeamMember>();
 
-        foreach (var area in _teamArea.GetAreas())
+        foreach (var area in areas)
         {
 
             TeamMember selected = null;
             float lastdistance = 0;
 
-            foreach (var member in _teamGroup.TeamMembers)
+            SelectMember(center, _alreadySelected, area, ref selected, ref lastdistance);
+
+            if (selected)
             {
-                if (member.IsMain)
-                    continue;
+                cover[area] = selected;
+                _alreadySelected.Add(selected);
+            }
+            else
+                cover[area] = null;
 
-                if (_alreadySelected.Contains(member))
-                    continue;
+        }
+    }
 
+    private void SelectMember(Vector3 center, List<TeamMember> _alreadySelected, AreaBase area, ref TeamMember selected, ref float lastdistance)
+    {
+        foreach (var member in _teamGroup.TeamMembers)
+        {
+            if (!member.IsMain && !_alreadySelected.Contains(member))
+            {
                 float distance = area.GetDistance(center, member.transform.position);
 
                 if (!selected)
@@ -83,15 +119,6 @@ public class TeamAreaController : MonoBehaviour
                     lastdistance = distance;
                 }
             }
-
-            if (selected)
-            {
-                cover[area] = selected;
-                _alreadySelected.Add(selected);
-            }
-            else
-                cover[area] = null;
-
         }
     }
 
@@ -119,6 +146,50 @@ public class TeamAreaController : MonoBehaviour
             return;
 
         cover[key] = null;
+    }
+
+    public Vector3 GetRandomPointOnArea(TeamMember member)
+    {
+        AreaBase area = null;
+
+        foreach (var c in cover)
+        {
+            if (!c.Value.Equals(member))
+                continue;
+            area = c.Key;
+        }
+
+        if (area == null)
+            return Vector3.zero;
+
+
+        Vector3 position = area.GetPosition(_teamArea.GetCenter());
+
+        Vector3 size = area.Size;
+
+        Vector2 weight = new Vector2(-(size.z / 2), size.z / 2);
+
+        int Z = GetRandomInRange(weight, interval);
+
+        Vector2 lenght = new Vector2(-(size.x / 2), size.x / 2);
+
+        int X = GetRandomInRange(lenght, interval);
+
+        return new Vector3(X, 0, Z);
+    }
+
+    public int GetRandomInRange(Vector2 range, int interval = 1)
+    {
+        Vector2Int rangeInt = new Vector2Int((int)range.x, (int)range.y);
+
+        int value = Random.Range(rangeInt.x, rangeInt.y);
+
+        if (value % interval != 0)
+        {
+            Debug.Log("Invalid value");
+        }
+
+        return value;
 
     }
 

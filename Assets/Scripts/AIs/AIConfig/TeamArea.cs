@@ -6,7 +6,6 @@ public class TeamArea : MonoBehaviour
 {
     public GameObject center;
 
-    public GameObject teste;
 
     public Vector3 areasSize = Vector3.one;
 
@@ -61,13 +60,8 @@ public class TeamArea : MonoBehaviour
 
         foreach (var area in areas)
         {
-            if (teste)
-                if (area.IsInside(_center, teste.transform.position))
-                    Gizmos.color = Color.red;
-                else
-                    Gizmos.color = Color.blue;
-            else
-                Gizmos.color = Color.blue;
+
+            Gizmos.color = Color.blue;
 
 
             Gizmos.DrawWireCube(area.GetPosition(_center), area.Size);

@@ -195,27 +195,6 @@ Transform:
   m_Father: {fileID: 1334826981}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &150152110 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 761159858406093711, guid: 40c9158e0fbf8fd4ea9b6edc38615b51, type: 3}
-  m_PrefabInstance: {fileID: 761159857956383755}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &150152111
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 150152110}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9089fa8c766dfca4299e8f565d7ae739, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  center: {fileID: 0}
-  teste: {fileID: 0}
-  areasSize: {x: 19, y: 14, z: 12}
-  ShowGismos: 1
 --- !u!1001 &151644011
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2434,10 +2413,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 761159857768750176, guid: 40c9158e0fbf8fd4ea9b6edc38615b51, type: 3}
-      propertyPath: m_AdditionalShaderChannelsFlag
-      value: 25
-      objectReference: {fileID: 0}
     - target: {fileID: 761159858406093709, guid: 40c9158e0fbf8fd4ea9b6edc38615b51, type: 3}
       propertyPath: CVCamera
       value: 
@@ -2490,66 +2465,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: PFB_Game Manager
       objectReference: {fileID: 0}
-    - target: {fileID: 4556561547036487797, guid: 40c9158e0fbf8fd4ea9b6edc38615b51, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5655220607315627612, guid: 40c9158e0fbf8fd4ea9b6edc38615b51, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 63.40039
-      objectReference: {fileID: 0}
-    - target: {fileID: 6688601983441546682, guid: 40c9158e0fbf8fd4ea9b6edc38615b51, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 7.67
-      objectReference: {fileID: 0}
-    - target: {fileID: 6688601983441546682, guid: 40c9158e0fbf8fd4ea9b6edc38615b51, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 4.83
-      objectReference: {fileID: 0}
-    - target: {fileID: 6761106346919926734, guid: 40c9158e0fbf8fd4ea9b6edc38615b51, type: 3}
-      propertyPath: m_CarveOnlyStationary
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9163723560730206216, guid: 40c9158e0fbf8fd4ea9b6edc38615b51, type: 3}
-      propertyPath: target
-      value: 
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 40c9158e0fbf8fd4ea9b6edc38615b51, type: 3}
---- !u!1 &761159857956383756 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 687711168177623362, guid: 40c9158e0fbf8fd4ea9b6edc38615b51, type: 3}
-  m_PrefabInstance: {fileID: 761159857956383755}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &761159857956383757
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 761159857956383756}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 619d59b01131dcb4699d6cc9bee36085, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _hasTarget: 0
-  inputAxis:
-    CanPerformInput: 0
-  ShowGizmos: 1
---- !u!114 &761159857956383767
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 761159857956383756}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7ea79e8a0f2ef3a4cbcd7473c4db13db, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 0}
 --- !u!1001 &3139344595546572480
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2718,6 +2635,22 @@ PrefabInstance:
     - target: {fileID: 3874577100827135398, guid: dad7e0236ae0e614d93e3a782c3918fd, type: 3}
       propertyPath: m_LocalPosition.z
       value: -13.622008
+      objectReference: {fileID: 0}
+    - target: {fileID: 3874577100827135399, guid: dad7e0236ae0e614d93e3a782c3918fd, type: 3}
+      propertyPath: field of view
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 3874577100827135399, guid: dad7e0236ae0e614d93e3a782c3918fd, type: 3}
+      propertyPath: far clip plane
+      value: 5000
+      objectReference: {fileID: 0}
+    - target: {fileID: 3874577100827135399, guid: dad7e0236ae0e614d93e3a782c3918fd, type: 3}
+      propertyPath: near clip plane
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3874577101381671035, guid: dad7e0236ae0e614d93e3a782c3918fd, type: 3}
+      propertyPath: m_CameraDistance
+      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dad7e0236ae0e614d93e3a782c3918fd, type: 3}
