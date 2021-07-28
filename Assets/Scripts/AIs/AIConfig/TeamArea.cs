@@ -44,6 +44,11 @@ public class TeamArea : MonoBehaviour
         center = newCenter;
     }
 
+    public Vector3 GetCenter()
+    {
+        return center ? center.transform.position : Vector3.zero;
+    }
+
     private void OnDrawGizmos()
     {
         if (!ShowGismos)

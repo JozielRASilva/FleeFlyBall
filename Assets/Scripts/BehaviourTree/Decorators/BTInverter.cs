@@ -3,6 +3,17 @@ using UnityEngine;
 
 public class BTInverter : BTNode
 {
+
+    public BTInverter()
+    {
+        name = "INVERTER";
+    }
+
+    public BTInverter(string _name)
+    {
+        name = _name;
+    }
+
     public override IEnumerator Run(BehaviourTree bt)
     {
 

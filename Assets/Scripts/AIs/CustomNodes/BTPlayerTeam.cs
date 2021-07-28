@@ -2,17 +2,31 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BTPlayerTeam : MonoBehaviour
+public class BTPlayerTeam : BTNode
 {
-    // Start is called before the first frame update
-    void Start()
+
+    private TeamMember member;
+
+    public BTPlayerTeam(string _name, TeamMember _teamMember)
     {
-        
+        name = _name;
+
+        member = _teamMember;
     }
 
-    // Update is called once per frame
-    void Update()
+    public override IEnumerator Run(BehaviourTree bt)
     {
-        
+        status = Status.FAILURE;
+
+        if (!TeamController.Instance)
+            yield break;
+
+        if (TeamController.Instance.GetPlayerGroup().IsMember(member))
+        {
+            status = Status.SUCCESS;
+        }
+
+        yield return null;
     }
+
 }

@@ -11,6 +11,8 @@ public class AIInputAxis : AIInputBase<Vector2>
 
     private NavMeshPath _path;
 
+    private NavMeshObstacle _obstacle;
+
     private List<Vector3> _lastCorners;
 
     private bool _started;
@@ -22,6 +24,12 @@ public class AIInputAxis : AIInputBase<Vector2>
         _path = path;
     }
 
+    public AIInputAxis(NavMeshPath path, NavMeshObstacle obstacle)
+    {
+        _path = path;
+        _obstacle = obstacle;
+    }
+
 
     private void UpdatePath(Vector3 current, Vector3 target)
     {
@@ -29,12 +37,12 @@ public class AIInputAxis : AIInputBase<Vector2>
             if (target == _lastTarget && _started)
                 return;
 
+
         NavMesh.CalculatePath(current, target, NavMesh.AllAreas, _path);
 
         _lastTarget = target;
 
         _lastCorners = _path.corners.ToList();
-
 
         if (_lastCorners.Count > 0)
             _lastCorners.RemoveAt(0);
@@ -46,7 +54,7 @@ public class AIInputAxis : AIInputBase<Vector2>
     public override Vector2 GetValue(AICharacterBase AI)
     {
         Vector2 value = Vector2.zero;
-        
+
         if (CanPerformInput)
         {
             UpdatePath(AI.transform.position, AI.GetTarget());

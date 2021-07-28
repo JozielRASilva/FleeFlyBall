@@ -8,10 +8,12 @@ public class AICharacterBase : MonoBehaviour, AIBase
 
     protected BehaviourTree behaviourTree;
 
+    private NavMeshObstacle _obstacle;
 
     #region Target
     [Header("Target info")]
     private Vector3 _currentTarget;
+    [SerializeField]
     private bool _hasTarget;
 
     public void ChangeTarget(Vector3 target)
@@ -62,9 +64,13 @@ public class AICharacterBase : MonoBehaviour, AIBase
 
     protected virtual void Init()
     {
+        _obstacle = GetComponent<NavMeshObstacle>();
+
         path = new NavMeshPath();
 
-        inputAxis = new AIInputAxis(path);
+        inputAxis = new AIInputAxis(path, _obstacle);
+
+
     }
 
     protected virtual void Start()
