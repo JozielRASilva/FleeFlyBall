@@ -4,6 +4,17 @@ using System.Collections.Generic;
 
 public class BTParallelSelector : BTNode
 {
+
+    public BTParallelSelector()
+    {
+        name = "PARALLELSELECTOR";
+    }
+
+    public BTParallelSelector(string _name)
+    {
+        name = _name;
+    }
+
     public override IEnumerator Run(BehaviourTree bt)
     {
         status = Status.RUNNING;
@@ -44,7 +55,11 @@ public class BTParallelSelector : BTNode
             {
                 foreach (var pair in coroutines)
                 {
-                    if (pair.Value != null) bt.StopCoroutine(pair.Value);
+                    if (pair.Value != null)
+                    {
+                        bt.StopCoroutine(pair.Value);
+                        pair.Key.OnStop(bt);
+                    }
                 }
             }
 

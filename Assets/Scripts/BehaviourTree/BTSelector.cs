@@ -3,6 +3,17 @@ using UnityEngine;
 
 public class BTSelector : BTNode
 {
+
+    public BTSelector()
+    {
+        name = "SELECTOR";
+    }
+
+    public BTSelector(string _name)
+    {
+        name = _name;
+    }
+
     public override IEnumerator Run(BehaviourTree bt)
     {
 

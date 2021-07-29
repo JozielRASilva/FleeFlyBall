@@ -35,6 +35,10 @@ public class AbilityWalk : AbilityBase
 
     private SpeedType _currentSpeedType = SpeedType.DEFAULT;
 
+    [Header("AI")]
+    AICharacterBase characterBase;
+
+
     protected override bool Authorized
     {
         get
@@ -50,6 +54,13 @@ public class AbilityWalk : AbilityBase
 
             return true;
         }
+    }
+
+    protected override void Initialize()
+    {
+        base.Initialize();
+
+        characterBase = _character.GetComponent<AICharacterBase>();
     }
 
     protected override void InitStatus()
@@ -191,6 +202,13 @@ public class AbilityWalk : AbilityBase
 
             case Character.ControlType.AI:
                 // Set AI input here
+                if (characterBase)
+                {
+                    Vector2 _value = characterBase.inputAxis.GetValue(characterBase);
+                    
+                    if (_value != Vector2.zero)
+                        return _value;
+                }
                 break;
         }
 
