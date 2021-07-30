@@ -46,5 +46,15 @@ MonoBehaviour:
   maxMusicVolume: 0.5
   music: []
   maxSoundFXVolume: 1
-  soundFX: []
+  soundFX:
+  - name: Click
+    audioClip: {fileID: 8300000, guid: 7bb972072ac6e0840a664c814900af80, type: 3}
+    volume: 1
+    loop: 0
+    audioSource: {fileID: 0}
+  - name: Return
+    audioClip: {fileID: 8300000, guid: 655ed654d00aa8147927a9b3643cfe9c, type: 3}
+    volume: 1
+    loop: 0
+    audioSource: {fileID: 0}
   playOnAwake: 

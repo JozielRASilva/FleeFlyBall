@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class MainMenuNavigation : MonoBehaviour
 {
+    public AudioPlayer audioPlayer;
+
     public GameObject mainMenu;
     public GameObject quitConfirmation;
     public GameObject settings;
@@ -21,14 +23,20 @@ public class MainMenuNavigation : MonoBehaviour
             if (seeConfirmation.activeSelf)
             {
                 seeConfirmation.SetActive(false);
+
+                audioPlayer.PlaySound("Return");
             }
             else if (settings.activeSelf)
             {
                 settings.SetActive(false);
+
+                audioPlayer.PlaySound("Return");
             }
             else if (quitConfirmation.activeSelf)
             {
                 quitConfirmation.SetActive(false);
+
+                audioPlayer.PlaySound("Return");
             }
             else
             {
