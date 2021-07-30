@@ -8,6 +8,8 @@ public class TeamAreaController : MonoBehaviour
 
     public bool isDebug = true;
 
+    public int interval = 2;
+
     public TeamMember teamMember;
 
     private TeamArea _teamArea;
@@ -35,9 +37,6 @@ public class TeamAreaController : MonoBehaviour
         }
     }
 
-    public Vector3 point;
-
-    public int interval = 1;
 
     private void Update()
     {
@@ -62,15 +61,6 @@ public class TeamAreaController : MonoBehaviour
 
         if (!teamMember)
             return;
-
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            point = GetRandomPointOnArea(teamMember);
-        }
-
-        Debug.DrawLine(
-            new Vector3(point.x, 0, point.y),
-            new Vector3(point.x, 0, point.y) + Vector3.up * 2, Color.green);
 
     }
 
@@ -175,7 +165,8 @@ public class TeamAreaController : MonoBehaviour
 
         int X = GetRandomInRange(lenght, interval);
 
-        return new Vector3(X, 0, Z);
+        return new Vector3(X + position.x, 0, Z + position.z
+        );
     }
 
     public int GetRandomInRange(Vector2 range, int interval = 1)
@@ -184,9 +175,9 @@ public class TeamAreaController : MonoBehaviour
 
         int value = Random.Range(rangeInt.x, rangeInt.y);
 
-        if (value % interval != 0)
+        while (value % interval != 0)
         {
-            Debug.Log("Invalid value");
+            value = Random.Range(rangeInt.x, rangeInt.y);
         }
 
         return value;
