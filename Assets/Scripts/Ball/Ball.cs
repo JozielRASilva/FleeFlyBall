@@ -13,11 +13,7 @@ public class Ball : MonoBehaviour
     public bool inField;
 
     public bool grounded;
-
-    public bool firstTeam;
-
-    public bool secondTeam;
-
+    
     public bool AutoControl = true;
 
     public enum BallState { NONE, KICKED, PASSED }
@@ -50,6 +46,7 @@ public class Ball : MonoBehaviour
 
     private Coroutine _passCoroutine;
 
+    public TeamGroup _teamGroup;
 
     private void Awake()
     {
@@ -127,6 +124,9 @@ public class Ball : MonoBehaviour
         onPlayer = false;
 
         _rigidbody.isKinematic = false;
+
+
+        
     }
 
     public void ControleFisica()

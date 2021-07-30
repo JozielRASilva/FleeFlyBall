@@ -9,6 +9,8 @@ public class Quadra : MonoBehaviour
     Collider m_Collider;
     Vector3 m_Point;
 
+    public bool dentro;
+
     void Start()
     {
         //Fetch the Collider from the GameObject this script is attached to
@@ -22,7 +24,13 @@ public class Quadra : MonoBehaviour
         //If the first GameObject's Bounds contains the Transform's position, output a message in the console
         if (m_Collider.bounds.Contains(m_Point))
         {
-            print("Dentro");
+           // print("Dentro");
+            dentro = true;
+        }
+        else
+        {
+            dentro = false;
+            print("Fora");
         }
     }
 

@@ -56,7 +56,7 @@ public class AreaDetect : MonoBehaviour
            
 
         }
-        if (Bola.transform.position.z > centroArea.z)
+        if (Bola.transform.position.z < centroArea.z)
         {
             AreaRight = false;
            

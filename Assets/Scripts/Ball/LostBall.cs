@@ -14,10 +14,6 @@ public class LostBall : MonoBehaviour
 
     public void TeamBallPosetion()
     {
-        if (bola.GetComponent<Ball>().firstTeam == true)
-        {
-            bola.GetComponent<Ball>().firstTeam = false;
-            bola.GetComponent<Ball>().firstTeam = true;
-        }
+   
     }
 }

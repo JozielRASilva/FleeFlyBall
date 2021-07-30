@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class PlayersPosition : MonoBehaviour
 {
-    public GameObject PlayerOne;
-    public GameObject PlayerTwo;
+  
 
     void Start()
     {
