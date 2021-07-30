@@ -78,6 +78,8 @@ public class AICharacterBase : MonoBehaviour, AIBase
 
         _teamMember = GetComponent<TeamMember>();
 
+        behaviourTree = GetComponent<BehaviourTree>();
+
     }
 
     protected virtual void Start()
@@ -93,7 +95,7 @@ public class AICharacterBase : MonoBehaviour, AIBase
             behaviourTree = gameObject.AddComponent<BehaviourTree>();
         }
 
-        BTSelector root = new BTSelector();
+        BTSelector root = new BTSelector("ROOT");
 
         root.SetNode(GetBranch());
 

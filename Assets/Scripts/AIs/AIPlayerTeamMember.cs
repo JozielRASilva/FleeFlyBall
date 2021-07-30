@@ -36,7 +36,7 @@ public class AIPlayerTeamMember : AICharacterBase
         sequence.SetNode(sq_checkplayercontrol);
         sequence.SetNode(sequence_move);
 
-        return base.GetBranch();
+        return sequence;
     }
 
     private BTNode GetBranchCheckPlayerControl()
@@ -45,15 +45,15 @@ public class AIPlayerTeamMember : AICharacterBase
 
         BTPlayerControl playerControl = new BTPlayerControl("Player Control", _teamMember);
 
-        BTParallelSelector parallelSelector = new BTParallelSelector();
+        //BTParallelSelector parallelSelector = new BTParallelSelector("Checking control");
         BTInverter inverter = new BTInverter();
-        BTPlayerControl _playerControl = new BTPlayerControl("Player Control", _teamMember);
+        //BTPlayerControl _playerControl = new BTPlayerControl("Player Control", _teamMember);
 
-        inverter.SetNode(_playerControl);
-        parallelSelector.SetNode(inverter);
+        inverter.SetNode(playerControl);
+        //parallelSelector.SetNode(inverter);
 
-        sq_checkplayercontrol.SetNode(playerControl);
-        sq_checkplayercontrol.SetNode(parallelSelector);
+        sq_checkplayercontrol.SetNode(inverter);
+        //sq_checkplayercontrol.SetNode(parallelSelector);
         return sq_checkplayercontrol;
     }
 
