@@ -22,21 +22,42 @@ public class AudioManager : MonoBehaviour
 
     public Sound[] soundFX;
 
+    [Header("Play on Awake")]
+    public string playOnAwake;
+
     private void Awake()
     {
         if (!PlayerPrefs.HasKey("Music"))
         {
-            PlayerPrefs.SetInt("Music", 1);
+            musicVolume = maxMusicVolume;
+        }
+        else
+        {
+            if (PlayerPrefs.GetInt("Music") == 1)
+            {
+                musicVolume = maxMusicVolume;
+            }
+            else
+            {
+                musicVolume = 0;
+            }
         }
 
         if (!PlayerPrefs.HasKey("Sound FX"))
         {
-            PlayerPrefs.SetInt("Sound FX", 1);
+            soundFXVolume = maxSoundFXVolume;
         }
-
-        SetMusic(PlayerPrefs.GetInt("Music") == 1);
-
-        SetSoundFX(PlayerPrefs.GetInt("Sound FX") == 1);
+        else
+        {
+            if (PlayerPrefs.GetInt("Sound FX") == 1)
+            {
+                soundFXVolume = maxSoundFXVolume;
+            }
+            else
+            {
+                soundFXVolume = 0;
+            }
+        }
 
         foreach (Sound s in music)
         {
@@ -44,7 +65,9 @@ public class AudioManager : MonoBehaviour
 
             s.audioSource.clip = s.audioClip;
 
-            s.audioSource.volume = maxMusicVolume * s.volume;
+            s.audioSource.volume = musicVolume * s.volume;
+
+            s.audioSource.loop = s.loop;
         }
 
         foreach (Sound s in soundFX)
@@ -53,8 +76,12 @@ public class AudioManager : MonoBehaviour
 
             s.audioSource.clip = s.audioClip;
 
-            s.audioSource.volume = maxSoundFXVolume * s.volume;
+            s.audioSource.volume = soundFXVolume * s.volume;
+
+            s.audioSource.loop = s.loop;
         }
+
+        Play(playOnAwake);
     }
 
     void SetMusic(bool set)
@@ -70,6 +97,11 @@ public class AudioManager : MonoBehaviour
             musicVolume = 0f;
 
             PlayerPrefs.SetInt("Music", 0);
+        }
+
+        foreach (Sound s in music)
+        {
+            s.audioSource.volume = musicVolume * s.volume;
         }
     }
 
@@ -87,15 +119,24 @@ public class AudioManager : MonoBehaviour
 
             PlayerPrefs.SetInt("Sound FX", 0);
         }
+
+        foreach (Sound s in soundFX)
+        {
+            s.audioSource.volume = soundFXVolume * s.volume;
+        }
     }
 
-    void PlayMusic(string name)
+    void Play(string name)
     {
-        Array.Find(music, sound => sound.name == name).audioSource.Play();
-    }
+        Sound s = Array.Find(music, sound => sound.name == name);
 
-    void PlaySoundFX(string name)
-    {
-        Array.Find(soundFX, sound => sound.name == name).audioSource.Play();
+        if (s == null)
+        {
+            s = Array.Find(soundFX, sound => sound.name == name);
+
+            if (s == null) return;
+        }
+
+        s.audioSource.Play();
     }
 }
