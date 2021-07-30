@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class BehaviourTree : MonoBehaviour
 {
+
+    public TextMeshProUGUI textPro;
 
     private string nodes;
 
@@ -26,7 +29,7 @@ public class BehaviourTree : MonoBehaviour
 
     public void Initialize()
     {
-       _aiCharacter = GetComponent<AICharacterBase>();
+        _aiCharacter = GetComponent<AICharacterBase>();
 
         execution = StartCoroutine(Execute());
     }
@@ -54,6 +57,9 @@ public class BehaviourTree : MonoBehaviour
     private void LateUpdate()
     {
         nodes = GetNodes();
+
+        if (textPro)
+            textPro.text = nodes;
     }
 
     private string GetNodes()

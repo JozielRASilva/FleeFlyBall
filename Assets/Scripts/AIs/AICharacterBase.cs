@@ -8,13 +8,25 @@ public class AICharacterBase : MonoBehaviour, AIBase
 
     protected BehaviourTree behaviourTree;
 
-    private NavMeshObstacle _obstacle;
+    protected NavMeshObstacle _obstacle;
 
     #region Target
     [Header("Target info")]
-    private Vector3 _currentTarget;
+    protected Vector3 _currentTarget;
     [SerializeField]
-    private bool _hasTarget;
+    protected bool _hasTarget;
+
+    protected TeamMember _teamMember;
+    protected Character _character;
+
+
+    [Header("AI inputs")]
+    public AIInputAxis inputAxis;
+
+    [Header("Gizmos")]
+    public bool ShowGizmos = true;
+
+    protected NavMeshPath path;
 
     public void ChangeTarget(Vector3 target)
     {
@@ -46,12 +58,6 @@ public class AICharacterBase : MonoBehaviour, AIBase
     }
     #endregion
 
-    [Header("AI inputs")]
-    public AIInputAxis inputAxis;
-
-    [Header("Gizmos")]
-    public bool ShowGizmos = true;
-
 
     #region  SETUP
     protected virtual void Awake()
@@ -59,8 +65,6 @@ public class AICharacterBase : MonoBehaviour, AIBase
 
         Init();
     }
-
-    private NavMeshPath path;
 
     protected virtual void Init()
     {
@@ -70,6 +74,9 @@ public class AICharacterBase : MonoBehaviour, AIBase
 
         inputAxis = new AIInputAxis(path, _obstacle);
 
+        _character = GetComponent<Character>();
+
+        _teamMember = GetComponent<TeamMember>();
 
     }
 
