@@ -169,7 +169,7 @@ public class TeamAreaController : MonoBehaviour
         );
     }
 
-    public int GetRandomInRange(Vector2 range, int interval = 1)
+    private int GetRandomInRange(Vector2 range, int interval = 1)
     {
         Vector2Int rangeInt = new Vector2Int((int)range.x, (int)range.y);
 

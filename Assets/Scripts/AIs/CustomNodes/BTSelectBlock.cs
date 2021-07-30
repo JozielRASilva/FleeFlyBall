@@ -7,9 +7,13 @@ public class BTSelectBlock : BTNode
 
     private TeamGroup _teamGroup;
 
+    private TeamMember _teamMember;
+
     private TeamArea _teamArea;
 
-    public BTSelectBlock(string _name, TeamGroup teamGroup)
+    private TeamAreaController _teamAreaController;
+
+    public BTSelectBlock(string _name, TeamGroup teamGroup, TeamMember teamMember)
     {
         name = _name;
 
@@ -17,10 +21,24 @@ public class BTSelectBlock : BTNode
 
         _teamArea = _teamGroup.GetComponent<TeamArea>();
 
+        _teamAreaController = _teamGroup.GetComponent<TeamAreaController>();
+
+        _teamMember = teamMember;
+
     }
 
     public override IEnumerator Run(BehaviourTree bt)
     {
+        status = Status.FAILURE;
+
+        if (_teamAreaController)
+        {
+            Vector3 point = _teamAreaController.GetRandomPointOnArea(_teamMember);
+
+            bt.aICharacter.ChangeTarget(point);
+
+            status = Status.SUCCESS;
+        }
 
         yield break;
     }
