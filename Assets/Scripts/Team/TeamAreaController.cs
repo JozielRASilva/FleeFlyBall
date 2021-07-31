@@ -10,6 +10,8 @@ public class TeamAreaController : MonoBehaviour
 
     public int interval = 2;
 
+    public TeamArea TeamArea => _teamArea;
+
     public TeamMember teamMember;
 
     private TeamArea _teamArea;

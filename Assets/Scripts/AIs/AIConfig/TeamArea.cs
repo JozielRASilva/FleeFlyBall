@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class TeamArea : MonoBehaviour
 {
-    public GameObject center;
+    [SerializeField]
+    private GameObject center;
 
 
     public Vector3 areasSize = Vector3.one;

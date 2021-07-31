@@ -42,7 +42,7 @@ public class BTMove : BTNode
         }
 
         bt.aICharacter.inputAxis.StopPerform();
-        bt.aICharacter.DisableTarget();
+        
 
         status = Status.SUCCESS;
     }
@@ -52,7 +52,6 @@ public class BTMove : BTNode
         base.OnStop(bt);
 
         bt.aICharacter.inputAxis.StopPerform();
-        bt.aICharacter.DisableTarget();
     }
 
 }
