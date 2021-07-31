@@ -2,19 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
-public abstract class AreaBase
+[System.Serializable]
+public class AreaBase
 {
     protected virtual bool top { get; }
     protected virtual bool left { get; }
 
     private Vector3 _positionAjust;
 
+    [SerializeField]
     private Vector3 _size;
 
     public Vector3 Size { get => _size; }
 
     protected AreaBase(Vector3 size)
+    {
+        ApplySize(size);
+    }
+
+    public void ApplySize(Vector3 size)
     {
         if (top)
             _positionAjust.z = Mathf.Abs(size.z / 2);
@@ -61,6 +67,7 @@ public abstract class AreaBase
 
 }
 
+[System.Serializable]
 public class FirstArea : AreaBase
 {
     public FirstArea(Vector3 _size) : base(_size)
@@ -72,7 +79,7 @@ public class FirstArea : AreaBase
 
 }
 
-
+[System.Serializable]
 public class SecondArea : AreaBase
 {
     public SecondArea(Vector3 _size) : base(_size)
@@ -83,7 +90,7 @@ public class SecondArea : AreaBase
     protected override bool left { get => false; }
 }
 
-
+[System.Serializable]
 public class ThirdArea : AreaBase
 {
     public ThirdArea(Vector3 _size) : base(_size)
@@ -94,7 +101,7 @@ public class ThirdArea : AreaBase
     protected override bool left { get => true; }
 }
 
-
+[System.Serializable]
 public class FourthArea : AreaBase
 {
     public FourthArea(Vector3 _size) : base(_size)

@@ -30,6 +30,15 @@ public class BTMove : BTNode
     {
         status = Status.RUNNING;
 
+        if (BlockLimits.Instance)
+        {
+            if (!BlockLimits.Instance.IsInside(bt.aICharacter.GetTarget()))
+            {
+                status = Status.FAILURE;
+                yield break;
+            }
+        }
+
         if (bt.aICharacter.CanGetTarget())
         {
             while (Vector3.Distance(bt.aICharacter.GetTarget(), bt.transform.position) > distance)
@@ -42,7 +51,7 @@ public class BTMove : BTNode
         }
 
         bt.aICharacter.inputAxis.StopPerform();
-        
+
 
         status = Status.SUCCESS;
     }

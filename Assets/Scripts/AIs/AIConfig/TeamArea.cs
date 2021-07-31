@@ -10,10 +10,15 @@ public class TeamArea : MonoBehaviour
 
     public Vector3 areasSize = Vector3.one;
 
+    [Header("Gizmos")]
+
     public bool ShowGismos = true;
+
+    public Color color = Color.blue;
 
     private const int AreaNumber = 4;
 
+    [SerializeField]
     private List<AreaBase> areas = new List<AreaBase>();
 
     private void Awake()
@@ -39,6 +44,22 @@ public class TeamArea : MonoBehaviour
         return areas;
     }
 
+    public void OverrideSizes(Vector3 newSize)
+    {
+        foreach (var area in areas)
+        {
+            area.ApplySize(newSize);
+        }
+    }
+
+    public void ResetOverrideSize()
+    {
+        foreach (var area in areas)
+        {
+            area.ApplySize(areasSize);
+        }
+    }
+
     public void ChangeCenter(GameObject newCenter = null)
     {
         center = newCenter;
@@ -54,15 +75,12 @@ public class TeamArea : MonoBehaviour
         if (!ShowGismos)
             return;
 
-        if (Application.isEditor)
-            InitAreas();
-
         Vector3 _center = center ? center.transform.position : this.transform.position;
 
         foreach (var area in areas)
         {
 
-            Gizmos.color = Color.blue;
+            Gizmos.color = color;
 
 
             Gizmos.DrawWireCube(area.GetPosition(_center), area.Size);
@@ -70,6 +88,11 @@ public class TeamArea : MonoBehaviour
 
 
 
+    }
+
+    private void OnValidate()
+    {
+        InitAreas();
     }
 
 }

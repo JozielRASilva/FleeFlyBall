@@ -40,6 +40,16 @@ public class TeamGroup : MonoBehaviour
 
     }
 
+    public TeamMember GetMain()
+    {
+        foreach (var member in teamMembers)
+        {
+            if (member.IsMain)
+                return member;
+        }
+
+        return null;
+    }
 
     public bool IsMember(TeamMember member)
     {
@@ -127,7 +137,7 @@ public class TeamGroup : MonoBehaviour
         }
     }
 
-    private bool HasBall()
+    public bool HasBall()
     {
         foreach (var member in teamMembers)
         {

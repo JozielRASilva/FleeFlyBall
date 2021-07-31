@@ -3,12 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 
+[RequireComponent(typeof(TeamArea))]
 public class TeamAreaController : MonoBehaviour
 {
 
     public bool isDebug = true;
 
     public int interval = 2;
+
+    public Vector3 overrideSizeWithBall = Vector3.one;
 
     public TeamArea TeamArea => _teamArea;
 
@@ -24,6 +27,7 @@ public class TeamAreaController : MonoBehaviour
 
     private void Awake()
     {
+
         _teamArea = GetComponent<TeamArea>();
 
         _teamGroup = GetComponent<TeamGroup>();
@@ -42,6 +46,8 @@ public class TeamAreaController : MonoBehaviour
 
     private void Update()
     {
+        UpdateCenter();
+
         DistributeAreas();
 
         if (!isDebug)
@@ -66,6 +72,25 @@ public class TeamAreaController : MonoBehaviour
 
     }
 
+    private void UpdateCenter()
+    {
+        if (_teamGroup.HasBall())
+        {
+            TeamMember main = _teamGroup.GetMain();
+            if (main)
+            {
+                _teamArea.ChangeCenter(main.gameObject);
+                Debug.Log("Override");
+                _teamArea.OverrideSizes(overrideSizeWithBall);
+            }
+        }
+        else
+        {
+            _teamArea.ChangeCenter();
+
+            _teamArea.ResetOverrideSize();
+        }
+    }
 
     public void DistributeAreas()
     {
