@@ -42,7 +42,7 @@ public class AbilityShoot : AbilityBase
 
     }
 
-    
+
 
     private void ApplyBalanceCost()
     {
@@ -74,6 +74,12 @@ public class AbilityShoot : AbilityBase
 
             case Character.ControlType.AI:
                 // Set AI input here
+                if (characterBase)
+                {
+                    bool _value = characterBase.inputShoot.GetValue(characterBase);
+
+                    return _value;
+                }
                 break;
         }
 

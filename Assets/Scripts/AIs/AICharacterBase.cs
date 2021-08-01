@@ -23,6 +23,12 @@ public class AICharacterBase : MonoBehaviour, AIBase
     [Header("AI inputs")]
     public AIInputAxis inputAxis;
 
+    public AIInputButton inputShoot;
+
+    public AIInputButton inputIntercept;
+
+    public AIInputButton inputPass;
+
     [Header("Gizmos")]
     public bool ShowGizmos = true;
     public bool ShowTarget = false;

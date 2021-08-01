@@ -35,10 +35,6 @@ public class AbilityWalk : AbilityBase
 
     private SpeedType _currentSpeedType = SpeedType.DEFAULT;
 
-    [Header("AI")]
-    AICharacterBase characterBase;
-
-
     protected override bool Authorized
     {
         get
@@ -58,9 +54,7 @@ public class AbilityWalk : AbilityBase
 
     protected override void Initialize()
     {
-        base.Initialize();
-
-        characterBase = _character.GetComponent<AICharacterBase>();
+        base.Initialize();        
     }
 
     protected override void InitStatus()

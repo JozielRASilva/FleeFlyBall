@@ -186,6 +186,12 @@ public class AbilityPass : AbilityBase
 
             case Character.ControlType.AI:
                 // Set AI input here
+                if (characterBase)
+                {
+                    bool _value = characterBase.inputPass.GetValue(characterBase);
+
+                    return _value;
+                }
                 break;
         }
 

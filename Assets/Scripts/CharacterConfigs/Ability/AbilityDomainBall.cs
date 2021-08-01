@@ -83,7 +83,7 @@ public class AbilityDomainBall : AbilityBase
         _character.BallPossession.AttachBall(_ball);
         ApplyBalanceCost();
     }
-    
+
     private void ApplyBalanceCost()
     {
         float value = 1;
@@ -114,6 +114,12 @@ public class AbilityDomainBall : AbilityBase
 
             case Character.ControlType.AI:
                 // Set AI input here
+                if (characterBase)
+                {
+                    bool _value = characterBase.inputIntercept.GetValue(characterBase);
+
+                    return _value;
+                }
                 break;
         }
 

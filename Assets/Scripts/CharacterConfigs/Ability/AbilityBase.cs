@@ -9,6 +9,10 @@ public abstract class AbilityBase : MonoBehaviour
 
     public List<CharacterInfo.CharacterStates> BlockOnStates = new List<CharacterInfo.CharacterStates>();
 
+    [Header("AI")]
+    protected AICharacterBase characterBase;
+
+
     protected virtual bool Authorized
     {
         get
@@ -34,6 +38,8 @@ public abstract class AbilityBase : MonoBehaviour
             _character = GetComponentInParent<Character>();
         if (!_character)
             _character = GetComponentInChildren<Character>();
+
+        characterBase = _character.GetComponent<AICharacterBase>();
 
         Initialize();
         InitStatus();

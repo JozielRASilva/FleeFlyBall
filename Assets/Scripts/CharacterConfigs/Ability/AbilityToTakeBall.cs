@@ -130,6 +130,12 @@ public class AbilityToTakeBall : AbilityBase
 
             case Character.ControlType.AI:
                 // Set AI input here
+                if (characterBase)
+                {
+                    bool _value = characterBase.inputIntercept.GetValue(characterBase);
+
+                    return _value;
+                }
                 break;
         }
 
