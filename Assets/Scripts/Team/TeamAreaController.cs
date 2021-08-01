@@ -80,7 +80,7 @@ public class TeamAreaController : MonoBehaviour
             if (main)
             {
                 _teamArea.ChangeCenter(main.gameObject);
-                Debug.Log("Override");
+
                 _teamArea.OverrideSizes(overrideSizeWithBall);
             }
         }

@@ -25,6 +25,7 @@ public class AICharacterBase : MonoBehaviour, AIBase
 
     [Header("Gizmos")]
     public bool ShowGizmos = true;
+    public bool ShowTarget = false;
 
     protected NavMeshPath path;
 
@@ -142,6 +143,11 @@ public class AICharacterBase : MonoBehaviour, AIBase
     {
         if (!ShowGizmos) return;
 
+        if (ShowTarget)
+        {
+            Gizmos.color = Color.black;
+            Gizmos.DrawLine(GetTarget(), GetTarget() + (Vector3.up * 5));
+        }
     }
 
 

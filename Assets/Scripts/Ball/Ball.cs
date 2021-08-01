@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public class Ball : MonoBehaviour
+public class Ball : Singleton<Ball>
 {
 
 
@@ -13,12 +13,12 @@ public class Ball : MonoBehaviour
     public bool inField;
 
     public bool grounded;
-    
+
     public bool AutoControl = true;
 
     public enum BallState { NONE, KICKED, PASSED }
     public BallState _ballState = BallState.NONE;
-    
+
 
     public enum KickType { NONE, NORMAL, SPECIAL }
     [SerializeField]
@@ -48,8 +48,10 @@ public class Ball : MonoBehaviour
 
     public TeamGroup _teamGroup;
 
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
+        
         _rigidbody = GetComponent<Rigidbody>();
 
         if (pointDetect)
@@ -126,7 +128,7 @@ public class Ball : MonoBehaviour
         _rigidbody.isKinematic = false;
 
 
-        
+
     }
 
     public void ControleFisica()
