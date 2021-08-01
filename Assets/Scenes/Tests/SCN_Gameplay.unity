@@ -2541,6 +2541,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 383680393011434348, guid: 40c9158e0fbf8fd4ea9b6edc38615b51, type: 3}
+      propertyPath: InputName
+      value: 
+      objectReference: {fileID: 11400000, guid: e8bffe86df413294caa051d5acab7438, type: 2}
+    - target: {fileID: 383680393011434348, guid: 40c9158e0fbf8fd4ea9b6edc38615b51, type: 3}
+      propertyPath: ButtonName
+      value: Fire3
+      objectReference: {fileID: 0}
     - target: {fileID: 761159858406093709, guid: 40c9158e0fbf8fd4ea9b6edc38615b51, type: 3}
       propertyPath: CVCamera
       value: 
@@ -2593,6 +2601,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: PFB_Game Manager
       objectReference: {fileID: 0}
+    - target: {fileID: 4254575592417896977, guid: 40c9158e0fbf8fd4ea9b6edc38615b51, type: 3}
+      propertyPath: InputName
+      value: 
+      objectReference: {fileID: 11400000, guid: 9cde39fd0d2574b40aabbf052777e265, type: 2}
+    - target: {fileID: 4254575592417896977, guid: 40c9158e0fbf8fd4ea9b6edc38615b51, type: 3}
+      propertyPath: ButtonName
+      value: Fire1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4254575593447118335, guid: 40c9158e0fbf8fd4ea9b6edc38615b51, type: 3}
+      propertyPath: InputName
+      value: 
+      objectReference: {fileID: 11400000, guid: 6de8f49bd19ed0b40b342ec7b38099dc, type: 2}
+    - target: {fileID: 4883712399570776909, guid: 40c9158e0fbf8fd4ea9b6edc38615b51, type: 3}
+      propertyPath: InputName
+      value: 
+      objectReference: {fileID: 11400000, guid: 25a62a59803b9f84895dacb89e3cdeed, type: 2}
+    - target: {fileID: 4883712399570776909, guid: 40c9158e0fbf8fd4ea9b6edc38615b51, type: 3}
+      propertyPath: ButtonName
+      value: Fire2
+      objectReference: {fileID: 0}
     - target: {fileID: 6688601983441546682, guid: 40c9158e0fbf8fd4ea9b6edc38615b51, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -2604,6 +2632,22 @@ PrefabInstance:
     - target: {fileID: 6688601983441546682, guid: 40c9158e0fbf8fd4ea9b6edc38615b51, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6760090730556773709, guid: 40c9158e0fbf8fd4ea9b6edc38615b51, type: 3}
+      propertyPath: InputName
+      value: 
+      objectReference: {fileID: 11400000, guid: 0da9743302184d44798c52d664598587, type: 2}
+    - target: {fileID: 6760090730556773709, guid: 40c9158e0fbf8fd4ea9b6edc38615b51, type: 3}
+      propertyPath: ButtonName
+      value: Fire1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7772954507926115316, guid: 40c9158e0fbf8fd4ea9b6edc38615b51, type: 3}
+      propertyPath: InputName
+      value: 
+      objectReference: {fileID: 11400000, guid: 66e1fd53edc67294995d76bf2a7af650, type: 2}
+    - target: {fileID: 7772954507926115316, guid: 40c9158e0fbf8fd4ea9b6edc38615b51, type: 3}
+      propertyPath: ButtonName
+      value: Fire2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 40c9158e0fbf8fd4ea9b6edc38615b51, type: 3}
