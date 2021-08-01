@@ -2649,6 +2649,10 @@ PrefabInstance:
       propertyPath: ButtonName
       value: Fire2
       objectReference: {fileID: 0}
+    - target: {fileID: 8341846148858161261, guid: 40c9158e0fbf8fd4ea9b6edc38615b51, type: 3}
+      propertyPath: ShowTarget
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 40c9158e0fbf8fd4ea9b6edc38615b51, type: 3}
 --- !u!1001 &3139344595546572480
