@@ -7,6 +7,8 @@ using System;
 public class TeamGroup : MonoBehaviour
 {
 
+    public Goal thisGoal;
+
     public CinemachineVirtualCamera CVCamera;
 
     public bool isPlayerGroup = true;

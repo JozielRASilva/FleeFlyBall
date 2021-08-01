@@ -196,6 +196,28 @@ public class TeamAreaController : MonoBehaviour
         );
     }
 
+    
+    public Vector3 GetRandomPointOnArea(TeamMember member, AreaBase area)
+    {
+        if (area == null)
+            return Vector3.zero;
+
+        Vector3 position = area.GetPosition(_teamArea.GetCenter());
+
+        Vector3 size = area.Size;
+
+        Vector2 weight = new Vector2(-(size.z / 2), size.z / 2);
+
+        int Z = GetRandomInRange(weight, interval);
+
+        Vector2 lenght = new Vector2(-(size.x / 2), size.x / 2);
+
+        int X = GetRandomInRange(lenght, interval);
+
+        return new Vector3(X + position.x, 0, Z + position.z
+        );
+    }
+
     private int GetRandomInRange(Vector2 range, int interval = 1)
     {
         Vector2Int rangeInt = new Vector2Int((int)range.x, (int)range.y);

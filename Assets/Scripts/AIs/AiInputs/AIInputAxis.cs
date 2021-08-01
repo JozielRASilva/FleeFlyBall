@@ -53,6 +53,9 @@ public class AIInputAxis : AIInputBase<Vector2>
 
     public override Vector2 GetValue(AICharacterBase AI)
     {
+        if (_PerformFixed)
+            return _fixedValue;
+
         Vector2 value = Vector2.zero;
 
         if (CanPerformInput)

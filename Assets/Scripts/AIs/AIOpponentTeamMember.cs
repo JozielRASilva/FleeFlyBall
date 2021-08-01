@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class AIOpponentTeamMember : AICharacterBase
 {
+
+    [SerializeField]
+    private TeamArea AreasToKick;
+
     public override BTNode GetBranch()
     {
         BTSelector _base = new BTSelector("OPPONENT TEAM");
@@ -41,6 +45,12 @@ public class AIOpponentTeamMember : AICharacterBase
         SCParallel.SetNode(ballHasPossession);
 
         return sequence;
+    }
+
+    private BTNode GetAttackOnGol()
+    {
+        
+        return null;
     }
 
 
