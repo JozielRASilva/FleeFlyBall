@@ -39,7 +39,6 @@ public class BTShootToGoal : BTNode
 
         yield return bt.StartCoroutine(LookAtGol(bt));
 
-        // Perform Input
         bt.aICharacter.inputShoot.Perform();
 
         yield return new WaitForSeconds(_waitTimeAfterShoot);
