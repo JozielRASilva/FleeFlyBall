@@ -7,6 +7,7 @@ public class Goal : MonoBehaviour
 {
     //Mudar os valores do score para gol do time vermelho
     
+    public Score _score;
     
     
     public int ScoreOne = 0;
@@ -19,14 +20,13 @@ public class Goal : MonoBehaviour
 
     public UnityAction OnGoalScored;
 
-    public bool GolPlayer;
+    public bool golPlayer;
+        
+    public Positions _positions;
     
 
 
-    void Update()
-    {
-        
-    }
+    
 
     private void OnTriggerEnter(Collider other)
     {
@@ -38,10 +38,22 @@ public class Goal : MonoBehaviour
             if (_pointDetection.areaQuatro == true) ScoreOne += fourPoints;
             if (_pointDetection.special == true) ScoreOne ++;
 
-            OnGoalScored.Invoke();
+            //OnGoalScored.Invoke();
+
+            if (golPlayer)
+            {
+                _score.redScore = ScoreOne;
+            }
+            else
+            {
+                _score.greenScore = ScoreOne;
+            }
+
 
             print("GOL!!!!!!!!11");
             Debug.Log("SCORE: " + ScoreOne.ToString());
+
+            _positions.GolPosition();
         }
     }
 }
