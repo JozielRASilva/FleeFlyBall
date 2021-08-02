@@ -69,7 +69,6 @@ public class AICharacterBase : MonoBehaviour, AIBase
     #region  SETUP
     protected virtual void Awake()
     {
-
         Init();
     }
 
@@ -80,6 +79,10 @@ public class AICharacterBase : MonoBehaviour, AIBase
         path = new NavMeshPath();
 
         inputAxis = new AIInputAxis(path, _obstacle);
+
+        inputShoot = new AIInputButton();
+        inputIntercept = new AIInputButton();
+        inputPass = new AIInputButton();
 
         _character = GetComponent<Character>();
 
