@@ -5,8 +5,11 @@ using UnityEngine.Events;
 
 public class Goal : MonoBehaviour
 {
-    public int ScoreOne = 0;
+    //Mudar os valores do score para gol do time vermelho
     
+    
+    
+    public int ScoreOne = 0;
     public int onePoint = 1;
     public int twoPoints = 2;
     public int threePoints = 3;
@@ -15,6 +18,10 @@ public class Goal : MonoBehaviour
     public PointDetection  _pointDetection;
 
     public UnityAction OnGoalScored;
+
+    public bool GolPlayer;
+    
+
 
     void Update()
     {

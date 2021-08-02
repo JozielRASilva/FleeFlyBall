@@ -5,23 +5,16 @@ using UnityEngine;
 public class Positions : MonoBehaviour
 {
    
-    public TeamController _teamController;
 
-   private void GameStart()
-    {
-       // foreach (TeamController teammate in _teamController.)
-        {
-
-        }
-    }
-
-   private void CobraLateral()
-    {
-
-    }
-
-    private void CobrarPosGol()
-    {
-
-    }
+   //Cada object colocado no CharacterPositions é a posição de um jogador em uma situação.
+    public List<Transform> CharactersGreenStart;
+    public List<Transform> CharactersRedStart;
+   //Gol time verde
+    public List<Transform> CharactersRedGreenGol;
+    public List<Transform> CharactersGreenGreenGol;
+   //Gol time vermelho
+    public List<Transform> CharactersGreenRedGol;
+    public List<Transform> CharactersRedRedGol;
+ 
+    
 }
