@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class Timer : MonoBehaviour
 {
@@ -21,6 +22,12 @@ public class Timer : MonoBehaviour
     public Positions _positions;
 
     public UnityAction OnTimeChanged;
+
+    public Score _score;
+
+    public GameObject redWin;
+    public GameObject greeWin;
+    public GameObject drawGame;
 
     void Start()
     {
@@ -47,29 +54,38 @@ public class Timer : MonoBehaviour
 
         if (remainingTime == secondTime)
         {
-            //if (goal.GetComponent<Goal>().ScoreOne > goal.GetComponent<Goal>().ScoreTwo)
-            //  {
-            //     print("TEAM ONE WINS");
-            //   }
-            // if (goal.GetComponent<Goal>().ScoreOne < goal.GetComponent<Goal>().ScoreTwo)
-            // {
-            //       print("TEAM TWO WINS");
-            //  }
+            _positions.GolPosition();
 
         }
         if (remainingTime == thirdTime)
         {
-
+            _positions.GolPosition();
         }
         if (remainingTime == fourthTime)
         {
-
+            _positions.GolPosition();
         }
-        if (remainingTime == endTime)
+        if (remainingTime >= endTime)
         {
-           _positions.GolPosition();
+            if (_score.redScore > _score.greenScore)
+            {
+                Time.timeScale = 0;
+                redWin.SetActive(true);
+            }
+            if(_score.redScore < _score.greenScore)
+            {
+                Time.timeScale = 0;
+                greeWin.SetActive(true);
+            }
+           // if (_score.redScore == _score.greenScore)
+           // {
+             //   Time.timeScale = 0;
+              //  drawGame.SetActive(true);
+            //}
         }
 
     }
+
+    
 
 }
