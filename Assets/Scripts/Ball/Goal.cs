@@ -5,8 +5,12 @@ using UnityEngine.Events;
 
 public class Goal : MonoBehaviour
 {
-    public int ScoreOne = 0;
+    //Mudar os valores do score para gol do time vermelho
     
+    public Score _score;
+    
+    
+    public int ScoreOne = 0;
     public int onePoint = 1;
     public int twoPoints = 2;
     public int threePoints = 3;
@@ -16,10 +20,13 @@ public class Goal : MonoBehaviour
 
     public UnityAction OnGoalScored;
 
-    void Update()
-    {
+    public bool golPlayer;
         
-    }
+    public Positions _positions;
+    
+
+
+    
 
     private void OnTriggerEnter(Collider other)
     {
@@ -31,10 +38,22 @@ public class Goal : MonoBehaviour
             if (_pointDetection.areaQuatro == true) ScoreOne += fourPoints;
             if (_pointDetection.special == true) ScoreOne ++;
 
-            OnGoalScored.Invoke();
+            //OnGoalScored.Invoke();
+
+            if (golPlayer)
+            {
+                _score.redScore = ScoreOne;
+            }
+            else
+            {
+                _score.greenScore = ScoreOne;
+            }
+
 
             print("GOL!!!!!!!!11");
             Debug.Log("SCORE: " + ScoreOne.ToString());
+
+            _positions.GolPosition();
         }
     }
 }

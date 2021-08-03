@@ -18,6 +18,8 @@ public class Timer : MonoBehaviour
     float referenceTime;
     public Text tempo;
 
+    public Positions _positions;
+
     public UnityAction OnTimeChanged;
 
     void Start()
@@ -65,7 +67,7 @@ public class Timer : MonoBehaviour
         }
         if (remainingTime == endTime)
         {
-
+           _positions.GolPosition();
         }
 
     }
