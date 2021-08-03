@@ -84,7 +84,7 @@ public class AudioManager : MonoBehaviour
         Play(playOnAwake);
     }
 
-    void SetMusic(bool set)
+    public void SetMusic(bool set)
     {
         if (set)
         {
@@ -105,7 +105,7 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    void SetSoundFX(bool set)
+    public void SetSoundFX(bool set)
     {
         if (set)
         {
@@ -124,6 +124,16 @@ public class AudioManager : MonoBehaviour
         {
             s.audioSource.volume = soundFXVolume * s.volume;
         }
+    }
+
+    public bool GetMusic()
+    {
+        return PlayerPrefs.GetInt("Music") == 1;
+    }
+
+    public bool GetSoundFX()
+    {
+        return PlayerPrefs.GetInt("Sound FX") == 1;
     }
 
     public void Play(string name)

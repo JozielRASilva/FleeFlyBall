@@ -12,12 +12,10 @@ public class ToggleButton : MonoBehaviour
     Vector2 leftPosition;
     Vector2 rightPosition;
 
-    public UnityEvent OnSwitch;
+    public UnityAction<bool> OnSwitch;
 
     void Start()
     {
-        isOn = true;
-        
         leftPosition = switchTransform.localPosition;
         rightPosition = switchTransform.localPosition * Vector2.left;
     }
@@ -31,6 +29,20 @@ public class ToggleButton : MonoBehaviour
     {
         isOn = !isOn;
 
+        AjdustPosition();
+
+        OnSwitch.Invoke(isOn);
+    }
+
+    public void Set(bool set)
+    {
+        isOn = set;
+
+        AjdustPosition();
+    }
+
+    void AjdustPosition()
+    {
         if (isOn)
         {
             switchTransform.localPosition = leftPosition;
@@ -39,7 +51,5 @@ public class ToggleButton : MonoBehaviour
         {
             switchTransform.localPosition = rightPosition;
         }
-
-        OnSwitch.Invoke();
     }
 }
