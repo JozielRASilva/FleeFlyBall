@@ -67,7 +67,10 @@ public class TeamGroup : MonoBehaviour
         {
             foreach (var member in teamMembers)
             {
-                member.SetAsAI();
+                if (member.BallPossession.HasBall())
+                    member.SetAsMainAI();
+                else
+                    member.SetAsAI();
             }
         }
 

@@ -46,6 +46,14 @@ public class TeamMember : MonoBehaviour
         OnRemoveMain?.Invoke();
     }
 
+    public void SetAsMainAI()
+    {
+        character.control = Character.ControlType.AI;
+
+        IsMain = true;
+
+    }
+
     public void Selected(bool value)
     {
         if (value)
