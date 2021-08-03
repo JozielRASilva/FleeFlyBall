@@ -1,11 +1,11 @@
 fileFormatVersion: 2
-guid: cc7c344b2ff55af49b961dc687765dd6
+guid: 1e443a27a1b00bc4faa225500335c5d4
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable:
   - first:
-      74: 2565406035211219596
-    second: Chute
+      74: 4472731947010762278
+    second: Bicicleta
   externalObjects: {}
   materials:
     materialImportMode: 2

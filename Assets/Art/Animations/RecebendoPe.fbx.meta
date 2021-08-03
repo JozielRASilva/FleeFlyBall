@@ -1,11 +1,11 @@
 fileFormatVersion: 2
-guid: cc7c344b2ff55af49b961dc687765dd6
+guid: 2b0f460030094db438b9bbe7334cc0c1
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable:
   - first:
-      74: 2565406035211219596
-    second: Chute
+      74: -197200776589236235
+    second: RecebendoPe
   externalObjects: {}
   materials:
     materialImportMode: 2
