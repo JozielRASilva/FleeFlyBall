@@ -20,6 +20,8 @@ public class AIOpponentTeamMember : AICharacterBase
 
         _base.SetNode(GetAttackOnGoal());
 
+        _base.SetNode(GetBranchMove());
+
         return _base;
     }
 
@@ -91,5 +93,29 @@ public class AIOpponentTeamMember : AICharacterBase
         return sequence;
     }
 
+    private BTSequence GetBranchMove()
+    {
+        BTSequence sequence_move = new BTSequence("PLAYER MOVE");
+
+        BTSelectBlock selectBlock = new BTSelectBlock("Select block", _teamMember.group, _teamMember);
+
+        BTParallelSelector parallel_selector = new BTParallelSelector();
+        #region Move parallel selector
+
+        BTMove move = new BTMove();
+        BTHasBall hasBall = new BTHasBall("HAS BALL", _character.BallPossession);
+       
+
+        parallel_selector.SetNode(move);
+        // Some one to intercept
+        parallel_selector.SetNode(hasBall);
+        // Can intercept
+        #endregion
+
+        sequence_move.SetNode(selectBlock);
+        sequence_move.SetNode(parallel_selector);
+
+        return sequence_move;
+    }
 
 }

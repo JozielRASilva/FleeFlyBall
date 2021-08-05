@@ -13,12 +13,25 @@ public class AIPlayerTeamMember : AICharacterBase
         BTNode sq_checkplayercontrol = GetBranchCheckPlayerControl();
 
         #region MOVE
+        BTSequence sequence_move = GetBranchMove();
+        #endregion
+
+        sequence.SetNode(playerTeam);
+        sequence.SetNode(sq_checkplayercontrol);
+        sequence.SetNode(sequence_move);
+
+        return sequence;
+    }
+
+    private BTSequence GetBranchMove()
+    {
         BTSequence sequence_move = new BTSequence("PLAYER MOVE");
 
         BTSelectBlock selectBlock = new BTSelectBlock("Select block", _teamMember.group, _teamMember);
 
         BTParallelSelector parallel_selector = new BTParallelSelector();
         #region Move parallel selector
+        
         BTMove move = new BTMove();
         BTHasBall hasBall = new BTHasBall("HAS BALL", _character.BallPossession);
         BTPlayerControl playerControl = new BTPlayerControl("Player Control", _teamMember);
@@ -30,13 +43,8 @@ public class AIPlayerTeamMember : AICharacterBase
 
         sequence_move.SetNode(selectBlock);
         sequence_move.SetNode(parallel_selector);
-        #endregion
 
-        sequence.SetNode(playerTeam);
-        sequence.SetNode(sq_checkplayercontrol);
-        sequence.SetNode(sequence_move);
-
-        return sequence;
+        return sequence_move;
     }
 
     private BTNode GetBranchCheckPlayerControl()

@@ -43,9 +43,10 @@ public class BTSelectBlock : BTNode
             {
                 UpdateTarget(bt);
 
+                status = Status.SUCCESS;
             }
 
-            status = Status.SUCCESS;
+
         }
 
         yield break;
@@ -65,6 +66,9 @@ public class BTSelectBlock : BTNode
         if (BlockLimits.Instance)
             if (!BlockLimits.Instance.IsInside(point))
                 return true;
+
+        if (_currentArea == null)
+            return false;
 
         if (!_currentArea.IsInside(center, point))
             return true;
