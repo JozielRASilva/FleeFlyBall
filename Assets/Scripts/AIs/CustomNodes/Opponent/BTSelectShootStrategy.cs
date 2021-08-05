@@ -12,8 +12,6 @@ public class BTSelectShootStrategy : BTNode
 
     private TeamAreaController _teamAreaController;
 
-    private AreaBase _currentArea;
-
     public BTSelectShootStrategy(string _name, TeamGroup teamGroup, TeamMember teamMember, TeamArea areaToKick)
     {
         name = _name;
@@ -34,7 +32,6 @@ public class BTSelectShootStrategy : BTNode
 
         if (_teamAreaController)
         {
-            _currentArea = _teamAreaController.GetArea(_teamMember);
 
             Vector3 currentPoint = bt.aICharacter.GetTarget();
 
@@ -53,7 +50,7 @@ public class BTSelectShootStrategy : BTNode
 
     private void UpdateTarget(BehaviourTree bt, AreaBase area)
     {
-        Vector3 point = _teamAreaController.GetRandomPointOnArea(_teamMember, area);
+        Vector3 point = _teamAreaController.GetRandomPointOnArea(_teamMember, area, _areaToKick);
 
         bt.aICharacter.ChangeTarget(point);
     }
