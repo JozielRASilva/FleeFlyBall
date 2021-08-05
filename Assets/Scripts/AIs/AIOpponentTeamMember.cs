@@ -95,23 +95,26 @@ public class AIOpponentTeamMember : AICharacterBase
 
     private BTSequence GetBranchMove()
     {
-        BTSequence sequence_move = new BTSequence("PLAYER MOVE");
+        BTSequence sequence_move = new BTSequence("Move next to who has ball");
+
+        BTTeamHasBall teamHasBall = new BTTeamHasBall("TeamHasBall", _teamMember);
 
         BTSelectBlock selectBlock = new BTSelectBlock("Select block", _teamMember.group, _teamMember);
 
         BTParallelSelector parallel_selector = new BTParallelSelector();
-        #region Move parallel selector
 
+        #region Move parallel selector
         BTMove move = new BTMove();
         BTHasBall hasBall = new BTHasBall("HAS BALL", _character.BallPossession);
-       
+        BTInverter inverter = new BTInverter("Check team has ball");
+        inverter.SetNode(teamHasBall);
 
         parallel_selector.SetNode(move);
-        // Some one to intercept
         parallel_selector.SetNode(hasBall);
-        // Can intercept
+        parallel_selector.SetNode(inverter);
         #endregion
 
+        sequence_move.SetNode(teamHasBall);
         sequence_move.SetNode(selectBlock);
         sequence_move.SetNode(parallel_selector);
 
