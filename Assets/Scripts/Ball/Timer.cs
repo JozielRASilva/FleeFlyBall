@@ -65,7 +65,7 @@ public class Timer : MonoBehaviour
         {
             _positions.GolPosition();
         }
-        if (remainingTime >= endTime)
+        if (remainingTime == endTime)
         {
             if (_score.redScore > _score.greenScore)
             {
@@ -77,11 +77,12 @@ public class Timer : MonoBehaviour
                 Time.timeScale = 0;
                 greeWin.SetActive(true);
             }
-           // if (_score.redScore == _score.greenScore)
-           // {
-             //   Time.timeScale = 0;
-              //  drawGame.SetActive(true);
-            //}
+            if (_score.redScore == _score.greenScore)
+            {
+                Time.timeScale = 0;
+                drawGame.SetActive(true);
+            }
+            
         }
 
     }
