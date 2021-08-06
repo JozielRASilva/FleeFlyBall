@@ -9,6 +9,9 @@ public class AIOpponentTeamMember : AICharacterBase
     public float timeToLook = 0.5f;
     public float timeAfterShoot = 0.1f;
 
+    [Header("Intercept")]
+    public float _distanceToIntercept = 3;
+
     [SerializeField]
     protected TeamArea AreasToKick;
 
@@ -22,8 +25,13 @@ public class AIOpponentTeamMember : AICharacterBase
 
         _base.SetNode(GetBranchMove());
 
+        _base.SetNode(GetBranchMoveAndIntercept());
+
+        _base.SetNode(GetBranchSelectIntercept());
+
         return _base;
     }
+
 
     private BTNode GetFollowBallBranch()
     {
@@ -93,7 +101,7 @@ public class AIOpponentTeamMember : AICharacterBase
         return sequence;
     }
 
-    private BTSequence GetBranchMove()
+    private BTNode GetBranchMove()
     {
         BTSequence sequence_move = new BTSequence("Move next to who has ball");
 
@@ -119,6 +127,82 @@ public class AIOpponentTeamMember : AICharacterBase
         sequence_move.SetNode(parallel_selector);
 
         return sequence_move;
+    }
+
+    private BTNode GetBranchMoveAndIntercept()
+    {
+        BTSequence sequence_move = new BTSequence("Move to mark players");
+
+
+        BTSelectBlock selectBlock = new BTSelectBlock("Select block", _teamMember.group, _teamMember);
+
+        BTParallelSelector parallel_selector = new BTParallelSelector();
+
+
+        BTMove move = new BTMove();
+        BTTeamHasBall teamHasBall = new BTTeamHasBall("TeamHasBall", _teamMember);
+
+        BTAnyoneToIntercept anyoneToIntercept = new BTAnyoneToIntercept("Anyone to Intercept?", _teamMember);
+        BTCanIntercept canIntercept = new BTCanIntercept();
+
+        parallel_selector.SetNode(move);
+        parallel_selector.SetNode(teamHasBall);
+        parallel_selector.SetNode(canIntercept);
+        parallel_selector.SetNode(anyoneToIntercept);
+
+
+
+        sequence_move.SetNode(selectBlock);
+        sequence_move.SetNode(parallel_selector);
+
+        return sequence_move;
+    }
+
+
+    private BTSelector GetBranchSelectIntercept()
+    {
+        BTSelector Intercept = new BTSelector("Intercept");
+        Intercept.SetNode(GetBranchIntercept());
+        Intercept.SetNode(GetBranchMoveToIntercept());
+        return Intercept;
+    }
+
+    private BTNode GetBranchIntercept()
+    {
+        BTSequence sequence_intercept = new BTSequence("Intercept");
+
+        BTCanIntercept canIntercept = new BTCanIntercept();
+        BTInterceptBall interceptBall = new BTInterceptBall();
+
+        sequence_intercept.SetNode(canIntercept);
+        sequence_intercept.SetNode(interceptBall);
+
+        return sequence_intercept;
+    }
+
+    private BTNode GetBranchMoveToIntercept()
+    {
+        BTSequence sequence_move_intercept = new BTSequence("Move to intercept");
+
+        BTAnyoneToIntercept anyoneToIntercept = new BTAnyoneToIntercept("Anyone to Intercept?", _teamMember);
+        BTUpdateWhoToIntercept updateWhoToIntercept = new BTUpdateWhoToIntercept("Update Who intercept", _teamMember, _distanceToIntercept);
+
+        BTParallelSelector parallel_selector = new BTParallelSelector();
+
+        BTMove move = new BTMove();
+        BTTeamHasBall teamHasBall = new BTTeamHasBall("TeamHasBall", _teamMember);
+        BTCanIntercept canIntercept = new BTCanIntercept();
+
+        parallel_selector.SetNode(move);
+        parallel_selector.SetNode(teamHasBall);
+        parallel_selector.SetNode(canIntercept);
+
+
+        sequence_move_intercept.SetNode(anyoneToIntercept);
+        sequence_move_intercept.SetNode(updateWhoToIntercept);
+        sequence_move_intercept.SetNode(parallel_selector);
+
+        return sequence_move_intercept;
     }
 
 }

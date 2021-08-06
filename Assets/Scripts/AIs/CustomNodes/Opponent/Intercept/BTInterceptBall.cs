@@ -2,17 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BTInterceptBall : MonoBehaviour
+public class BTInterceptBall : BTNode
 {
-    // Start is called before the first frame update
-    void Start()
+    public override IEnumerator Run(BehaviourTree bt)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        status = Status.FAILURE;
+        yield break;
     }
 }

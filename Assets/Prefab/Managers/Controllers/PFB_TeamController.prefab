@@ -193,7 +193,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isDebug: 1
   interval: 2
-  overrideSizeWithBall: {x: 5, y: 14, z: 5}
+  overrideSizeWithBall: {x: 7, y: 14, z: 7}
   teamMember: {fileID: 2967106072104445834}
 --- !u!1 &1734212643008495599
 GameObject:
@@ -269,7 +269,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isDebug: 1
   interval: 2
-  overrideSizeWithBall: {x: 5, y: 14, z: 5}
+  overrideSizeWithBall: {x: 7, y: 14, z: 7}
   teamMember: {fileID: 2967106072104445834}
 --- !u!114 &3430327911226178706
 MonoBehaviour:
@@ -311,6 +311,7 @@ MonoBehaviour:
   ShowTarget: 0
   timeToLook: 1
   timeAfterShoot: 0.1
+  _distanceToIntercept: 3
   AreasToKick: {fileID: 1695800390596275888}
 --- !u!114 &6002267804105250958
 MonoBehaviour:
@@ -348,6 +349,7 @@ MonoBehaviour:
   ShowTarget: 0
   timeToLook: 1
   timeAfterShoot: 0.1
+  _distanceToIntercept: 3
   AreasToKick: {fileID: 1695800390596275888}
 --- !u!114 &3519597342262901614
 MonoBehaviour:
@@ -436,6 +438,7 @@ MonoBehaviour:
   ShowTarget: 0
   timeToLook: 1
   timeAfterShoot: 0.1
+  _distanceToIntercept: 3
   AreasToKick: {fileID: 1695800390596275888}
 --- !u!114 &4063886665568809413
 MonoBehaviour:
@@ -456,6 +459,7 @@ MonoBehaviour:
   ShowTarget: 0
   timeToLook: 1
   timeAfterShoot: 0.1
+  _distanceToIntercept: 3
   AreasToKick: {fileID: 1695800390596275888}
 --- !u!114 &6087325844113763834
 MonoBehaviour:
@@ -476,6 +480,7 @@ MonoBehaviour:
   ShowTarget: 0
   timeToLook: 1
   timeAfterShoot: 0.1
+  _distanceToIntercept: 3
   AreasToKick: {fileID: 1695800390596275888}
 --- !u!1001 &1734212641431147638
 PrefabInstance:
