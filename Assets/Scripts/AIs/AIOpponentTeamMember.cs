@@ -29,6 +29,8 @@ public class AIOpponentTeamMember : AICharacterBase
 
         _base.SetNode(GetBranchSelectIntercept());
 
+        _base.SetNode(MainBlockMainPlayer());
+
         return _base;
     }
 
@@ -205,4 +207,32 @@ public class AIOpponentTeamMember : AICharacterBase
         return sequence_move_intercept;
     }
 
+    private BTNode MainBlockMainPlayer()
+    {
+        BTSequence sequence_block_main = new BTSequence();
+
+        BTUpdateMainPlayerWithBall updateMainPlayer = new BTUpdateMainPlayerWithBall("Update main opponent player", _teamMember);
+
+        BTParallelSelector parallel_selector = new BTParallelSelector();
+
+        BTMove move = new BTMove(1);
+        BTTeamHasBall teamHasBall = new BTTeamHasBall("TeamHasBall", _teamMember);
+        BTCanIntercept canIntercept = new BTCanIntercept();
+        BTSelectBlock selectBlock = new BTSelectBlock("Select block", _teamMember.group, _teamMember);
+
+
+        BTInverter inverter = new BTInverter();
+        inverter.SetNode(updateMainPlayer);
+
+        parallel_selector.SetNode(move);
+        parallel_selector.SetNode(teamHasBall);
+        parallel_selector.SetNode(canIntercept);
+        parallel_selector.SetNode(inverter);
+        parallel_selector.SetNode(selectBlock);
+
+        sequence_block_main.SetNode(updateMainPlayer);
+        sequence_block_main.SetNode(parallel_selector);
+
+        return sequence_block_main;
+    }
 }

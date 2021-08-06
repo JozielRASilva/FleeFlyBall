@@ -171,14 +171,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   center: {fileID: 0}
-  areasSize: {x: 16.5, y: 14, z: 10.75}
+  areasSize: {x: 16, y: 14, z: 10}
   ShowGismos: 1
   color: {r: 0, g: 0, b: 1, a: 1}
   areas:
-  - _size: {x: 16.5, y: 14, z: 10.75}
-  - _size: {x: 16.5, y: 14, z: 10.75}
-  - _size: {x: 16.5, y: 14, z: 10.75}
-  - _size: {x: 16.5, y: 14, z: 10.75}
+  - _size: {x: 16, y: 14, z: 10}
+  - _size: {x: 16, y: 14, z: 10}
+  - _size: {x: 16, y: 14, z: 10}
+  - _size: {x: 16, y: 14, z: 10}
 --- !u!114 &1969263874999678616
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -284,14 +284,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   center: {fileID: 0}
-  areasSize: {x: 16.5, y: 14, z: 10.75}
+  areasSize: {x: 16, y: 14, z: 10}
   ShowGismos: 1
   color: {r: 0, g: 0, b: 1, a: 1}
   areas:
-  - _size: {x: 16.5, y: 14, z: 10.75}
-  - _size: {x: 16.5, y: 14, z: 10.75}
-  - _size: {x: 16.5, y: 14, z: 10.75}
-  - _size: {x: 16.5, y: 14, z: 10.75}
+  - _size: {x: 16, y: 14, z: 10}
+  - _size: {x: 16, y: 14, z: 10}
+  - _size: {x: 16, y: 14, z: 10}
+  - _size: {x: 16, y: 14, z: 10}
 --- !u!114 &8341846148858161261
 MonoBehaviour:
   m_ObjectHideFlags: 0
