@@ -23,15 +23,19 @@ public class Goal : MonoBehaviour
     public bool golPlayer;
         
     public Positions _positions;
-    
+
+    [Header("Audio")]
+    public AudioPlayer audioPlayer;
+    public string sound;
 
 
-    
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Ball"))
         {
+            audioPlayer.PlaySound(sound);
+
             if (_pointDetection.areaUm == true) ScoreOne += onePoint;
             if (_pointDetection.areaDois == true) ScoreOne += twoPoints;
             if (_pointDetection.areaTres == true) ScoreOne += threePoints;

@@ -43,6 +43,7 @@ GameObject:
   - component: {fileID: 6215705032402164348}
   - component: {fileID: 6215705032402164351}
   - component: {fileID: 188205261757062598}
+  - component: {fileID: 7795602160549422580}
   m_Layer: 7
   m_Name: PFB_Ball
   m_TagString: Ball
@@ -117,6 +118,20 @@ MonoBehaviour:
   _pass_threshold: 0.01
   TimeToPass: 10
   _teamGroup: {fileID: 0}
+  audioPlayer: {fileID: 7795602160549422580}
+  bounceSound: Bounce
+--- !u!114 &7795602160549422580
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6215705032402164337}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 675b311c6ee147249b6ed6cb675820fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1965851390
 PrefabInstance:
   m_ObjectHideFlags: 0

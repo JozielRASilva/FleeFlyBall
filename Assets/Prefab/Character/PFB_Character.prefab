@@ -53,6 +53,8 @@ MonoBehaviour:
   direction: {x: 0, y: 2.5, z: 0.5}
   forceMode: 1
   movementForce: {fileID: 11400000, guid: b958b8cce75aba6429357c6e7b1fa8ce, type: 2}
+  audioPlayer: {fileID: 441075581063163583}
+  sound: Receive
 --- !u!114 &424988589
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -288,6 +290,7 @@ GameObject:
   - component: {fileID: 223793988060867924}
   - component: {fileID: 8483718320478954073}
   - component: {fileID: 2626401958434213591}
+  - component: {fileID: 441075581063163583}
   m_Layer: 6
   m_Name: PFB_Character
   m_TagString: Untagged
@@ -421,6 +424,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textPro: {fileID: 7697543850931547503}
+--- !u!114 &441075581063163583
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 223793988660084205}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 675b311c6ee147249b6ed6cb675820fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &223793988920169196
 GameObject:
   m_ObjectHideFlags: 0
@@ -731,6 +746,8 @@ MonoBehaviour:
   inputs:
   - {fileID: 11400000, guid: e8bffe86df413294caa051d5acab7438, type: 2}
   shootCost: {fileID: 11400000, guid: 35529cec044767145a1a6b40d1cda04a, type: 2}
+  audioPlayer: {fileID: 441075581063163583}
+  sound: Shoot
 --- !u!1 &3110932762994530979
 GameObject:
   m_ObjectHideFlags: 0
@@ -782,6 +799,8 @@ MonoBehaviour:
   inputs:
   - {fileID: 11400000, guid: 25a62a59803b9f84895dacb89e3cdeed, type: 2}
   passCost: {fileID: 11400000, guid: dce71331826b9e344979684e1ac5be2b, type: 2}
+  audioPlayer: {fileID: 441075581063163583}
+  sound: Pass
 --- !u!1 &3149710559993895308
 GameObject:
   m_ObjectHideFlags: 0
@@ -870,6 +889,8 @@ MonoBehaviour:
   inputs:
   - {fileID: 11400000, guid: 66e1fd53edc67294995d76bf2a7af650, type: 2}
   domainCost: {fileID: 11400000, guid: ee20ddd7b9c047946b2cfa7f1d475eb7, type: 2}
+  audioPlayer: {fileID: 441075581063163583}
+  sound: Receive
 --- !u!114 &1901224452426787116
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -957,6 +978,8 @@ MonoBehaviour:
   inputs:
   - {fileID: 11400000, guid: 9cde39fd0d2574b40aabbf052777e265, type: 2}
   shootCost: {fileID: 11400000, guid: a95e9859f6f3d8f4f99a23b4e36cf7d0, type: 2}
+  audioPlayer: {fileID: 441075581063163583}
+  sound: Shoot
 --- !u!1 &8071342104270274655
 GameObject:
   m_ObjectHideFlags: 0
@@ -1034,6 +1057,8 @@ MonoBehaviour:
   direction: {x: 0, y: 2.5, z: 0.5}
   forceMode: 1
   movementForce: {fileID: 11400000, guid: 65d8476e49d6a55439c478521348bf59, type: 2}
+  audioPlayer: {fileID: 441075581063163583}
+  sound: Receive
 --- !u!65 &827701911483228800
 BoxCollider:
   m_ObjectHideFlags: 0

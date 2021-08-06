@@ -17,6 +17,10 @@ public class BallPossession : MonoBehaviour
     public FloatSO movementForce;
     private float _shoot => movementForce == null ? 4 : movementForce.value;
 
+    [Header("Audio")]
+    public AudioPlayer audioPlayer;
+    public string sound;
+
     private float _timeStampToReattach;
     private Character _character;
 
@@ -103,6 +107,8 @@ public class BallPossession : MonoBehaviour
         ball = _ball;
 
         ball.OnDeattach += DeattachBall;
+
+        audioPlayer.PlaySound(sound);
     }
 
     public void RemoveBall()

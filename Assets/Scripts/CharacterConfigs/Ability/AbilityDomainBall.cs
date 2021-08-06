@@ -16,6 +16,10 @@ public class AbilityDomainBall : AbilityBase
     [Header("Domain Cost"), SerializeField]
     private FloatSO domainCost;
 
+    [Header("Audio"), SerializeField]
+    public AudioPlayer audioPlayer;
+    public string sound;
+
     public Action OnCanDomain;
     public Action OnCanNotDomain;
 
@@ -82,6 +86,8 @@ public class AbilityDomainBall : AbilityBase
 
         _character.BallPossession.AttachBall(_ball);
         ApplyBalanceCost();
+
+        audioPlayer.PlaySound(sound);
     }
 
     private void ApplyBalanceCost()

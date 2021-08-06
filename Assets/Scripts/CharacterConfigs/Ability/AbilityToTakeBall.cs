@@ -23,6 +23,10 @@ public class AbilityToTakeBall : AbilityBase
     public ForceMode forceMode = ForceMode.Force;
     public FloatSO movementForce;
 
+    [Header("Audio")]
+    public AudioPlayer audioPlayer;
+    public string sound;
+
     private float _shoot => movementForce == null ? 4 : movementForce.value;
 
     private CollisionAndTrigger _collisionAndTrigger;
@@ -87,6 +91,8 @@ public class AbilityToTakeBall : AbilityBase
             return;
 
         TakeBall(_ball);
+
+        audioPlayer.PlaySound(sound);
     }
 
     private void TakeBall(Ball _ball)

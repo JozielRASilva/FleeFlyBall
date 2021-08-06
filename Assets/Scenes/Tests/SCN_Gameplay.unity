@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.17846921, g: 0.22346385, b: 0.3054577, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -218,6 +218,17 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 668.25037, y: 107.49996, z: 104.44849}
   m_Center: {x: 0.000030517636, y: 53.76331, z: -52.136353}
+--- !u!114 &172551892 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1604369534979062990, guid: 44f6a14a4de0c18499f7f68b3218ea01, type: 3}
+  m_PrefabInstance: {fileID: 2084501863}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f07d77e41783d5c4ebe15a70a8cebbda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &177029996
 GameObject:
   m_ObjectHideFlags: 0
@@ -232,7 +243,7 @@ GameObject:
   - component: {fileID: 177029997}
   m_Layer: 0
   m_Name: Wall
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -327,7 +338,7 @@ GameObject:
   - component: {fileID: 184079937}
   m_Layer: 0
   m_Name: Wall
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -1390,7 +1401,7 @@ GameObject:
   - component: {fileID: 1104862856}
   m_Layer: 0
   m_Name: Wall
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -1627,7 +1638,7 @@ GameObject:
   - component: {fileID: 1508720033}
   m_Layer: 0
   m_Name: Wall
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -2468,6 +2479,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1604369534979062990, guid: 44f6a14a4de0c18499f7f68b3218ea01, type: 3}
+      propertyPath: soundFX.Array.size
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1604369534979062990, guid: 44f6a14a4de0c18499f7f68b3218ea01, type: 3}
       propertyPath: music.Array.data[0].loop
       value: 1
       objectReference: {fileID: 0}
@@ -2477,12 +2492,72 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1604369534979062990, guid: 44f6a14a4de0c18499f7f68b3218ea01, type: 3}
       propertyPath: music.Array.data[0].volume
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1604369534979062990, guid: 44f6a14a4de0c18499f7f68b3218ea01, type: 3}
+      propertyPath: soundFX.Array.data[2].name
+      value: Pass
+      objectReference: {fileID: 0}
+    - target: {fileID: 1604369534979062990, guid: 44f6a14a4de0c18499f7f68b3218ea01, type: 3}
+      propertyPath: soundFX.Array.data[3].name
+      value: Shoot
+      objectReference: {fileID: 0}
+    - target: {fileID: 1604369534979062990, guid: 44f6a14a4de0c18499f7f68b3218ea01, type: 3}
+      propertyPath: soundFX.Array.data[4].name
+      value: Receive
+      objectReference: {fileID: 0}
+    - target: {fileID: 1604369534979062990, guid: 44f6a14a4de0c18499f7f68b3218ea01, type: 3}
+      propertyPath: soundFX.Array.data[5].name
+      value: Goal
+      objectReference: {fileID: 0}
+    - target: {fileID: 1604369534979062990, guid: 44f6a14a4de0c18499f7f68b3218ea01, type: 3}
+      propertyPath: soundFX.Array.data[6].name
+      value: Bounce
+      objectReference: {fileID: 0}
+    - target: {fileID: 1604369534979062990, guid: 44f6a14a4de0c18499f7f68b3218ea01, type: 3}
+      propertyPath: soundFX.Array.data[2].volume
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1604369534979062990, guid: 44f6a14a4de0c18499f7f68b3218ea01, type: 3}
+      propertyPath: soundFX.Array.data[3].volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1604369534979062990, guid: 44f6a14a4de0c18499f7f68b3218ea01, type: 3}
+      propertyPath: soundFX.Array.data[4].volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1604369534979062990, guid: 44f6a14a4de0c18499f7f68b3218ea01, type: 3}
+      propertyPath: soundFX.Array.data[5].volume
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1604369534979062990, guid: 44f6a14a4de0c18499f7f68b3218ea01, type: 3}
+      propertyPath: soundFX.Array.data[6].volume
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 1604369534979062990, guid: 44f6a14a4de0c18499f7f68b3218ea01, type: 3}
       propertyPath: music.Array.data[0].audioClip
       value: 
       objectReference: {fileID: 8300000, guid: eea860362f2893744ba969e66937d0e9, type: 3}
+    - target: {fileID: 1604369534979062990, guid: 44f6a14a4de0c18499f7f68b3218ea01, type: 3}
+      propertyPath: soundFX.Array.data[2].audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: e6481679ebaf0c34589c14c19fc497e6, type: 3}
+    - target: {fileID: 1604369534979062990, guid: 44f6a14a4de0c18499f7f68b3218ea01, type: 3}
+      propertyPath: soundFX.Array.data[3].audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: a4a24c8d3f3a7f043ac487b79862b525, type: 3}
+    - target: {fileID: 1604369534979062990, guid: 44f6a14a4de0c18499f7f68b3218ea01, type: 3}
+      propertyPath: soundFX.Array.data[4].audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 872c361026a49994c81a9b20881e42fe, type: 3}
+    - target: {fileID: 1604369534979062990, guid: 44f6a14a4de0c18499f7f68b3218ea01, type: 3}
+      propertyPath: soundFX.Array.data[5].audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 9b2931718bfbba049bf2b65e0aae006f, type: 3}
+    - target: {fileID: 1604369534979062990, guid: 44f6a14a4de0c18499f7f68b3218ea01, type: 3}
+      propertyPath: soundFX.Array.data[6].audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 85c2c615d067aae45a135b3ac39a229b, type: 3}
     - target: {fileID: 2480987001281604902, guid: 44f6a14a4de0c18499f7f68b3218ea01, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -2616,6 +2691,10 @@ PrefabInstance:
       propertyPath: finalLoseTextScore
       value: 
       objectReference: {fileID: 1372550750}
+    - target: {fileID: 957536273436931178, guid: 40c9158e0fbf8fd4ea9b6edc38615b51, type: 3}
+      propertyPath: audioManager
+      value: 
+      objectReference: {fileID: 172551892}
     - target: {fileID: 1243251166511554408, guid: 40c9158e0fbf8fd4ea9b6edc38615b51, type: 3}
       propertyPath: redWin
       value: 

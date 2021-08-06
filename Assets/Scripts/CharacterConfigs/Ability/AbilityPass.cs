@@ -17,6 +17,10 @@ public class AbilityPass : AbilityBase
     [Header("Pass Cost"), SerializeField]
     private FloatSO passCost;
 
+    [Header("Audio"), SerializeField]
+    public AudioPlayer audioPlayer;
+    public string sound;
+
     protected float Animation;
 
     private TeamMember _teamMember;
@@ -110,6 +114,8 @@ public class AbilityPass : AbilityBase
         _character.BallPossession.ball.Pass(transform.position, selectedMember.transform, height, _pass);
 
         ApplyBalanceCost();
+
+        audioPlayer.PlaySound(sound);
     }
 
     private void ApplyBalanceCost()
@@ -167,7 +173,7 @@ public class AbilityPass : AbilityBase
 
 
     private bool ExecuteAction()
-    {
+    {        
         switch (_character.control)
         {
             case Character.ControlType.PLAYER:
@@ -178,7 +184,9 @@ public class AbilityPass : AbilityBase
                     for (int i = 0; i < inputBases.Count; i++)
                     {
                         if (inputBases[i].ButtomDown())
+                        {
                             return true;
+                        }
                     }
                 }
 

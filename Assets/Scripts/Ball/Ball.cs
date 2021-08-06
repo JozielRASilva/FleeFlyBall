@@ -48,6 +48,10 @@ public class Ball : Singleton<Ball>
 
     public TeamGroup _teamGroup;
 
+    [Header("Audio")]
+    public AudioPlayer audioPlayer;
+    public string bounceSound;
+
     protected override void Awake()
     {
         base.Awake();
@@ -71,6 +75,12 @@ public class Ball : Singleton<Ball>
             grounded = true;
 
             SetKickType(KickType.NONE);
+
+            audioPlayer.PlaySound(bounceSound);
+        }
+        else if (other.gameObject.CompareTag("Wall"))
+        {
+            audioPlayer.PlaySound(bounceSound);
         }
 
     }

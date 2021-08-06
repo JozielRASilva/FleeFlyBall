@@ -16,6 +16,10 @@ public class AbilityShoot : AbilityBase
     [Header("Shoot Cost"), SerializeField]
     private FloatSO shootCost;
 
+    [Header("Audio"), SerializeField]
+    public AudioPlayer audioPlayer;
+    public string sound;
+
     private float _shoot;
 
     protected override void InitStatus()
@@ -40,6 +44,7 @@ public class AbilityShoot : AbilityBase
 
         ApplyBalanceCost();
 
+        audioPlayer.PlaySound(sound);
     }
 
 

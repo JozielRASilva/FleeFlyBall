@@ -14,7 +14,7 @@ public class ToggleButton : MonoBehaviour
 
     public UnityAction<bool> OnSwitch;
 
-    void Start()
+    void Awake()
     {
         leftPosition = switchTransform.localPosition;
         rightPosition = switchTransform.localPosition * Vector2.left;
