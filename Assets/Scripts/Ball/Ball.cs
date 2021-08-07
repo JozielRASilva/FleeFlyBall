@@ -78,7 +78,7 @@ public class Ball : Singleton<Ball>
 
             audioPlayer.PlaySound(bounceSound);
         }
-        else if (other.gameObject.CompareTag("Wall"))
+        else if (other.gameObject.CompareTag("Wall") || other.gameObject.CompareTag("Crossbar"))
         {
             audioPlayer.PlaySound(bounceSound);
         }

@@ -15,4 +15,9 @@ public class AudioPlayer : MonoBehaviour
     {
         audioManager.Play(name);
     }
+
+    public Sound GetSound(string name)
+    {
+        return audioManager.GetSound(name);
+    }
 }

@@ -136,6 +136,20 @@ public class AudioManager : MonoBehaviour
         return PlayerPrefs.GetInt("Sound FX") == 1;
     }
 
+    public Sound GetSound(string name)
+    {
+        Sound s = Array.Find(music, sound => sound.name == name);
+
+        if (s == null)
+        {
+            s = Array.Find(soundFX, sound => sound.name == name);
+
+            if (s == null) return null;
+        }
+
+        return s;
+    }
+
     public void Play(string name)
     {
         Sound s = Array.Find(music, sound => sound.name == name);

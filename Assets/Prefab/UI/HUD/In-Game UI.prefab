@@ -4337,6 +4337,8 @@ MonoBehaviour:
   redWin: {fileID: 0}
   greeWin: {fileID: 0}
   drawGame: {fileID: 0}
+  audioPlayer: {fileID: 264434229535917275}
+  sound: Double Whistle
 --- !u!1 &7212122435535652429
 GameObject:
   m_ObjectHideFlags: 0
@@ -7100,18 +7102,6 @@ PrefabInstance:
       propertyPath: InputName
       value: 
       objectReference: {fileID: 11400000, guid: 66e1fd53edc67294995d76bf2a7af650, type: 2}
-    - target: {fileID: 3269946560080673263, guid: 7260f64497d97fe43b2ee565c850a0bf, type: 3}
-      propertyPath: m_Color.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3269946560080673263, guid: 7260f64497d97fe43b2ee565c850a0bf, type: 3}
-      propertyPath: m_Color.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3269946560080673263, guid: 7260f64497d97fe43b2ee565c850a0bf, type: 3}
-      propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3625844302887169308, guid: 7260f64497d97fe43b2ee565c850a0bf, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -7139,14 +7129,6 @@ PrefabInstance:
     - target: {fileID: 3625844302887169308, guid: 7260f64497d97fe43b2ee565c850a0bf, type: 3}
       propertyPath: m_AnchorMin.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3625844302887169308, guid: 7260f64497d97fe43b2ee565c850a0bf, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 200
-      objectReference: {fileID: 0}
-    - target: {fileID: 3625844302887169308, guid: 7260f64497d97fe43b2ee565c850a0bf, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 3625844302887169308, guid: 7260f64497d97fe43b2ee565c850a0bf, type: 3}
       propertyPath: m_LocalPosition.x
@@ -8253,14 +8235,6 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3625844302887169308, guid: 7260f64497d97fe43b2ee565c850a0bf, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 200
-      objectReference: {fileID: 0}
-    - target: {fileID: 3625844302887169308, guid: 7260f64497d97fe43b2ee565c850a0bf, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 200
-      objectReference: {fileID: 0}
-    - target: {fileID: 3625844302887169308, guid: 7260f64497d97fe43b2ee565c850a0bf, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -8510,14 +8484,6 @@ PrefabInstance:
     - target: {fileID: 3625844302887169308, guid: 7260f64497d97fe43b2ee565c850a0bf, type: 3}
       propertyPath: m_AnchorMin.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3625844302887169308, guid: 7260f64497d97fe43b2ee565c850a0bf, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 200
-      objectReference: {fileID: 0}
-    - target: {fileID: 3625844302887169308, guid: 7260f64497d97fe43b2ee565c850a0bf, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 3625844302887169308, guid: 7260f64497d97fe43b2ee565c850a0bf, type: 3}
       propertyPath: m_LocalPosition.x

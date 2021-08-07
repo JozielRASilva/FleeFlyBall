@@ -29,10 +29,17 @@ public class Timer : MonoBehaviour
     public GameObject greeWin;
     public GameObject drawGame;
 
+    [Header("Audio")]
+    public AudioManager audioManager;
+    public AudioPlayer audioPlayer;
+    public string sound;
+
     void Start()
     {
         remainingTime = startingTime;
         referenceTime = Time.time;
+
+        audioPlayer.PlaySound(sound);
     }
 
 
@@ -56,14 +63,29 @@ public class Timer : MonoBehaviour
         {
             _positions.GolPosition();
 
+            if (!audioManager.GetSound(sound).audioSource.isPlaying)
+            {
+                audioPlayer.PlaySound(sound);
+            }
+
         }
         if (remainingTime == thirdTime)
         {
             _positions.GolPosition();
+
+            if (!audioManager.GetSound(sound).audioSource.isPlaying)
+            {
+                audioPlayer.PlaySound(sound);
+            }
         }
         if (remainingTime == fourthTime)
         {
             _positions.GolPosition();
+
+            if (!audioManager.GetSound(sound).audioSource.isPlaying)
+            {
+                audioPlayer.PlaySound(sound);
+            }
         }
         if (remainingTime == endTime)
         {

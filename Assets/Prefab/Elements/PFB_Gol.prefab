@@ -257,7 +257,7 @@ MonoBehaviour:
   golPlayer: 0
   _positions: {fileID: 0}
   audioPlayer: {fileID: 5951236873635950081}
-  sound: Goal
+  sounds: []
 --- !u!1 &7022926302307384714
 GameObject:
   m_ObjectHideFlags: 0

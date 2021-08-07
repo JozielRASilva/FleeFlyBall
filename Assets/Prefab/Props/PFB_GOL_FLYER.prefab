@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 278646480897332363}
   m_Layer: 0
   m_Name: PFB_GOL_FLYER
-  m_TagString: Untagged
+  m_TagString: Crossbar
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

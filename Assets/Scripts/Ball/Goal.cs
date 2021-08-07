@@ -6,27 +6,27 @@ using UnityEngine.Events;
 public class Goal : MonoBehaviour
 {
     //Mudar os valores do score para gol do time vermelho
-    
+
     public Score _score;
-    
-    
+
+
     public int ScoreOne = 0;
     public int onePoint = 1;
     public int twoPoints = 2;
     public int threePoints = 3;
     public int fourPoints = 4;
 
-    public PointDetection  _pointDetection;
+    public PointDetection _pointDetection;
 
     public UnityAction OnGoalScored;
 
     public bool golPlayer;
-        
+
     public Positions _positions;
 
     [Header("Audio")]
     public AudioPlayer audioPlayer;
-    public string sound;
+    public string[] sounds;
 
 
 
@@ -34,7 +34,10 @@ public class Goal : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Ball"))
         {
-            audioPlayer.PlaySound(sound);
+            foreach(string s in sounds)
+            {
+                audioPlayer.PlaySound(s);
+            }
 
             if (_pointDetection.areaUm == true) ScoreOne += onePoint;
             if (_pointDetection.areaDois == true) ScoreOne += twoPoints;

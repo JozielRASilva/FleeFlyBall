@@ -228,6 +228,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 6de8f49bd19ed0b40b342ec7b38099dc, type: 2}
   sprintMovementInput:
   - {fileID: 11400000, guid: 0da9743302184d44798c52d664598587, type: 2}
+  audioPlayer: {fileID: 441075581063163583}
+  sound: Walk
 --- !u!1 &223793987519214070
 GameObject:
   m_ObjectHideFlags: 0
