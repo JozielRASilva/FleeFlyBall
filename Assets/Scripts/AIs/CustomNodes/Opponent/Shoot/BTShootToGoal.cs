@@ -75,7 +75,6 @@ public class BTShootToGoal : BTNode
 
         while (Time.time < timeStamp)
         {
-            Debug.Log($"Looking {_direction} {abilityWalk == null}");
 
             abilityWalk?.LookAtDirection(_direction, 10);
 

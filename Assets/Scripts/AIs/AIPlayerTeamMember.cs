@@ -15,13 +15,15 @@ public class AIPlayerTeamMember : AICharacterBase
 
         BTNode sq_checkplayercontrol = GetBranchCheckPlayerControl();
 
-        #region MOVE
-        BTSequence sequence_move = GetBranchMove();
-        #endregion
+
+        BTSelector selector = new BTSelector();
+        selector.SetNode(GetFollowBallBranch());
+        selector.SetNode(GetBranchMove());
+
 
         sequence.SetNode(playerTeam);
         sequence.SetNode(sq_checkplayercontrol);
-        sequence.SetNode(sequence_move);
+        sequence.SetNode(selector);
 
         return sequence;
     }
@@ -34,14 +36,20 @@ public class AIPlayerTeamMember : AICharacterBase
 
         BTParallelSelector parallel_selector = new BTParallelSelector();
         #region Move parallel selector
-        
+
         BTMove move = new BTMove(distanceToTargets);
         BTHasBall hasBall = new BTHasBall("HAS BALL", _character.BallPossession);
         BTPlayerControl playerControl = new BTPlayerControl("Player Control", _teamMember);
 
+        BTBallHasPossession ballHasPossession = new BTBallHasPossession("Ball has possesion", Ball.Instance);
+        BTInverter inverterBallHas = new BTInverter();
+
+        inverterBallHas.SetNode(ballHasPossession);
+
         parallel_selector.SetNode(move);
         parallel_selector.SetNode(hasBall);
         parallel_selector.SetNode(playerControl);
+        parallel_selector.SetNode(inverterBallHas);
         #endregion
 
         sequence_move.SetNode(selectBlock);
@@ -56,16 +64,43 @@ public class AIPlayerTeamMember : AICharacterBase
 
         BTPlayerControl playerControl = new BTPlayerControl("Player Control", _teamMember);
 
-        //BTParallelSelector parallelSelector = new BTParallelSelector("Checking control");
         BTInverter inverter = new BTInverter();
-        //BTPlayerControl _playerControl = new BTPlayerControl("Player Control", _teamMember);
 
         inverter.SetNode(playerControl);
-        //parallelSelector.SetNode(inverter);
 
         sq_checkplayercontrol.SetNode(inverter);
-        //sq_checkplayercontrol.SetNode(parallelSelector);
+
         return sq_checkplayercontrol;
     }
 
+
+    private BTNode GetFollowBallBranch()
+    {
+        BTSequence sequence = new BTSequence("FollowBallBranch");
+
+        BTBallHasPossession ballHasPossession = new BTBallHasPossession("Ball has possesion", Ball.Instance);
+        BTInverter inverterBallHas = new BTInverter();
+
+        BTParallelSelector SCParallel = new BTParallelSelector("Move to ball");
+
+        BTMove move = new BTMove();
+
+        BTUpdateBallAsTarget updateBall = new BTUpdateBallAsTarget("Update ball", Ball.Instance);
+        BTInverter inverterUpdateBall = new BTInverter();
+
+        sequence.SetNode(inverterBallHas);
+        inverterBallHas.SetNode(ballHasPossession);
+
+        sequence.SetNode(updateBall);
+        sequence.SetNode(SCParallel);
+
+
+        SCParallel.SetNode(inverterUpdateBall);
+        inverterUpdateBall.SetNode(updateBall);
+
+        SCParallel.SetNode(move);
+        SCParallel.SetNode(ballHasPossession);
+
+        return sequence;
+    }
 }

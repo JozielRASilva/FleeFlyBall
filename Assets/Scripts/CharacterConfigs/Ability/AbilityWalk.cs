@@ -139,15 +139,12 @@ public class AbilityWalk : AbilityBase
     {
         Vector3 inputVector = _inputVector;
         
-        Debug.Log($"Input {inputVector}");
         if (inputVector.Equals(Vector3.zero))
         {
             inputVector.x = LastLookDirection.x;
             inputVector.y = 0;
             inputVector.z = LastLookDirection.y;
         }
-
-        Debug.Log($"Input {inputVector}");
 
         LastLookDirection.x = inputVector.x;
         LastLookDirection.y = inputVector.z;
