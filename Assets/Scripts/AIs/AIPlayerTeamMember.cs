@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class AIPlayerTeamMember : AICharacterBase
 {
+
+    public float distanceToTargets = 0.3f;
+
     public override BTNode GetBranch()
     {
         BTSequence sequence = new BTSequence("PLAYER TEAM");
@@ -32,7 +35,7 @@ public class AIPlayerTeamMember : AICharacterBase
         BTParallelSelector parallel_selector = new BTParallelSelector();
         #region Move parallel selector
         
-        BTMove move = new BTMove();
+        BTMove move = new BTMove(distanceToTargets);
         BTHasBall hasBall = new BTHasBall("HAS BALL", _character.BallPossession);
         BTPlayerControl playerControl = new BTPlayerControl("Player Control", _teamMember);
 

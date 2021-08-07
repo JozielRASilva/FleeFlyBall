@@ -11,13 +11,17 @@ public class BTShootToGoal : BTNode
 
     protected float _waitTimeAfterShoot = 0.1f;
 
-    public BTShootToGoal(string _name, TeamGroup teamGroup)
+    protected AbilityWalk abilityWalk;
+
+    public BTShootToGoal(string _name, TeamGroup teamGroup, TeamMember member)
     {
         name = _name;
         _teamGroup = teamGroup;
+
+        abilityWalk = member.GetComponentInChildren<AbilityWalk>();
     }
 
-    public BTShootToGoal(string _name, TeamGroup teamGroup, float waitTimeToLook, float waitTimeAfterShoot)
+    public BTShootToGoal(string _name, TeamGroup teamGroup, float waitTimeToLook, float waitTimeAfterShoot, TeamMember member)
     {
         name = _name;
 
@@ -25,6 +29,8 @@ public class BTShootToGoal : BTNode
 
         _waitTimeToLook = waitTimeToLook;
         _waitTimeAfterShoot = waitTimeAfterShoot;
+
+        abilityWalk = member.GetComponentInChildren<AbilityWalk>();
     }
 
     public override IEnumerator Run(BehaviourTree bt)
@@ -63,12 +69,18 @@ public class BTShootToGoal : BTNode
 
         Vector2 direction = new Vector2(vectorBetweenPoints.x, vectorBetweenPoints.z);
 
-        bt.aICharacter.inputAxis.PerformFixed(direction);
+        float timeStamp = Time.time + _waitTimeToLook;
 
-        yield return new WaitForSeconds(_waitTimeToLook);
+        Vector3 _direction = new Vector3(vectorBetweenPoints.x, 0, vectorBetweenPoints.z);
 
-        bt.aICharacter.inputAxis.StopPerform();
+        while (Time.time < timeStamp)
+        {
+            Debug.Log($"Looking {_direction} {abilityWalk == null}");
 
-        yield return null;
+            abilityWalk?.LookAtDirection(_direction, 10);
+
+            yield return null;
+        }
+
     }
 }

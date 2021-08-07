@@ -54,7 +54,7 @@ public class AbilityWalk : AbilityBase
 
     protected override void Initialize()
     {
-        base.Initialize();        
+        base.Initialize();
     }
 
     protected override void InitStatus()
@@ -106,6 +106,13 @@ public class AbilityWalk : AbilityBase
         // Look at direction
         Vector3 inputVector = new Vector3(inputDirection.x, 0, inputDirection.y);
 
+        LookAtDirection(inputVector);
+
+    }
+
+    public void LookAtDirection(Vector3 _inputVector)
+    {
+        Vector3 inputVector = _inputVector;
         if (inputVector.Equals(Vector3.zero))
         {
             inputVector.x = LastLookDirection.x;
@@ -126,6 +133,33 @@ public class AbilityWalk : AbilityBase
 
         _character.transform.rotation = Quaternion.Slerp(_character.transform.rotation, newRotation, Time.deltaTime * lookSpeed);
 
+    }
+
+    public void LookAtDirection(Vector3 _inputVector, float lookSpeed)
+    {
+        Vector3 inputVector = _inputVector;
+        
+        Debug.Log($"Input {inputVector}");
+        if (inputVector.Equals(Vector3.zero))
+        {
+            inputVector.x = LastLookDirection.x;
+            inputVector.y = 0;
+            inputVector.z = LastLookDirection.y;
+        }
+
+        Debug.Log($"Input {inputVector}");
+
+        LastLookDirection.x = inputVector.x;
+        LastLookDirection.y = inputVector.z;
+
+        if (inputVector.Equals(Vector2.zero))
+            return;
+
+        Debug.DrawLine(_character.transform.position, _character.transform.position + inputVector * 5, Color.red);
+
+        Quaternion newRotation = Quaternion.LookRotation(inputVector, _character.transform.up);
+
+        _character.transform.rotation = Quaternion.Slerp(_character.transform.rotation, newRotation, Time.deltaTime * lookSpeed);
 
     }
 
@@ -199,7 +233,7 @@ public class AbilityWalk : AbilityBase
                 if (characterBase)
                 {
                     Vector2 _value = characterBase.inputAxis.GetValue(characterBase);
-                    
+
                     if (_value != Vector2.zero)
                         return _value;
                 }

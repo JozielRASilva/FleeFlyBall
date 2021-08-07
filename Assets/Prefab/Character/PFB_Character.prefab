@@ -974,7 +974,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AbilityPermitted: 1
   BlockOnStates: 
-  shootDirection: {x: 0, y: 1, z: 1.5}
+  shootDirection: {x: 0, y: 0.93, z: 1.5}
   forceMode: 1
   kickType: 1
   inputs:

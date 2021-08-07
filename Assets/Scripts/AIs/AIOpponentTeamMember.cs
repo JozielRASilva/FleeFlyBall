@@ -84,7 +84,7 @@ public class AIOpponentTeamMember : AICharacterBase
 
         BTSequence sequenceToShoot = new BTSequence("Shoot ball");
 
-        BTShootToGoal shootToGol = new BTShootToGoal("Shooting to goal", _teamMember.group, timeToLook, timeAfterShoot);
+        BTShootToGoal shootToGol = new BTShootToGoal("Shooting to goal", _teamMember.group, timeToLook, timeAfterShoot, _teamMember);
 
 
         sequence.SetNode(hasBall);
