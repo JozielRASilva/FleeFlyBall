@@ -16,6 +16,7 @@ public class Controls : MonoBehaviour
     public ButtonActions sprintButton;
 
     public Vector2 joystickPosition;
+    public GameObject joystickPlaceholder;
     public bool joystickDown;
     public bool joystickHold;
     public bool joystickUp;
@@ -50,11 +51,15 @@ public class Controls : MonoBehaviour
     {
         joystickDown = true;
         joystickHold = true;
+
+        joystickPlaceholder.SetActive(false);
     }
 
     public void JoystickUp()
     {
         joystickUp = true;
         joystickHold = false;
+
+        joystickPlaceholder.SetActive(true);
     }
 }

@@ -9,6 +9,7 @@ TagManager:
   - AreaOne
   - Ball
   - Wall
+  - Crossbar
   layers:
   - Default
   - TransparentFX
