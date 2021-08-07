@@ -145,7 +145,7 @@ public class AIOpponentTeamMember : AICharacterBase
         BTTeamHasBall teamHasBall = new BTTeamHasBall("TeamHasBall", _teamMember);
 
         BTAnyoneToIntercept anyoneToIntercept = new BTAnyoneToIntercept("Anyone to Intercept?", _teamMember);
-        BTCanIntercept canIntercept = new BTCanIntercept();
+        BTCanIntercept canIntercept = new BTCanIntercept("Can Intercept Ball", _teamMember);
 
         parallel_selector.SetNode(move);
         parallel_selector.SetNode(teamHasBall);
@@ -173,8 +173,8 @@ public class AIOpponentTeamMember : AICharacterBase
     {
         BTSequence sequence_intercept = new BTSequence("Intercept");
 
-        BTCanIntercept canIntercept = new BTCanIntercept();
-        BTInterceptBall interceptBall = new BTInterceptBall();
+        BTCanIntercept canIntercept = new BTCanIntercept("Can Intercept?", _teamMember);
+        BTInterceptBall interceptBall = new BTInterceptBall("Intercept", _teamMember);
 
         sequence_intercept.SetNode(canIntercept);
         sequence_intercept.SetNode(interceptBall);
@@ -193,7 +193,7 @@ public class AIOpponentTeamMember : AICharacterBase
 
         BTMove move = new BTMove();
         BTTeamHasBall teamHasBall = new BTTeamHasBall("TeamHasBall", _teamMember);
-        BTCanIntercept canIntercept = new BTCanIntercept();
+        BTCanIntercept canIntercept = new BTCanIntercept("Can Intercept?", _teamMember);
 
         parallel_selector.SetNode(move);
         parallel_selector.SetNode(teamHasBall);
@@ -217,7 +217,7 @@ public class AIOpponentTeamMember : AICharacterBase
 
         BTMove move = new BTMove(1);
         BTTeamHasBall teamHasBall = new BTTeamHasBall("TeamHasBall", _teamMember);
-        BTCanIntercept canIntercept = new BTCanIntercept();
+        BTCanIntercept canIntercept = new BTCanIntercept("Can Intercept?", _teamMember);
         BTSelectBlock selectBlock = new BTSelectBlock("Select block", _teamMember.group, _teamMember);
 
 

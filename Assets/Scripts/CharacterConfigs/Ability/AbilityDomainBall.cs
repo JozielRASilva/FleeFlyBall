@@ -132,7 +132,7 @@ public class AbilityDomainBall : AbilityBase
         return false;
     }
 
-    private bool CanDomain(ref Ball _ball)
+    public bool CanDomain(ref Ball _ball)
     {
         if (!_touchedBall)
             return false;

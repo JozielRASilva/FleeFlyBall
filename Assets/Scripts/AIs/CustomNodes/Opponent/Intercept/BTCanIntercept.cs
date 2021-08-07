@@ -4,9 +4,49 @@ using UnityEngine;
 
 public class BTCanIntercept : BTNode
 {
+
+    private TeamMember _member;
+
+    private AbilityDomainBall domainBall;
+
+    private AbilityToTakeBall takeBall;
+
+    private Ball _ball;
+
+    public BTCanIntercept(string name, TeamMember member)
+    {
+        this.name = name;
+
+        _member = member;
+
+        domainBall = member.GetComponentInChildren<AbilityDomainBall>();
+
+        takeBall = member.GetComponentInChildren<AbilityToTakeBall>();
+    }
+
     public override IEnumerator Run(BehaviourTree bt)
     {
         status = Status.FAILURE;
+
+        if (domainBall)
+        {
+            if (domainBall.CanDomain(ref _ball))
+            {
+                status = Status.SUCCESS;
+                Debug.Log("Can Domain!");
+            }
+        }
+
+        if (takeBall)
+        {
+            if (takeBall.CanTakeBall(ref _ball))
+            {
+                status = Status.SUCCESS;
+                Debug.Log("Can Take!");
+            }
+        }
+
+
         yield break;
     }
 }

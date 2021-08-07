@@ -148,7 +148,7 @@ public class AbilityToTakeBall : AbilityBase
         return false;
     }
 
-    private bool CanTakeBall(ref Ball _ball)
+    public bool CanTakeBall(ref Ball _ball)
     {
         if (!_touchedBall)
             return false;
