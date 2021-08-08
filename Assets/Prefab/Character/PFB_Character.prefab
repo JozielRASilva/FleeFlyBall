@@ -228,8 +228,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 6de8f49bd19ed0b40b342ec7b38099dc, type: 2}
   sprintMovementInput:
   - {fileID: 11400000, guid: 0da9743302184d44798c52d664598587, type: 2}
-  audioPlayer: {fileID: 441075581063163583}
-  sound: Walk
 --- !u!1 &223793987519214070
 GameObject:
   m_ObjectHideFlags: 0
@@ -837,6 +835,7 @@ Transform:
   - {fileID: 8457335410929532199}
   - {fileID: 8878771271901427505}
   - {fileID: 461322963521204786}
+  - {fileID: 9216977861179737483}
   m_Father: {fileID: 223793988660084113}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1074,6 +1073,53 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.5, y: 2, z: 1.5}
   m_Center: {x: 0, y: 1, z: 0}
+--- !u!1 &8525551719310572264
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9216977861179737483}
+  - component: {fileID: 478124233769198643}
+  m_Layer: 0
+  m_Name: Switch
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &9216977861179737483
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8525551719310572264}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 6494101368599056570}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &478124233769198643
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8525551719310572264}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67adfbf5d72bcc34aad03e8049c8c9f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AbilityPermitted: 1
+  BlockOnStates: 
+  inputs:
+  - {fileID: 11400000, guid: 9100e777302540e4f83fce5b08d0f449, type: 2}
 --- !u!1 &9184665451175661331
 GameObject:
   m_ObjectHideFlags: 0

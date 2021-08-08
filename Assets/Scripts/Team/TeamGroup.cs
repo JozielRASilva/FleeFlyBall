@@ -183,6 +183,28 @@ public class TeamGroup : MonoBehaviour
         return false;
     }
 
+    public void SetNextBallAsMain()
+    {
+        TeamMember selected = SelectByLowDistance();
+
+        foreach (var member in teamMembers)
+        {
+            if (member != selected)
+            {
+                member.SetAsAI();
+
+                _currentFocus = Focus.NEXTTOBALL;
+            }
+            else
+            {
+                member.SetAsMain();
+
+                if (CVCamera)
+                    CVCamera.Follow = member.transform;
+            }
+        }
+    }
+
     private TeamMember SelectByLowDistance()
     {
         TeamMember selected = null;
