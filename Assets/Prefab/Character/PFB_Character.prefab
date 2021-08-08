@@ -217,7 +217,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AbilityPermitted: 1
   BlockOnStates: 
-  lookSpeed: 5
+  lookSpeed: 13
   defaultMultiplier: {fileID: 11400000, guid: 52e1db6dcf5dbf64b953fb4ea5b45895, type: 2}
   sprintMultiplier: {fileID: 11400000, guid: 61fa0c2f038600e49970e0a7c0e5de9e, type: 2}
   ballPossessionMultiplier: {fileID: 11400000, guid: 11b2ab4a3cf9e284d97f552c1aaaafa4, type: 2}
