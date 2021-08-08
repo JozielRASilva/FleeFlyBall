@@ -24,6 +24,9 @@ public class Ball : Singleton<Ball>
     [SerializeField]
     private KickType _currentKick = KickType.NONE;
 
+    public float delayToGetBall = 0.02f;
+    private float getBallTimeStamp;
+
     [Header("Detect field")]
     public GameObject pointDetect;
     private PointDetection _pointDetection;
@@ -55,7 +58,7 @@ public class Ball : Singleton<Ball>
     protected override void Awake()
     {
         base.Awake();
-        
+
         _rigidbody = GetComponent<Rigidbody>();
 
         if (pointDetect)
@@ -75,6 +78,8 @@ public class Ball : Singleton<Ball>
             grounded = true;
 
             SetKickType(KickType.NONE);
+
+            ResetTimeStamp();
 
             audioPlayer.PlaySound(bounceSound);
         }
@@ -124,6 +129,8 @@ public class Ball : Singleton<Ball>
 
         if (_currentKick.Equals(KickType.NONE))
             SetKickType(KickType.NORMAL);
+
+        SetTimeStamp();
     }
 
 
@@ -139,6 +146,16 @@ public class Ball : Singleton<Ball>
 
 
 
+    }
+
+    private void SetTimeStamp()
+    {
+        getBallTimeStamp = Time.time + delayToGetBall;
+    }
+
+    private void ResetTimeStamp()
+    {
+        getBallTimeStamp = Time.time;
     }
 
     public void ControleFisica()
@@ -190,7 +207,7 @@ public class Ball : Singleton<Ball>
 
         OnDeattach?.Invoke();
 
-
+        SetTimeStamp();
     }
 
     private IEnumerator PassCO(Vector3 main, Transform target, float height, float Speed)
@@ -234,6 +251,9 @@ public class Ball : Singleton<Ball>
             return false;
 
         if (!AvaliableWhenPassing && _ballState.Equals(BallState.PASSED))
+            return false;
+
+        if (Time.time < getBallTimeStamp)
             return false;
 
         return true;
