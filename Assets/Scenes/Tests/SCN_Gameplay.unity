@@ -2615,6 +2615,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 579993945880291842, guid: 40c9158e0fbf8fd4ea9b6edc38615b51, type: 3}
+      propertyPath: _pass_threshold
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 761159858406093709, guid: 40c9158e0fbf8fd4ea9b6edc38615b51, type: 3}
       propertyPath: CVCamera
       value: 

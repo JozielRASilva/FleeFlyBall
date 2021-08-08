@@ -279,6 +279,7 @@ MonoBehaviour:
   OnPass: OnPass
   idle: Idle
   walk: Walk
+  run: Run
   idleBall: IdleBall
   walkBall: WalkBall
 --- !u!1 &223793988660084205
@@ -801,7 +802,7 @@ MonoBehaviour:
   AbilityPermitted: 1
   BlockOnStates: 
   angle: 60
-  Speed: 0.5
+  Speed: 0.6
   height: 4
   inputs:
   - {fileID: 11400000, guid: 25a62a59803b9f84895dacb89e3cdeed, type: 2}
@@ -1062,7 +1063,7 @@ MonoBehaviour:
   inputs:
   - {fileID: 11400000, guid: 66e1fd53edc67294995d76bf2a7af650, type: 2}
   toTakeBallCost: {fileID: 11400000, guid: ee20ddd7b9c047946b2cfa7f1d475eb7, type: 2}
-  direction: {x: 0, y: 2.5, z: 0.5}
+  direction: {x: 0, y: 2.5, z: 1}
   forceMode: 1
   movementForce: {fileID: 11400000, guid: 65d8476e49d6a55439c478521348bf59, type: 2}
   audioPlayer: {fileID: 441075581063163583}

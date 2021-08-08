@@ -15,5 +15,5 @@ MonoBehaviour:
   Name: Test doll
   balance: 5
   shoot: 5
-  pass: 5
+  pass: 8
   speed: 5
