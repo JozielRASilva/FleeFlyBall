@@ -9,8 +9,15 @@ public class AIOpponentTeamMember : AICharacterBase
     public float timeToLook = 0.5f;
     public float timeAfterShoot = 0.1f;
 
+    [Header("Pass")]
+    public float timeAfterPass = 0.1f;
+
     [Header("Intercept")]
     public float _distanceToIntercept = 3;
+
+    [Header("Marked")]
+    public float makedDistance = 3;
+    public int maxMarked = 3;
 
     [SerializeField]
     protected TeamArea AreasToKick;
@@ -76,14 +83,14 @@ public class AIOpponentTeamMember : AICharacterBase
         BTParallelSelector SCParallel = new BTParallelSelector();
 
         BTMove move = new BTMove();
-        // Check marker here
+        BTVeryMarked marked = new BTVeryMarked("Marked", _teamMember, makedDistance, maxMarked);
+
+        BTSelector selector = new BTSelector("Pass or Shoot");
 
         BTSequence sequenceToPass = new BTSequence("Pass ball");
-        // Check marker here
-        // Pass ball
+        BTPass pass = new BTPass("Pass", _teamMember, timeToLook, timeAfterPass);
 
         BTSequence sequenceToShoot = new BTSequence("Shoot ball");
-
         BTShootToGoal shootToGol = new BTShootToGoal("Shooting to goal", _teamMember.group, timeToLook, timeAfterShoot, _teamMember);
 
 
@@ -92,13 +99,19 @@ public class AIOpponentTeamMember : AICharacterBase
 
         sequence.SetNode(SCParallel);
         SCParallel.SetNode(move);
+        SCParallel.SetNode(marked);
 
-        // sequence to pass
+
+        sequenceToPass.SetNode(marked);
+        sequenceToPass.SetNode(pass);
 
         sequenceToShoot.SetNode(hasBall);
         sequenceToShoot.SetNode(shootToGol);
 
-        sequence.SetNode(sequenceToShoot);
+        selector.SetNode(sequenceToPass);
+        selector.SetNode(sequenceToShoot);
+
+        sequence.SetNode(selector);
 
         return sequence;
     }

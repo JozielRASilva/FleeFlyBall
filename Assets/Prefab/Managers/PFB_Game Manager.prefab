@@ -2866,6 +2866,30 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5768065185184728683, guid: bcaf3ddfeb7c3184c891e04cecef628e, type: 3}
+      propertyPath: maxMarked
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5768065185184728683, guid: bcaf3ddfeb7c3184c891e04cecef628e, type: 3}
+      propertyPath: makedDistance
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6895649294951375358, guid: bcaf3ddfeb7c3184c891e04cecef628e, type: 3}
+      propertyPath: maxMarked
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6895649294951375358, guid: bcaf3ddfeb7c3184c891e04cecef628e, type: 3}
+      propertyPath: makedDistance
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8341846148858161261, guid: bcaf3ddfeb7c3184c891e04cecef628e, type: 3}
+      propertyPath: maxMarked
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8341846148858161261, guid: bcaf3ddfeb7c3184c891e04cecef628e, type: 3}
+      propertyPath: makedDistance
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bcaf3ddfeb7c3184c891e04cecef628e, type: 3}
 --- !u!4 &761159857941335458 stripped

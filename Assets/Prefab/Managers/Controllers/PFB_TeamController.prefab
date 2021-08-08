@@ -311,7 +311,10 @@ MonoBehaviour:
   ShowTarget: 0
   timeToLook: 1
   timeAfterShoot: 0.1
+  timeAfterPass: 0.1
   _distanceToIntercept: 3
+  makedDistance: 3
+  maxMarked: 3
   AreasToKick: {fileID: 1695800390596275888}
 --- !u!114 &6002267804105250958
 MonoBehaviour:
@@ -330,6 +333,7 @@ MonoBehaviour:
     CanPerformInput: 0
   ShowGizmos: 1
   ShowTarget: 0
+  distanceToTargets: 0.3
 --- !u!114 &5768065185184728683
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -349,7 +353,10 @@ MonoBehaviour:
   ShowTarget: 0
   timeToLook: 1
   timeAfterShoot: 0.1
+  timeAfterPass: 0.1
   _distanceToIntercept: 3
+  makedDistance: 3
+  maxMarked: 3
   AreasToKick: {fileID: 1695800390596275888}
 --- !u!114 &3519597342262901614
 MonoBehaviour:
@@ -368,6 +375,7 @@ MonoBehaviour:
     CanPerformInput: 0
   ShowGizmos: 1
   ShowTarget: 0
+  distanceToTargets: 0.3
 --- !u!114 &5064369168537494785
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -385,6 +393,7 @@ MonoBehaviour:
     CanPerformInput: 0
   ShowGizmos: 1
   ShowTarget: 0
+  distanceToTargets: 0.3
 --- !u!114 &3103699901774996108
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -402,6 +411,7 @@ MonoBehaviour:
     CanPerformInput: 0
   ShowGizmos: 1
   ShowTarget: 0
+  distanceToTargets: 0.3
 --- !u!114 &2897684706031659011
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -419,6 +429,7 @@ MonoBehaviour:
     CanPerformInput: 0
   ShowGizmos: 1
   ShowTarget: 0
+  distanceToTargets: 0.3
 --- !u!114 &6895649294951375358
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -438,7 +449,10 @@ MonoBehaviour:
   ShowTarget: 0
   timeToLook: 1
   timeAfterShoot: 0.1
+  timeAfterPass: 0.1
   _distanceToIntercept: 3
+  makedDistance: 3
+  maxMarked: 3
   AreasToKick: {fileID: 1695800390596275888}
 --- !u!114 &4063886665568809413
 MonoBehaviour:
@@ -459,7 +473,10 @@ MonoBehaviour:
   ShowTarget: 0
   timeToLook: 1
   timeAfterShoot: 0.1
+  timeAfterPass: 0.1
   _distanceToIntercept: 3
+  makedDistance: 3
+  maxMarked: 3
   AreasToKick: {fileID: 1695800390596275888}
 --- !u!114 &6087325844113763834
 MonoBehaviour:
@@ -480,7 +497,10 @@ MonoBehaviour:
   ShowTarget: 0
   timeToLook: 1
   timeAfterShoot: 0.1
+  timeAfterPass: 0.1
   _distanceToIntercept: 3
+  makedDistance: 3
+  maxMarked: 3
   AreasToKick: {fileID: 1695800390596275888}
 --- !u!1001 &1734212641431147638
 PrefabInstance:
