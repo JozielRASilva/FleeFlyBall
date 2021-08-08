@@ -8,7 +8,7 @@ public class Positions : MonoBehaviour
     public Transform ball;
 
     private Ball _ball;
-        
+
     public TeamController _teamController;
 
     private TeamGroup _redTeam;
@@ -27,6 +27,14 @@ public class Positions : MonoBehaviour
         _redTeam = _teamController.GetOpponentGroup();
         _greenTeam = _teamController.GetPlayerGroup();
     }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            GolPosition();
+        }
+    }
     public void GolPosition()
     {
         _ball.Deattach();
@@ -34,19 +42,22 @@ public class Positions : MonoBehaviour
         ball.transform.position = ballPosition.transform.position;
         ball.gameObject.GetComponent<Rigidbody>().isKinematic = false;
 
+
+        _greenTeam.ResetMain();
+        _redTeam.ResetMain();
         for (int i = 0; i < _greenTeam.TeamMembers.Count; i++)
         {
-            
+
             GameObject greenObject = _greenTeam.TeamMembers[i].gameObject;
 
             greenObject.GetComponent<CharacterController>().enabled = false;
             greenObject.transform.position = CharactersGreenStart[i].transform.position;
             greenObject.transform.rotation = CharactersGreenStart[i].transform.rotation;
-            greenObject.GetComponent<CharacterController>().enabled = true ;
+            greenObject.GetComponent<CharacterController>().enabled = true;
 
         }
 
-        for (int i = 0; i < _greenTeam.TeamMembers.Count; i++)
+        for (int i = 0; i < _redTeam.TeamMembers.Count; i++)
         {
             GameObject redObject = _redTeam.TeamMembers[i].gameObject;
             redObject.GetComponent<CharacterController>().enabled = false;
@@ -56,7 +67,7 @@ public class Positions : MonoBehaviour
         }
     }
 
-   
+
 
 
 

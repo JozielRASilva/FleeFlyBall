@@ -62,30 +62,31 @@ public class Timer : MonoBehaviour
         if (remainingTime == secondTime)
         {
             _positions.GolPosition();
-
-            if (!audioManager.GetSound(sound).audioSource.isPlaying)
-            {
-                audioPlayer.PlaySound(sound);
-            }
+            if (audioManager)
+                if (!audioManager.GetSound(sound).audioSource.isPlaying)
+                {
+                    audioPlayer.PlaySound(sound);
+                }
 
         }
         if (remainingTime == thirdTime)
         {
             _positions.GolPosition();
 
-            if (!audioManager.GetSound(sound).audioSource.isPlaying)
-            {
-                audioPlayer.PlaySound(sound);
-            }
+            if (audioManager)
+                if (!audioManager.GetSound(sound).audioSource.isPlaying)
+                {
+                    audioPlayer.PlaySound(sound);
+                }
         }
         if (remainingTime == fourthTime)
         {
             _positions.GolPosition();
-
-            if (!audioManager.GetSound(sound).audioSource.isPlaying)
-            {
-                audioPlayer.PlaySound(sound);
-            }
+            if (audioManager)
+                if (!audioManager.GetSound(sound).audioSource.isPlaying)
+                {
+                    audioPlayer.PlaySound(sound);
+                }
         }
         if (remainingTime == endTime)
         {
@@ -94,7 +95,7 @@ public class Timer : MonoBehaviour
                 Time.timeScale = 0;
                 redWin.SetActive(true);
             }
-            if(_score.redScore < _score.greenScore)
+            if (_score.redScore < _score.greenScore)
             {
                 Time.timeScale = 0;
                 greeWin.SetActive(true);
@@ -104,11 +105,11 @@ public class Timer : MonoBehaviour
                 Time.timeScale = 0;
                 drawGame.SetActive(true);
             }
-            
+
         }
 
     }
 
-    
+
 
 }

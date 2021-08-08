@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
 using System;
+using System.Linq;
 
 public class TeamGroup : MonoBehaviour
 {
@@ -39,6 +40,35 @@ public class TeamGroup : MonoBehaviour
         {
             member.group = this;
         }
+
+    }
+
+    public void ResetMain()
+    {
+        Debug.Log("Reset");
+        TeamMember member = teamMembers[0];
+        if (!member)
+            return;
+
+        if (isPlayerGroup)
+        {
+            Debug.Log("Is main setted");
+            member.SetAsMain();
+            if (CVCamera)
+                CVCamera.Follow = member.transform;
+        }
+        else
+            member.SetAsMainAI();
+
+
+        foreach (var m in teamMembers)
+        {
+            if (m.Equals(member))
+                continue;
+
+            m.SetAsAI();
+        }
+
 
     }
 

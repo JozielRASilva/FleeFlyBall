@@ -74,7 +74,12 @@ public class BTUpdateWhoToIntercept : BTNode
         Vector3 point = target;
         point.y = 0;
 
-        Vector3 mainOpponentPos = _opponentGroup.GetMain().transform.position;
+        TeamMember main = _opponentGroup.GetMain();
+
+        if (!main)
+            return;
+
+        Vector3 mainOpponentPos = main.transform.position;
         mainOpponentPos.y = 0;
 
         Vector3 direction = (mainOpponentPos - point).normalized * _distanceToIntercept;
