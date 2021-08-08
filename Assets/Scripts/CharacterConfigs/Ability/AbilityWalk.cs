@@ -22,7 +22,6 @@ public class AbilityWalk : AbilityBase
     [SerializeField]
     private FloatSO embassyBalanceCost;
 
-
     public enum SpeedType { DEFAULT, SPRINT, EMBASSY }
     private float _speed = 5;
 
@@ -95,11 +94,14 @@ public class AbilityWalk : AbilityBase
 
         if (!inputDirection.Equals(Vector2.zero))
         {
-            _character.SetCharacterState(CharacterInfo.CharacterStates.Walking);
+            if (_currentSpeedType == SpeedType.SPRINT)
+                _character.SetCharacterState(CharacterInfo.CharacterStates.Running);
+            else
+                _character.SetCharacterState(CharacterInfo.CharacterStates.Walking);
         }
         else
         {
-            if (_character.GetCharacterState() == CharacterInfo.CharacterStates.Walking)
+            if (_character.GetCharacterState() == CharacterInfo.CharacterStates.Walking || _character.GetCharacterState() == CharacterInfo.CharacterStates.Running)
                 _character.SetCharacterState(CharacterInfo.CharacterStates.Idle);
         }
 
@@ -120,7 +122,6 @@ public class AbilityWalk : AbilityBase
             inputVector.z = LastLookDirection.y;
         }
 
-
         LastLookDirection.x = inputVector.x;
         LastLookDirection.y = inputVector.z;
 
@@ -138,7 +139,7 @@ public class AbilityWalk : AbilityBase
     public void LookAtDirection(Vector3 _inputVector, float lookSpeed)
     {
         Vector3 inputVector = _inputVector;
-        
+
         if (inputVector.Equals(Vector3.zero))
         {
             inputVector.x = LastLookDirection.x;

@@ -9,6 +9,7 @@ public class CharacterInfo
     {
         Idle,
         Walking,
+        Running,
         Shotting,
         Passing,
         RecoveringBalance,

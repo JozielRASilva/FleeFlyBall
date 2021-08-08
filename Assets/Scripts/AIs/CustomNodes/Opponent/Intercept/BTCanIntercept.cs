@@ -33,7 +33,7 @@ public class BTCanIntercept : BTNode
             if (domainBall.CanDomain(ref _ball))
             {
                 status = Status.SUCCESS;
-                Debug.Log("Can Domain!");
+              
             }
         }
 
@@ -42,7 +42,7 @@ public class BTCanIntercept : BTNode
             if (takeBall.CanTakeBall(ref _ball))
             {
                 status = Status.SUCCESS;
-                Debug.Log("Can Take!");
+               
             }
         }
 
