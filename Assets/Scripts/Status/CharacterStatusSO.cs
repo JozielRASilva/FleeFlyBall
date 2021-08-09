@@ -37,4 +37,10 @@ public class CharacterStatusSO : ScriptableObject
     public int Speed { get => speed; }
 
     #endregion
+
+    [Header("Visual info")]
+    public List<Material> SkinMaterial = new List<Material>();
+    public List<Material> BodyMaterial = new List<Material>();
+
+
 }

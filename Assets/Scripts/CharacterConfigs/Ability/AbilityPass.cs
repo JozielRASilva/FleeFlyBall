@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class AbilityPass : AbilityBase
 {
@@ -30,6 +31,8 @@ public class AbilityPass : AbilityBase
     private BallPossession _ballPossession;
 
     private float _pass;
+
+    public Action OnPass;
 
     protected override bool Authorized
     {
@@ -114,6 +117,8 @@ public class AbilityPass : AbilityBase
         _character.BallPossession.ball.Pass(transform.position, selectedMember.transform, height, _pass);
 
         ApplyBalanceCost();
+
+        OnPass?.Invoke();
 
         audioPlayer.PlaySound(sound);
     }

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class AbilityShoot : AbilityBase
 {
@@ -21,6 +22,8 @@ public class AbilityShoot : AbilityBase
     public string sound;
 
     private float _shoot;
+
+    public Action OnShoot;
 
     protected override void InitStatus()
     {
@@ -43,6 +46,8 @@ public class AbilityShoot : AbilityBase
         _character.BallPossession.ball.Chutar(dir * _shoot, forceMode);
 
         ApplyBalanceCost();
+
+        OnShoot?.Invoke();
 
         audioPlayer.PlaySound(sound);
     }

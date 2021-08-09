@@ -31,6 +31,7 @@ public class Character : MonoBehaviour
 
     private Rigidbody _rigibody;
 
+    public List<AbilityBase> abilities { get => Abilities; }
     private List<AbilityBase> Abilities = new List<AbilityBase>();
 
     private void Awake()

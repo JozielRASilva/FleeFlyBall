@@ -7,12 +7,22 @@ public class CharacterAnimationManager : MonoBehaviour
     [SerializeField]
     private Character _character;
 
+    private AbilityShoot abilityShoot;
+    private AbilityPass abilityPass;
+
     [SerializeField]
     private Animator _animator;
+
+    [Header("Setup Meshes")]
+    public CharacterVisualSO characterVisual;
+    public SkinnedMeshRenderer skin;
+    public SkinnedMeshRenderer body;
+
 
     [Header("Triggers")]
     public string OnKick = "OnKick";
     public string OnPass = "OnPass";
+    public string OnReceive = "OnReceive";
 
     [Header("Bools")]
     public string idle = "Idle";
@@ -36,6 +46,32 @@ public class CharacterAnimationManager : MonoBehaviour
             _animator = GetComponentInParent<Animator>();
     }
 
+    private void Start()
+    {
+        skin.materials = characterVisual.SkinMaterial.ToArray();
+        body.materials = characterVisual.BodyMaterial.ToArray();
+
+
+        abilityShoot = _character.GetComponentInChildren<AbilityShoot>();
+        abilityShoot.OnShoot += TriggerShoot;
+        abilityPass = _character.GetComponentInChildren<AbilityPass>();
+        abilityPass.OnPass += TriggerPass;
+
+        _character.BallPossession.OnReceive += TriggerReceive;
+    }
+
+    public void TriggerShoot()
+    {
+        _animator.SetTrigger(OnKick);
+    }
+    public void TriggerPass()
+    {
+        _animator.SetTrigger(OnPass);
+    }
+    public void TriggerReceive()
+    {
+        _animator.SetTrigger(OnReceive);
+    }
 
     private void Update()
     {

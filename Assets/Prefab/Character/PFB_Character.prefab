@@ -275,6 +275,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _character: {fileID: 223793988060867925}
   _animator: {fileID: 2040567345170480565}
+  characterVisual: {fileID: 11400000, guid: c35992e9627ed7740928cf467471d980, type: 2}
+  skin: {fileID: 2040567343603973909}
+  body: {fileID: 2040567345501160673}
   OnKick: OnKick
   OnPass: OnPass
   idle: Idle
@@ -1399,6 +1402,16 @@ Transform:
 --- !u!4 &2040567344288663804 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3331841357709634194, guid: 1a8a3d53743d37545be233a5e2b1f822, type: 3}
+  m_PrefabInstance: {fileID: 3633447499247280750}
+  m_PrefabAsset: {fileID: 0}
+--- !u!137 &2040567345501160673 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 3331841356505130639, guid: 1a8a3d53743d37545be233a5e2b1f822, type: 3}
+  m_PrefabInstance: {fileID: 3633447499247280750}
+  m_PrefabAsset: {fileID: 0}
+--- !u!137 &2040567343603973909 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 3331841357897309563, guid: 1a8a3d53743d37545be233a5e2b1f822, type: 3}
   m_PrefabInstance: {fileID: 3633447499247280750}
   m_PrefabAsset: {fileID: 0}
 --- !u!95 &2040567345170480565 stripped

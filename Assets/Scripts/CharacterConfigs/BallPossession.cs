@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class BallPossession : MonoBehaviour
 {
@@ -27,6 +28,8 @@ public class BallPossession : MonoBehaviour
     private CollisionAndTrigger _collisionAndTrigger;
 
     private bool _touching;
+
+    public Action OnReceive;
 
     private void Awake()
     {
@@ -107,6 +110,8 @@ public class BallPossession : MonoBehaviour
         ball = _ball;
 
         ball.OnDeattach += DeattachBall;
+
+        OnReceive?.Invoke();
 
         audioPlayer.PlaySound(sound);
     }
