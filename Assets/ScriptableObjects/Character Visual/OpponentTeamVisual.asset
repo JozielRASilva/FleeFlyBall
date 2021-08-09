@@ -15,6 +15,6 @@ MonoBehaviour:
   SkinMaterial:
   - {fileID: 2100000, guid: e502a9fda37ff724797b51cb3a390568, type: 2}
   BodyMaterial:
-  - {fileID: 2100000, guid: b003f8f7503cf944d8aba8057665845c, type: 2}
+  - {fileID: 2100000, guid: 876fae0ca90face40ad051bfaf11eb7b, type: 2}
   - {fileID: 2218582448729999119, guid: dd0603645cfe9524f9c0e2ed9c347e03, type: 3}
   - {fileID: 5561349426305759274, guid: dd0603645cfe9524f9c0e2ed9c347e03, type: 3}
