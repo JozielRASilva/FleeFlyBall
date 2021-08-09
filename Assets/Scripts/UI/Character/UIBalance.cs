@@ -21,6 +21,10 @@ public class UIBalance : MonoBehaviour
     private Character _character;
 
     private float _currentDelayValue;
+
+    [SerializeField]
+    private TeamMember _teamMember;
+
     private void Awake()
     {
         _character = GetComponent<Character>();
@@ -46,16 +50,31 @@ public class UIBalance : MonoBehaviour
 
         _balance.OnRecoverAllBalance += RecoverAllBalance;
 
+
+        _teamMember = GetComponentInParent<TeamMember>();
+       
+        _teamMember.OnSelected += Show;
+
+        _teamMember.UnSelected += Hide;
+
+        _teamMember.OnSetMain += Show;
+
+        _teamMember.OnRemoveMain += Hide;
+
+
         transform.parent = null;
+
     }
 
     public void Show()
     {
         main.SetActive(true);
+        Debug.Log("Show");
     }
 
     public void Hide()
     {
+        Debug.Log("Hide");
         main.SetActive(false);
     }
 
