@@ -1321,6 +1321,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI_Balance
       objectReference: {fileID: 0}
+    - target: {fileID: 5840630610935572885, guid: fde3282317da51b4fa5c487cb812460b, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5840630610935572885, guid: fde3282317da51b4fa5c487cb812460b, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5840630610935572885, guid: fde3282317da51b4fa5c487cb812460b, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fde3282317da51b4fa5c487cb812460b, type: 3}
 --- !u!4 &223793988725538558 stripped
