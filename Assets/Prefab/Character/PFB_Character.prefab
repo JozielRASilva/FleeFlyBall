@@ -755,8 +755,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AbilityPermitted: 1
   BlockOnStates: 
-  DelayToShoot: 0.2
-  DelayToSpecial: 0.2
+  DelayToShoot: 0.5
+  DelayToSpecial: 0.5
   useDelay: 1
   shootDirection: {x: 0, y: 0.93, z: 1.5}
   forceMode: 1
