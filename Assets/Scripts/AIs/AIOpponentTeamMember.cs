@@ -53,7 +53,7 @@ public class AIOpponentTeamMember : AICharacterBase
 
         BTMove move = new BTMove();
 
-        BTUpdateBallAsTarget updateBall = new BTUpdateBallAsTarget("Update ball", Ball.Instance);
+        BTUpdateBallAsTarget updateBall = new BTUpdateBallAsTarget("Update ball", Ball.Instance, _teamMember);
         BTInverter inverterUpdateBall = new BTInverter();
 
         sequence.SetNode(inverterBallHas);
