@@ -26,10 +26,12 @@ public class AudioManager : MonoBehaviour
     public string playOnAwake;
 
     private void Awake()
-    {
+    {        
         if (!PlayerPrefs.HasKey("Music"))
         {
             musicVolume = maxMusicVolume;
+
+            PlayerPrefs.SetInt("Music", 1);
         }
         else
         {
@@ -46,6 +48,8 @@ public class AudioManager : MonoBehaviour
         if (!PlayerPrefs.HasKey("Sound FX"))
         {
             soundFXVolume = maxSoundFXVolume;
+
+            PlayerPrefs.SetInt("Sound FX", 1);
         }
         else
         {
