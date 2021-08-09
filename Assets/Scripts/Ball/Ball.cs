@@ -113,7 +113,7 @@ public class Ball : Singleton<Ball>
         onPlayer = false;
 
         _rigidbody.isKinematic = false;
-
+        _rigidbody.velocity = Vector3.zero;
         _rigidbody.AddForce(force, forceMode);
 
         grounded = false;

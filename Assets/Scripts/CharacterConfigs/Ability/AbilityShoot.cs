@@ -5,6 +5,11 @@ using System;
 
 public class AbilityShoot : AbilityBase
 {
+    public float DelayToShoot = 0.01f;
+    public float DelayToSpecial = 0.01f;
+
+    public bool useDelay;
+
     public Vector3 shootDirection = Vector3.up + Vector3.forward;
     public ForceMode forceMode = ForceMode.Force;
 
@@ -24,6 +29,7 @@ public class AbilityShoot : AbilityBase
     private float _shoot;
 
     public Action OnShoot;
+    public Action CallSpecial;
 
     protected override void InitStatus()
     {
@@ -42,18 +48,50 @@ public class AbilityShoot : AbilityBase
         if (!ExecuteAction() || !CanShoot())
             return;
 
-        _character.BallPossession.ball.SetKickType(kickType);
-        Vector3 force = new Vector3(dir.x * _shoot, dir.y * Ball.Instance.FixedYForce, dir.z * _shoot);
-        _character.BallPossession.ball.Chutar(force, forceMode);
+        Ball.Instance.SetKickType(kickType);
+
+        if (!useDelay)
+            ProcessKick(dir);
+        else
+            StartCoroutine(KickDelay(dir));
 
         ApplyBalanceCost();
 
-        OnShoot?.Invoke();
+        if (kickType == Ball.KickType.NORMAL)
+        {
+            OnShoot?.Invoke();
+        }
+
+        if (kickType == Ball.KickType.SPECIAL)
+        {
+            CallSpecial?.Invoke();
+        }
+
+    }
+
+    private IEnumerator KickDelay(Vector3 dir)
+    {
+        WaitForSeconds wait = null;
+
+        if (kickType != Ball.KickType.SPECIAL)
+            wait = new WaitForSeconds(DelayToShoot);
+        else
+            wait = new WaitForSeconds(DelayToSpecial);
+
+        yield return wait;
+
+        ProcessKick(dir);
+
+    }
+
+    private void ProcessKick(Vector3 dir)
+    {
+
+        Vector3 force = new Vector3(dir.x * _shoot, dir.y * Ball.Instance.FixedYForce, dir.z * _shoot);
+        Ball.Instance.Chutar(force, forceMode);
 
         audioPlayer.PlaySound(sound);
     }
-
-
 
     private void ApplyBalanceCost()
     {
@@ -85,8 +123,12 @@ public class AbilityShoot : AbilityBase
 
             case Character.ControlType.AI:
                 // Set AI input here
+
                 if (characterBase)
                 {
+                    if (kickType == Ball.KickType.SPECIAL)
+                        return false;
+
                     bool _value = characterBase.inputShoot.GetValue(characterBase);
 
                     return _value;

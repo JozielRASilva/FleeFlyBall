@@ -7,7 +7,10 @@ public class CharacterAnimationManager : MonoBehaviour
     [SerializeField]
     private Character _character;
 
+    [SerializeField]
     private AbilityShoot abilityShoot;
+    [SerializeField]
+    private AbilityShoot abilitySkill;
     private AbilityPass abilityPass;
 
     [SerializeField]
@@ -21,6 +24,7 @@ public class CharacterAnimationManager : MonoBehaviour
 
     [Header("Triggers")]
     public string OnKick = "OnKick";
+    public string OnSpecial = "OnSpecial";
     public string OnPass = "OnPass";
     public string OnReceive = "OnReceive";
 
@@ -51,9 +55,16 @@ public class CharacterAnimationManager : MonoBehaviour
         skin.materials = characterVisual.SkinMaterial.ToArray();
         body.materials = characterVisual.BodyMaterial.ToArray();
 
+        if (!abilityShoot)
+            abilityShoot = _character.GetComponentInChildren<AbilityShoot>();
 
-        abilityShoot = _character.GetComponentInChildren<AbilityShoot>();
         abilityShoot.OnShoot += TriggerShoot;
+
+        if (!abilitySkill)
+            abilityShoot = _character.GetComponentsInChildren<AbilityShoot>()[1];
+
+        abilitySkill.CallSpecial += TriggerSpecial;
+
         abilityPass = _character.GetComponentInChildren<AbilityPass>();
         abilityPass.OnPass += TriggerPass;
 
@@ -71,6 +82,11 @@ public class CharacterAnimationManager : MonoBehaviour
     public void TriggerReceive()
     {
         _animator.SetTrigger(OnReceive);
+    }
+
+    public void TriggerSpecial()
+    {
+        _animator.SetTrigger(OnSpecial);
     }
 
     private void Update()
