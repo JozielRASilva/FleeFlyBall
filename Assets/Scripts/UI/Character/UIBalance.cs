@@ -22,7 +22,7 @@ public class UIBalance : MonoBehaviour
 
     private float _currentDelayValue;
 
-    [SerializeField]
+
     private TeamMember _teamMember;
 
     private void Awake()
