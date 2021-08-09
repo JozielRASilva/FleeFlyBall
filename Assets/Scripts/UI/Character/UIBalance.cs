@@ -52,7 +52,7 @@ public class UIBalance : MonoBehaviour
 
 
         _teamMember = GetComponentInParent<TeamMember>();
-       
+
         _teamMember.OnSelected += Show;
 
         _teamMember.UnSelected += Hide;
@@ -68,6 +68,8 @@ public class UIBalance : MonoBehaviour
 
     public void Show()
     {
+        if (!_teamMember.group.isPlayerGroup)
+            return;
         main.SetActive(true);
         Debug.Log("Show");
     }

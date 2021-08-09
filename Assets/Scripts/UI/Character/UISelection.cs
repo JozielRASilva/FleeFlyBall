@@ -38,6 +38,8 @@ public class UISelection : MonoBehaviour
 
     public void Show()
     {
+        if (!_teamMember.group.isPlayerGroup)
+            return;
         canvas.SetActive(true);
 
         if (!debug)
@@ -50,7 +52,7 @@ public class UISelection : MonoBehaviour
     {
         canvas.SetActive(false);
 
-        
+
         if (!debug)
             return;
 

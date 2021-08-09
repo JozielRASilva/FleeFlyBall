@@ -48,7 +48,7 @@ public class AbilityShoot : AbilityBase
         if (!ExecuteAction() || !CanShoot())
             return;
 
-        Ball.Instance.SetKickType(kickType);
+        _character.BallPossession.ball.SetKickType(kickType);
 
         if (!useDelay)
             ProcessKick(dir);
@@ -72,7 +72,7 @@ public class AbilityShoot : AbilityBase
     private IEnumerator KickDelay(Vector3 dir)
     {
         WaitForSeconds wait = null;
-
+        _character.balance.BlockCost();
         if (kickType != Ball.KickType.SPECIAL)
             wait = new WaitForSeconds(DelayToShoot);
         else
@@ -81,14 +81,15 @@ public class AbilityShoot : AbilityBase
         yield return wait;
 
         ProcessKick(dir);
-
+        _character.balance.UnBlockCost();
     }
 
     private void ProcessKick(Vector3 dir)
     {
-
+        if (!_character.BallPossession.ball)
+            return;
         Vector3 force = new Vector3(dir.x * _shoot, dir.y * Ball.Instance.FixedYForce, dir.z * _shoot);
-        Ball.Instance.Chutar(force, forceMode);
+        _character.BallPossession.ball.Chutar(force, forceMode);
 
         audioPlayer.PlaySound(sound);
     }
