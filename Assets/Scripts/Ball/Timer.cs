@@ -39,7 +39,7 @@ public class Timer : MonoBehaviour
         remainingTime = startingTime;
         referenceTime = Time.time;
 
-        audioPlayer.PlaySound(sound);
+        audioManager.Play(sound);
     }
 
 
@@ -65,7 +65,7 @@ public class Timer : MonoBehaviour
             if (audioManager)
                 if (!audioManager.GetSound(sound).audioSource.isPlaying)
                 {
-                    audioPlayer.PlaySound(sound);
+                    audioManager.Play(sound);
                 }
 
         }
@@ -76,7 +76,7 @@ public class Timer : MonoBehaviour
             if (audioManager)
                 if (!audioManager.GetSound(sound).audioSource.isPlaying)
                 {
-                    audioPlayer.PlaySound(sound);
+                    audioManager.Play(sound);
                 }
         }
         if (remainingTime == fourthTime)
@@ -85,7 +85,7 @@ public class Timer : MonoBehaviour
             if (audioManager)
                 if (!audioManager.GetSound(sound).audioSource.isPlaying)
                 {
-                    audioPlayer.PlaySound(sound);
+                    audioManager.Play(sound);
                 }
         }
         if (remainingTime == endTime)

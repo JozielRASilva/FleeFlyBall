@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.17846921, g: 0.22346385, b: 0.3054577, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2727,6 +2727,14 @@ PrefabInstance:
       propertyPath: audioManager
       value: 
       objectReference: {fileID: 172551892}
+    - target: {fileID: 1243251166511554408, guid: 40c9158e0fbf8fd4ea9b6edc38615b51, type: 3}
+      propertyPath: audioManager
+      value: 
+      objectReference: {fileID: 172551892}
+    - target: {fileID: 1832313053244704435, guid: 40c9158e0fbf8fd4ea9b6edc38615b51, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 40c9158e0fbf8fd4ea9b6edc38615b51, type: 3}
 --- !u!1001 &3874577100770055809
