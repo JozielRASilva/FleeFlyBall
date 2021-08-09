@@ -43,7 +43,8 @@ public class AbilityShoot : AbilityBase
             return;
 
         _character.BallPossession.ball.SetKickType(kickType);
-        _character.BallPossession.ball.Chutar(dir * _shoot, forceMode);
+        Vector3 force = new Vector3(dir.x * _shoot, dir.y * Ball.Instance.FixedYForce, dir.z * _shoot);
+        _character.BallPossession.ball.Chutar(force, forceMode);
 
         ApplyBalanceCost();
 

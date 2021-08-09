@@ -141,6 +141,17 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 668.25024, y: 107.49996, z: 104.448456}
   m_Center: {x: 0.00021362305, y: 53.76331, z: -52.136093}
+--- !u!114 &58169188 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3709758249365640479, guid: 40c9158e0fbf8fd4ea9b6edc38615b51, type: 3}
+  m_PrefabInstance: {fileID: 761159857956383755}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91bc88ffdd8e0d94294cc2719c3b94d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &64845168 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8437428828137078766, guid: 2a93dbedc013f3945af85f1cab05bf55, type: 3}
@@ -2182,6 +2193,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1711016831 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1795392811270599860, guid: 40c9158e0fbf8fd4ea9b6edc38615b51, type: 3}
+  m_PrefabInstance: {fileID: 761159857956383755}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91bc88ffdd8e0d94294cc2719c3b94d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1752784921 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8437428827714395520, guid: 2a93dbedc013f3945af85f1cab05bf55, type: 3}
@@ -2549,6 +2571,10 @@ PrefabInstance:
       propertyPath: CVCamera
       value: 
       objectReference: {fileID: 1807410222}
+    - target: {fileID: 761159858406093709, guid: 40c9158e0fbf8fd4ea9b6edc38615b51, type: 3}
+      propertyPath: thisGoal
+      value: 
+      objectReference: {fileID: 58169188}
     - target: {fileID: 761159858443968281, guid: 40c9158e0fbf8fd4ea9b6edc38615b51, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -2597,6 +2623,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PFB_Game Manager
       objectReference: {fileID: 0}
+    - target: {fileID: 761159858981856700, guid: 40c9158e0fbf8fd4ea9b6edc38615b51, type: 3}
+      propertyPath: thisGoal
+      value: 
+      objectReference: {fileID: 1711016831}
     - target: {fileID: 957536273436931178, guid: 40c9158e0fbf8fd4ea9b6edc38615b51, type: 3}
       propertyPath: audioManager
       value: 

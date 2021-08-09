@@ -113,6 +113,7 @@ MonoBehaviour:
   AutoControl: 1
   _ballState: 0
   _currentKick: 0
+  FixedYForce: 10
   delayToGetBall: 0.02
   pointDetect: {fileID: 0}
   AvaliableWhenPassing: 1

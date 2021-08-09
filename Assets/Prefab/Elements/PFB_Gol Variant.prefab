@@ -543,6 +543,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7022926301977893188, guid: b5bd230e47acb2f44a42db71a031bc9a, type: 3}
+      propertyPath: golPlayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7022926301977893188, guid: b5bd230e47acb2f44a42db71a031bc9a, type: 3}
       propertyPath: pointDetect
       value: 
       objectReference: {fileID: 0}

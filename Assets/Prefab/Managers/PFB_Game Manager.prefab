@@ -2112,10 +2112,6 @@ PrefabInstance:
       propertyPath: pointDetect
       value: 
       objectReference: {fileID: 3778524941240832238}
-    - target: {fileID: 188205261757062598, guid: 9b81e5501c6da59438c34ad2543a8004, type: 3}
-      propertyPath: _pass_threshold
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6215705032402164337, guid: 9b81e5501c6da59438c34ad2543a8004, type: 3}
       propertyPath: m_Name
       value: PFB_Ball
@@ -3139,7 +3135,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4173600602725326463, guid: 30a2d042ee6c09e40b946acac8d4fdb9, type: 3}
       propertyPath: golPlayer
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4173600602725326463, guid: 30a2d042ee6c09e40b946acac8d4fdb9, type: 3}
       propertyPath: twoPoints

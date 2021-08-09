@@ -23,7 +23,7 @@ public class Ball : Singleton<Ball>
     public enum KickType { NONE, NORMAL, SPECIAL }
     [SerializeField]
     private KickType _currentKick = KickType.NONE;
-
+    public int FixedYForce = 9;
     public float delayToGetBall = 0.02f;
     private float getBallTimeStamp;
 
