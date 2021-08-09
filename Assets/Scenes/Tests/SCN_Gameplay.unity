@@ -2528,7 +2528,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1604369534979062990, guid: 44f6a14a4de0c18499f7f68b3218ea01, type: 3}
       propertyPath: soundFX.Array.size
-      value: 7
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 1604369534979062990, guid: 44f6a14a4de0c18499f7f68b3218ea01, type: 3}
       propertyPath: music.Array.data[0].loop
@@ -2563,6 +2563,14 @@ PrefabInstance:
       value: Bounce
       objectReference: {fileID: 0}
     - target: {fileID: 1604369534979062990, guid: 44f6a14a4de0c18499f7f68b3218ea01, type: 3}
+      propertyPath: soundFX.Array.data[7].name
+      value: Double Whistle
+      objectReference: {fileID: 0}
+    - target: {fileID: 1604369534979062990, guid: 44f6a14a4de0c18499f7f68b3218ea01, type: 3}
+      propertyPath: soundFX.Array.data[8].name
+      value: Goal Whistle
+      objectReference: {fileID: 0}
+    - target: {fileID: 1604369534979062990, guid: 44f6a14a4de0c18499f7f68b3218ea01, type: 3}
       propertyPath: soundFX.Array.data[2].volume
       value: 1
       objectReference: {fileID: 0}
@@ -2581,6 +2589,14 @@ PrefabInstance:
     - target: {fileID: 1604369534979062990, guid: 44f6a14a4de0c18499f7f68b3218ea01, type: 3}
       propertyPath: soundFX.Array.data[6].volume
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1604369534979062990, guid: 44f6a14a4de0c18499f7f68b3218ea01, type: 3}
+      propertyPath: soundFX.Array.data[7].volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1604369534979062990, guid: 44f6a14a4de0c18499f7f68b3218ea01, type: 3}
+      propertyPath: soundFX.Array.data[8].volume
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1604369534979062990, guid: 44f6a14a4de0c18499f7f68b3218ea01, type: 3}
       propertyPath: music.Array.data[0].audioClip
@@ -2606,6 +2622,14 @@ PrefabInstance:
       propertyPath: soundFX.Array.data[6].audioClip
       value: 
       objectReference: {fileID: 8300000, guid: 85c2c615d067aae45a135b3ac39a229b, type: 3}
+    - target: {fileID: 1604369534979062990, guid: 44f6a14a4de0c18499f7f68b3218ea01, type: 3}
+      propertyPath: soundFX.Array.data[7].audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 0d5a6c3cbcbd0d34f8e899eb2b4e31fe, type: 3}
+    - target: {fileID: 1604369534979062990, guid: 44f6a14a4de0c18499f7f68b3218ea01, type: 3}
+      propertyPath: soundFX.Array.data[8].audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: aa87c9940b94be54cbdf8ca202381588, type: 3}
     - target: {fileID: 2480987001281604902, guid: 44f6a14a4de0c18499f7f68b3218ea01, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -2731,10 +2755,6 @@ PrefabInstance:
       propertyPath: audioManager
       value: 
       objectReference: {fileID: 172551892}
-    - target: {fileID: 1832313053244704435, guid: 40c9158e0fbf8fd4ea9b6edc38615b51, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 40c9158e0fbf8fd4ea9b6edc38615b51, type: 3}
 --- !u!1001 &3874577100770055809
