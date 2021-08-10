@@ -11,11 +11,6 @@ public class CharacterAnimationManager : MonoBehaviour
     private AbilityShoot abilityShoot;
     [SerializeField]
     private AbilityShoot abilitySkill;
-    private AbilityPass abilityPass;
-
-
-    private AbilityDomainBall abilityDomain;
-    private AbilityToTakeBall abilityToTake;
 
     [SerializeField]
     private Animator _animator;
@@ -42,6 +37,10 @@ public class CharacterAnimationManager : MonoBehaviour
 
     public string idleBall = "IdleBall";
     public string walkBall = "WalkBall";
+
+    private AbilityPass abilityPass;
+    private AbilityDomainBall abilityDomain;
+    private AbilityToTakeBall abilityToTake;
 
     private void Awake()
     {
@@ -135,23 +134,23 @@ public class CharacterAnimationManager : MonoBehaviour
 
     private void IdleConfig()
     {
-        bool idle_bool = _character.GetCharacterState() == CharacterInfo.CharacterStates.Idle;
-        _animator.SetBool(idle, idle_bool);
+        bool idleBool = _character.GetCharacterState() == CharacterInfo.CharacterStates.Idle;
+        _animator.SetBool(idle, idleBool);
 
-        bool idle_ball = idle_bool && _character.BallPossession.HasBall();
-        _animator.SetBool(idleBall, idle_ball);
+        bool idleBall = idleBool && _character.BallPossession.HasBall();
+        _animator.SetBool(this.idleBall, idleBall);
     }
 
     private void WalkConfig()
     {
-        bool walk_bool = _character.GetCharacterState() == CharacterInfo.CharacterStates.Walking || _character.GetCharacterState() == CharacterInfo.CharacterStates.Running;
-        _animator.SetBool(walk, walk_bool);
+        bool walkBool = _character.GetCharacterState() == CharacterInfo.CharacterStates.Walking || _character.GetCharacterState() == CharacterInfo.CharacterStates.Running;
+        _animator.SetBool(walk, walkBool);
 
-        bool walk_ball = walk_bool && _character.BallPossession.HasBall();
-        _animator.SetBool(walkBall, walk_ball);
+        bool walkBall = walkBool && _character.BallPossession.HasBall();
+        _animator.SetBool(this.walkBall, walkBall);
 
-        bool run_bool = walk_bool && _character.GetCharacterState() == CharacterInfo.CharacterStates.Running;
-        _animator.SetBool(run, run_bool);
+        bool runBool = walkBool && _character.GetCharacterState() == CharacterInfo.CharacterStates.Running;
+        _animator.SetBool(run, runBool);
     }
 
 
