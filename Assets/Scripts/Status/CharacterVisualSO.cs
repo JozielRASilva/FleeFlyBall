@@ -7,6 +7,7 @@ public class CharacterVisualSO : ScriptableObject
 {
 
     [Header("Visual info")]
+    public List<Material> HairMaterial = new List<Material>();
     public List<Material> SkinMaterial = new List<Material>();
     public List<Material> BodyMaterial = new List<Material>();
 

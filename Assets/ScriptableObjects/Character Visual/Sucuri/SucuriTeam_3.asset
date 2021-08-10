@@ -10,10 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8e992c67ca567334db1362ae31b8c1d4, type: 3}
-  m_Name: OpponentTeamVisual
+  m_Name: SucuriTeam_3
   m_EditorClassIdentifier: 
+  HairMaterial:
+  - {fileID: 2100000, guid: c9db5c6289238484fa2be9dd6cc2cfe0, type: 2}
   SkinMaterial:
-  - {fileID: 2100000, guid: e502a9fda37ff724797b51cb3a390568, type: 2}
+  - {fileID: 2100000, guid: 14e189e79ee7d0e438d93f88faa7fc96, type: 2}
   BodyMaterial:
   - {fileID: 2100000, guid: 876fae0ca90face40ad051bfaf11eb7b, type: 2}
   - {fileID: 2218582448729999119, guid: dd0603645cfe9524f9c0e2ed9c347e03, type: 3}

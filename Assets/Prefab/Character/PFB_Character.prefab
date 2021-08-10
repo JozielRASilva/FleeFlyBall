@@ -278,12 +278,15 @@ MonoBehaviour:
   abilitySkill: {fileID: 1726558990905544244}
   _animator: {fileID: 2040567345170480565}
   characterVisual: {fileID: 11400000, guid: c35992e9627ed7740928cf467471d980, type: 2}
-  skin: {fileID: 2040567343603973909}
-  body: {fileID: 2040567345501160673}
+  hair: {fileID: 5822855870909233722}
+  skin: {fileID: 4746626593760960736}
+  body: {fileID: 3878086345593223421}
   OnKick: OnKick
   OnSpecial: OnSpecial
   OnPass: OnPass
   OnReceive: OnReceive
+  OnLostBalance: OnLostBalance
+  OnIntercept: OnIntercept
   idle: Idle
   walk: Walk
   run: Run
@@ -2212,9 +2215,14 @@ PrefabInstance:
     - {fileID: 3331841357709634196, guid: 1a8a3d53743d37545be233a5e2b1f822, type: 3}
     - {fileID: 3331841357709634195, guid: 1a8a3d53743d37545be233a5e2b1f822, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 1a8a3d53743d37545be233a5e2b1f822, type: 3}
---- !u!4 &2040567345170480562 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3331841356322545628, guid: 1a8a3d53743d37545be233a5e2b1f822, type: 3}
+--- !u!137 &5822855870909233722 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 7107359365463398484, guid: 1a8a3d53743d37545be233a5e2b1f822, type: 3}
+  m_PrefabInstance: {fileID: 3633447499247280750}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &2040567345170480565 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 3331841356322545627, guid: 1a8a3d53743d37545be233a5e2b1f822, type: 3}
   m_PrefabInstance: {fileID: 3633447499247280750}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &2040567344288663804 stripped
@@ -2222,19 +2230,19 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3331841357709634194, guid: 1a8a3d53743d37545be233a5e2b1f822, type: 3}
   m_PrefabInstance: {fileID: 3633447499247280750}
   m_PrefabAsset: {fileID: 0}
---- !u!137 &2040567345501160673 stripped
+--- !u!137 &3878086345593223421 stripped
 SkinnedMeshRenderer:
-  m_CorrespondingSourceObject: {fileID: 3331841356505130639, guid: 1a8a3d53743d37545be233a5e2b1f822, type: 3}
+  m_CorrespondingSourceObject: {fileID: 557641253916383891, guid: 1a8a3d53743d37545be233a5e2b1f822, type: 3}
   m_PrefabInstance: {fileID: 3633447499247280750}
   m_PrefabAsset: {fileID: 0}
---- !u!137 &2040567343603973909 stripped
+--- !u!137 &4746626593760960736 stripped
 SkinnedMeshRenderer:
-  m_CorrespondingSourceObject: {fileID: 3331841357897309563, guid: 1a8a3d53743d37545be233a5e2b1f822, type: 3}
+  m_CorrespondingSourceObject: {fileID: 8337287173453709966, guid: 1a8a3d53743d37545be233a5e2b1f822, type: 3}
   m_PrefabInstance: {fileID: 3633447499247280750}
   m_PrefabAsset: {fileID: 0}
---- !u!95 &2040567345170480565 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 3331841356322545627, guid: 1a8a3d53743d37545be233a5e2b1f822, type: 3}
+--- !u!4 &2040567345170480562 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3331841356322545628, guid: 1a8a3d53743d37545be233a5e2b1f822, type: 3}
   m_PrefabInstance: {fileID: 3633447499247280750}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6372523533710983608

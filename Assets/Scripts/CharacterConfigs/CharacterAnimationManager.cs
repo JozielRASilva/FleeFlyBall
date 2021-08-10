@@ -18,6 +18,7 @@ public class CharacterAnimationManager : MonoBehaviour
 
     [Header("Setup Meshes")]
     public CharacterVisualSO characterVisual;
+    public SkinnedMeshRenderer hair;
     public SkinnedMeshRenderer skin;
     public SkinnedMeshRenderer body;
 
@@ -27,6 +28,8 @@ public class CharacterAnimationManager : MonoBehaviour
     public string OnSpecial = "OnSpecial";
     public string OnPass = "OnPass";
     public string OnReceive = "OnReceive";
+    public string OnLostBalance = "OnLostBalance";
+    public string OnIntercept = "OnIntercept";
 
     [Header("Bools")]
     public string idle = "Idle";
@@ -52,8 +55,12 @@ public class CharacterAnimationManager : MonoBehaviour
 
     private void Start()
     {
-        skin.materials = characterVisual.SkinMaterial.ToArray();
-        body.materials = characterVisual.BodyMaterial.ToArray();
+        if (hair)
+            hair.materials = characterVisual.HairMaterial.ToArray();
+        if (skin)
+            skin.materials = characterVisual.SkinMaterial.ToArray();
+        if (body)
+            body.materials = characterVisual.BodyMaterial.ToArray();
 
         if (!abilityShoot)
             abilityShoot = _character.GetComponentInChildren<AbilityShoot>();
@@ -87,6 +94,16 @@ public class CharacterAnimationManager : MonoBehaviour
     public void TriggerSpecial()
     {
         _animator.SetTrigger(OnSpecial);
+    }
+
+    public void TriggerLostBalance()
+    {
+        _animator.SetTrigger(OnLostBalance);
+    }
+
+    public void TriggerIntercept()
+    {
+        _animator.SetTrigger(OnIntercept);
     }
 
     private void Update()

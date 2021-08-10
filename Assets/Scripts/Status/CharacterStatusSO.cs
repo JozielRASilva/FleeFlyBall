@@ -38,9 +38,6 @@ public class CharacterStatusSO : ScriptableObject
 
     #endregion
 
-    [Header("Visual info")]
-    public List<Material> SkinMaterial = new List<Material>();
-    public List<Material> BodyMaterial = new List<Material>();
 
 
 }
