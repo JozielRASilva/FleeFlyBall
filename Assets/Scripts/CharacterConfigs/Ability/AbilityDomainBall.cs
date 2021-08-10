@@ -23,6 +23,8 @@ public class AbilityDomainBall : AbilityBase
     public Action OnCanDomain;
     public Action OnCanNotDomain;
 
+    public Action OnDomain;
+
     private CollisionAndTrigger _collisionAndTrigger;
 
     private bool _touching;
@@ -86,6 +88,8 @@ public class AbilityDomainBall : AbilityBase
 
         _character.BallPossession.AttachBall(_ball);
         ApplyBalanceCost();
+
+        OnDomain?.Invoke();
 
         audioPlayer.PlaySound(sound);
     }

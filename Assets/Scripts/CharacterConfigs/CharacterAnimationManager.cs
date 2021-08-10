@@ -13,6 +13,10 @@ public class CharacterAnimationManager : MonoBehaviour
     private AbilityShoot abilitySkill;
     private AbilityPass abilityPass;
 
+
+    private AbilityDomainBall abilityDomain;
+    private AbilityToTakeBall abilityToTake;
+
     [SerializeField]
     private Animator _animator;
 
@@ -76,6 +80,15 @@ public class CharacterAnimationManager : MonoBehaviour
         abilityPass.OnPass += TriggerPass;
 
         _character.BallPossession.OnReceive += TriggerReceive;
+
+        _character.balance.OnLossAllBalance += TriggerLostBalance;
+
+        abilityDomain = _character.GetComponentInChildren<AbilityDomainBall>();
+        abilityToTake = _character.GetComponentInChildren<AbilityToTakeBall>();
+
+        abilityDomain.OnDomain += TriggerIntercept;
+        abilityToTake.OnTakeBall += TriggerIntercept;
+
     }
 
     public void TriggerShoot()

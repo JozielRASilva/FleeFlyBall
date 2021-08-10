@@ -35,7 +35,6 @@ public class AbilityToTakeBall : AbilityBase
 
     private GameObject _touchedBall;
 
-
     protected override void Initialize()
     {
         base.Initialize();
@@ -102,7 +101,7 @@ public class AbilityToTakeBall : AbilityBase
         _ball.Chutar(dir * _shoot, forceMode);
 
         _ball.Deattach();
-
+        OnTakeBall?.Invoke();
         ApplyBalanceCost();
     }
 
